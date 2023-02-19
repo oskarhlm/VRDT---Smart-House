@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package netatmo;
+
+service Netatmo {
+    rpc GetData(NetatmoRequest) returns (NetatmoData) {}; 
+}
+
+message NetatmoRequest {}
+
+message NetatmoData {
+    IndoorData indoor = 1;
+    OutdoorData outdoor = 2;
+}
+
+message IndoorData {
+    float temperature = 1;
+    float CO2 = 2;
+    float humidity = 3;
+    float noise = 4;
+    float pressure = 5;
+}
+
+message OutdoorData {
+    float temperature = 1;
+    float humidity = 2;
+}
+
+// message IndoorData {
+//     float temperature = 1;
+//     float CO2 = 2;
+//     float humidity = 3;
+//     float noise = 4;
+//     float pressure = 5;
+//     float absolutePressue = 6;
+//     float minTemp = 7;
+//     float maxTemp = 8;
+//     int32 dataMaxTemp = 9;
+//     int32 dataMinTemp = 10;
+//     string tempTrend = 11;
+//     string pressureTrend = 12;
+//     int32 when = 13;
+//     int32 wifiStatus = 14;
+// }
+
+// message OutdoorData {
+//     float temperature = 1;
+//     float humidity = 2;
+//     float minTemp = 3;
+//     float maxTemp = 4;
+//     int32 dataMaxTemp = 5;
+//     int32 dataMinTemp = 6;
+//     string tempTrend = 7;
+//     int32 when = 8;
+//     int32 batterVp = 9;
+//     int32 batteryPercent = 10;
+//     int32 rfStatus = 11;
+// }

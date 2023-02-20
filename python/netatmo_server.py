@@ -1,9 +1,9 @@
 from concurrent import futures
 from netatmo_client import get_netatmo_data
-
-import grpc
 import netatmo_pb2
 import netatmo_pb2_grpc
+
+import grpc
 import logging
 
 

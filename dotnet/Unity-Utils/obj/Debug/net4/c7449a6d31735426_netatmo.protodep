@@ -1,0 +1,2 @@
+obj\Debug\net4/Netatmo.cs \
+obj\Debug\net4/NetatmoGrpc.cs: ../../protos/netatmo.proto

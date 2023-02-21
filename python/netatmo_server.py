@@ -1,10 +1,27 @@
 from concurrent import futures
-from netatmo_client import get_netatmo_data
-import netatmo_pb2
-import netatmo_pb2_grpc
+from configparser import ConfigParser
 
 import grpc
 import logging
+import lnetatmo as nt
+import netatmo_pb2
+import netatmo_pb2_grpc
+
+
+def get_netatmo_data():
+    parser = ConfigParser()
+    parser.read('.env')
+    config = parser['NETATMO']
+
+    client_id = config['client_id']
+    client_secret = config['client_secret']
+    username = config['username']
+    password = config['password']
+
+    authorization = nt.ClientAuth(client_id, client_secret, username, password)
+    weatherData = nt.WeatherStationData(authorization)
+
+    return weatherData.lastData()
 
 
 class NetatmoServicer(netatmo_pb2_grpc.NetatmoServicer):

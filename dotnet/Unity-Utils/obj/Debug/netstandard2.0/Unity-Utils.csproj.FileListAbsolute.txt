@@ -1,5 +1,0 @@
-C:\dev\Unity\VRDT-Smart-House\dotnet\Unity-Utils\obj\Debug\netstandard2.0\Unity-Utils.csproj.AssemblyReference.cache
-C:\dev\Unity\VRDT-Smart-House\dotnet\Unity-Utils\obj\Debug\netstandard2.0\Unity-Utils.GeneratedMSBuildEditorConfig.editorconfig
-C:\dev\Unity\VRDT-Smart-House\dotnet\Unity-Utils\obj\Debug\netstandard2.0\Unity-Utils.AssemblyInfoInputs.cache
-C:\dev\Unity\VRDT-Smart-House\dotnet\Unity-Utils\obj\Debug\netstandard2.0\Unity-Utils.AssemblyInfo.cs
-C:\dev\Unity\VRDT-Smart-House\dotnet\Unity-Utils\obj\Debug\netstandard2.0\Unity-Utils.csproj.CoreCompileInputs.cache

@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using Grpc.Core;
-using Netatmo;
+using Base;
 
 public class House : MonoBehaviour
 {
-    private readonly Netatmo.Netatmo.NetatmoClient _client;
+    private readonly Netatmo.NetatmoClient _client;
     private readonly Channel _channel;
     private readonly string _server = "127.0.0.1:50051";
 
     public House()
     {
         _channel = new Channel(_server, ChannelCredentials.Insecure);
-        _client = new Netatmo.Netatmo.NetatmoClient(_channel);
+        _client = new Netatmo.NetatmoClient(_channel);
     }
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class House : MonoBehaviour
             //child.layer = LayerMask.NameToLayer("House");
         }
 
-        var data = _client.GetData(new Netatmo.NetatmoRequest());
+        var data = _client.GetData(new NetatmoMessages.Types.NetatmoRequest());
         Debug.Log(data);
     }
 }

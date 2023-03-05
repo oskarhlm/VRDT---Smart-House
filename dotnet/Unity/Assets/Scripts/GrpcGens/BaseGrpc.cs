@@ -7,32 +7,32 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Base {
+namespace GrpcBase {
   public static partial class Netatmo
   {
-    static readonly string __ServiceName = "base.Netatmo";
+    static readonly string __ServiceName = "grpc_base.Netatmo";
 
-    static readonly grpc::Marshaller<global::Base.NetatmoMessages.Types.NetatmoRequest> __Marshaller_base_NetatmoMessages_NetatmoRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Base.NetatmoMessages.Types.NetatmoRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Base.NetatmoMessages.Types.NetatmoData> __Marshaller_base_NetatmoMessages_NetatmoData = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Base.NetatmoMessages.Types.NetatmoData.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcBase.NetatmoMessages.Types.NetatmoRequest> __Marshaller_grpc_base_NetatmoMessages_NetatmoRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.NetatmoMessages.Types.NetatmoRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcBase.NetatmoMessages.Types.NetatmoData> __Marshaller_grpc_base_NetatmoMessages_NetatmoData = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.NetatmoMessages.Types.NetatmoData.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Base.NetatmoMessages.Types.NetatmoRequest, global::Base.NetatmoMessages.Types.NetatmoData> __Method_GetData = new grpc::Method<global::Base.NetatmoMessages.Types.NetatmoRequest, global::Base.NetatmoMessages.Types.NetatmoData>(
+    static readonly grpc::Method<global::GrpcBase.NetatmoMessages.Types.NetatmoRequest, global::GrpcBase.NetatmoMessages.Types.NetatmoData> __Method_GetData = new grpc::Method<global::GrpcBase.NetatmoMessages.Types.NetatmoRequest, global::GrpcBase.NetatmoMessages.Types.NetatmoData>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetData",
-        __Marshaller_base_NetatmoMessages_NetatmoRequest,
-        __Marshaller_base_NetatmoMessages_NetatmoData);
+        __Marshaller_grpc_base_NetatmoMessages_NetatmoRequest,
+        __Marshaller_grpc_base_NetatmoMessages_NetatmoData);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Base.BaseReflection.Descriptor.Services[0]; }
+      get { return global::GrpcBase.BaseReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of Netatmo</summary>
     [grpc::BindServiceMethod(typeof(Netatmo), "BindService")]
     public abstract partial class NetatmoBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Base.NetatmoMessages.Types.NetatmoData> GetData(global::Base.NetatmoMessages.Types.NetatmoRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcBase.NetatmoMessages.Types.NetatmoData> GetData(global::GrpcBase.NetatmoMessages.Types.NetatmoRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -62,19 +62,19 @@ namespace Base {
       {
       }
 
-      public virtual global::Base.NetatmoMessages.Types.NetatmoData GetData(global::Base.NetatmoMessages.Types.NetatmoRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GrpcBase.NetatmoMessages.Types.NetatmoData GetData(global::GrpcBase.NetatmoMessages.Types.NetatmoRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetData(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Base.NetatmoMessages.Types.NetatmoData GetData(global::Base.NetatmoMessages.Types.NetatmoRequest request, grpc::CallOptions options)
+      public virtual global::GrpcBase.NetatmoMessages.Types.NetatmoData GetData(global::GrpcBase.NetatmoMessages.Types.NetatmoRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetData, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Base.NetatmoMessages.Types.NetatmoData> GetDataAsync(global::Base.NetatmoMessages.Types.NetatmoRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::GrpcBase.NetatmoMessages.Types.NetatmoData> GetDataAsync(global::GrpcBase.NetatmoMessages.Types.NetatmoRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetDataAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Base.NetatmoMessages.Types.NetatmoData> GetDataAsync(global::Base.NetatmoMessages.Types.NetatmoRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::GrpcBase.NetatmoMessages.Types.NetatmoData> GetDataAsync(global::GrpcBase.NetatmoMessages.Types.NetatmoRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetData, null, options, request);
       }
@@ -99,35 +99,35 @@ namespace Base {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, NetatmoBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetData, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Base.NetatmoMessages.Types.NetatmoRequest, global::Base.NetatmoMessages.Types.NetatmoData>(serviceImpl.GetData));
+      serviceBinder.AddMethod(__Method_GetData, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcBase.NetatmoMessages.Types.NetatmoRequest, global::GrpcBase.NetatmoMessages.Types.NetatmoData>(serviceImpl.GetData));
     }
 
   }
   public static partial class Image
   {
-    static readonly string __ServiceName = "base.Image";
+    static readonly string __ServiceName = "grpc_base.Image";
 
-    static readonly grpc::Marshaller<global::Base.ImageMessages.Types.ImageRequest> __Marshaller_base_ImageMessages_ImageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Base.ImageMessages.Types.ImageRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Base.ImageMessages.Types.ImageData> __Marshaller_base_ImageMessages_ImageData = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Base.ImageMessages.Types.ImageData.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcBase.ImageMessages.Types.ImageRequest> __Marshaller_grpc_base_ImageMessages_ImageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.ImageMessages.Types.ImageRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcBase.ImageMessages.Types.ImageData> __Marshaller_grpc_base_ImageMessages_ImageData = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.ImageMessages.Types.ImageData.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Base.ImageMessages.Types.ImageRequest, global::Base.ImageMessages.Types.ImageData> __Method_GetImage = new grpc::Method<global::Base.ImageMessages.Types.ImageRequest, global::Base.ImageMessages.Types.ImageData>(
+    static readonly grpc::Method<global::GrpcBase.ImageMessages.Types.ImageRequest, global::GrpcBase.ImageMessages.Types.ImageData> __Method_GetImage = new grpc::Method<global::GrpcBase.ImageMessages.Types.ImageRequest, global::GrpcBase.ImageMessages.Types.ImageData>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetImage",
-        __Marshaller_base_ImageMessages_ImageRequest,
-        __Marshaller_base_ImageMessages_ImageData);
+        __Marshaller_grpc_base_ImageMessages_ImageRequest,
+        __Marshaller_grpc_base_ImageMessages_ImageData);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Base.BaseReflection.Descriptor.Services[1]; }
+      get { return global::GrpcBase.BaseReflection.Descriptor.Services[1]; }
     }
 
     /// <summary>Base class for server-side implementations of Image</summary>
     [grpc::BindServiceMethod(typeof(Image), "BindService")]
     public abstract partial class ImageBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Base.ImageMessages.Types.ImageData> GetImage(global::Base.ImageMessages.Types.ImageRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcBase.ImageMessages.Types.ImageData> GetImage(global::GrpcBase.ImageMessages.Types.ImageRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -157,19 +157,19 @@ namespace Base {
       {
       }
 
-      public virtual global::Base.ImageMessages.Types.ImageData GetImage(global::Base.ImageMessages.Types.ImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GrpcBase.ImageMessages.Types.ImageData GetImage(global::GrpcBase.ImageMessages.Types.ImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Base.ImageMessages.Types.ImageData GetImage(global::Base.ImageMessages.Types.ImageRequest request, grpc::CallOptions options)
+      public virtual global::GrpcBase.ImageMessages.Types.ImageData GetImage(global::GrpcBase.ImageMessages.Types.ImageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetImage, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Base.ImageMessages.Types.ImageData> GetImageAsync(global::Base.ImageMessages.Types.ImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::GrpcBase.ImageMessages.Types.ImageData> GetImageAsync(global::GrpcBase.ImageMessages.Types.ImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Base.ImageMessages.Types.ImageData> GetImageAsync(global::Base.ImageMessages.Types.ImageRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::GrpcBase.ImageMessages.Types.ImageData> GetImageAsync(global::GrpcBase.ImageMessages.Types.ImageRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetImage, null, options, request);
       }
@@ -194,7 +194,7 @@ namespace Base {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ImageBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Base.ImageMessages.Types.ImageRequest, global::Base.ImageMessages.Types.ImageData>(serviceImpl.GetImage));
+      serviceBinder.AddMethod(__Method_GetImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcBase.ImageMessages.Types.ImageRequest, global::GrpcBase.ImageMessages.Types.ImageData>(serviceImpl.GetImage));
     }
 
   }

@@ -3,6 +3,7 @@ import logging
 import base_pb2_grpc
 from concurrent import futures
 from netatmo import NetatmoServicer
+from image import ImageServicer
 
 
 def serve():
@@ -10,7 +11,7 @@ def serve():
     base_pb2_grpc.add_NetatmoServicer_to_server(
         NetatmoServicer(), server)
     base_pb2_grpc.add_ImageServicer_to_server(
-        base_pb2_grpc.ImageServicer(), server)
+        ImageServicer(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()

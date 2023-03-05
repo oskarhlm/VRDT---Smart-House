@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package base;
+package grpc_base;
 
 //
 // Service definitions
@@ -15,7 +15,7 @@ service Image {
 }
 
 //
-// Netatmo definitions
+// Message definitions
 //
 
 message NetatmoMessages {
@@ -40,13 +40,9 @@ message NetatmoMessages {
     }
 };
 
-//
-// Image definitions
-//
-
 message ImageMessages {
     message ImageRequest {
-        string imageType = 1;
+        string imagePath = 1;
         int32 width = 2;
         int32 height = 3;
     }

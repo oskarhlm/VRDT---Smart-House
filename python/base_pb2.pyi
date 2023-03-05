@@ -18,14 +18,14 @@ class ImageMessages(_message.Message):
         width: int
         def __init__(self, data: _Optional[bytes] = ..., format: _Optional[str] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
     class ImageRequest(_message.Message):
-        __slots__ = ["height", "imageType", "width"]
+        __slots__ = ["height", "imagePath", "width"]
         HEIGHT_FIELD_NUMBER: _ClassVar[int]
-        IMAGETYPE_FIELD_NUMBER: _ClassVar[int]
+        IMAGEPATH_FIELD_NUMBER: _ClassVar[int]
         WIDTH_FIELD_NUMBER: _ClassVar[int]
         height: int
-        imageType: str
+        imagePath: str
         width: int
-        def __init__(self, imageType: _Optional[str] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
+        def __init__(self, imagePath: _Optional[str] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class NetatmoMessages(_message.Message):

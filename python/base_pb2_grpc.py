@@ -19,7 +19,7 @@ class NetatmoStub(object):
             channel: A grpc.Channel.
         """
         self.GetData = channel.unary_unary(
-                '/base.Netatmo/GetData',
+                '/grpc_base.Netatmo/GetData',
                 request_serializer=base__pb2.NetatmoMessages.NetatmoRequest.SerializeToString,
                 response_deserializer=base__pb2.NetatmoMessages.NetatmoData.FromString,
                 )
@@ -48,7 +48,7 @@ def add_NetatmoServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'base.Netatmo', rpc_method_handlers)
+            'grpc_base.Netatmo', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -71,7 +71,7 @@ class Netatmo(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/base.Netatmo/GetData',
+        return grpc.experimental.unary_unary(request, target, '/grpc_base.Netatmo/GetData',
             base__pb2.NetatmoMessages.NetatmoRequest.SerializeToString,
             base__pb2.NetatmoMessages.NetatmoData.FromString,
             options, channel_credentials,
@@ -88,7 +88,7 @@ class ImageStub(object):
             channel: A grpc.Channel.
         """
         self.GetImage = channel.unary_unary(
-                '/base.Image/GetImage',
+                '/grpc_base.Image/GetImage',
                 request_serializer=base__pb2.ImageMessages.ImageRequest.SerializeToString,
                 response_deserializer=base__pb2.ImageMessages.ImageData.FromString,
                 )
@@ -113,7 +113,7 @@ def add_ImageServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'base.Image', rpc_method_handlers)
+            'grpc_base.Image', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -132,7 +132,7 @@ class Image(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/base.Image/GetImage',
+        return grpc.experimental.unary_unary(request, target, '/grpc_base.Image/GetImage',
             base__pb2.ImageMessages.ImageRequest.SerializeToString,
             base__pb2.ImageMessages.ImageData.FromString,
             options, channel_credentials,

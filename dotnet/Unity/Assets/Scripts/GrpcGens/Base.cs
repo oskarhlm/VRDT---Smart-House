@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Base {
+namespace GrpcBase {
 
   /// <summary>Holder for reflection information generated from base.proto</summary>
   public static partial class BaseReflection {
@@ -24,31 +24,31 @@ namespace Base {
     static BaseReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpiYXNlLnByb3RvEgRiYXNlIrECCg9OZXRhdG1vTWVzc2FnZXMaEAoOTmV0",
-            "YXRtb1JlcXVlc3QacwoLTmV0YXRtb0RhdGESMAoGaW5kb29yGAEgASgLMiAu",
-            "YmFzZS5OZXRhdG1vTWVzc2FnZXMuSW5kb29yRGF0YRIyCgdvdXRkb29yGAIg",
-            "ASgLMiEuYmFzZS5OZXRhdG1vTWVzc2FnZXMuT3V0ZG9vckRhdGEaYQoKSW5k",
-            "b29yRGF0YRITCgt0ZW1wZXJhdHVyZRgBIAEoAhILCgNDTzIYAiABKAISEAoI",
-            "aHVtaWRpdHkYAyABKAISDQoFbm9pc2UYBCABKAISEAoIcHJlc3N1cmUYBSAB",
-            "KAIaNAoLT3V0ZG9vckRhdGESEwoLdGVtcGVyYXR1cmUYASABKAISEAoIaHVt",
-            "aWRpdHkYAiABKAIimwEKDUltYWdlTWVzc2FnZXMaQAoMSW1hZ2VSZXF1ZXN0",
-            "EhEKCWltYWdlVHlwZRgBIAEoCRINCgV3aWR0aBgCIAEoBRIOCgZoZWlnaHQY",
-            "AyABKAUaSAoJSW1hZ2VEYXRhEgwKBGRhdGEYASABKAwSDgoGZm9ybWF0GAIg",
-            "ASgJEg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgEIAEoBTJfCgdOZXRhdG1v",
-            "ElQKB0dldERhdGESJC5iYXNlLk5ldGF0bW9NZXNzYWdlcy5OZXRhdG1vUmVx",
-            "dWVzdBohLmJhc2UuTmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9EYXRhIgAyVgoF",
-            "SW1hZ2USTQoIR2V0SW1hZ2USIC5iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VS",
-            "ZXF1ZXN0Gh0uYmFzZS5JbWFnZU1lc3NhZ2VzLkltYWdlRGF0YSIAYgZwcm90",
-            "bzM="));
+            "CgpiYXNlLnByb3RvEglncnBjX2Jhc2UiuwIKD05ldGF0bW9NZXNzYWdlcxoQ",
+            "Cg5OZXRhdG1vUmVxdWVzdBp9CgtOZXRhdG1vRGF0YRI1CgZpbmRvb3IYASAB",
+            "KAsyJS5ncnBjX2Jhc2UuTmV0YXRtb01lc3NhZ2VzLkluZG9vckRhdGESNwoH",
+            "b3V0ZG9vchgCIAEoCzImLmdycGNfYmFzZS5OZXRhdG1vTWVzc2FnZXMuT3V0",
+            "ZG9vckRhdGEaYQoKSW5kb29yRGF0YRITCgt0ZW1wZXJhdHVyZRgBIAEoAhIL",
+            "CgNDTzIYAiABKAISEAoIaHVtaWRpdHkYAyABKAISDQoFbm9pc2UYBCABKAIS",
+            "EAoIcHJlc3N1cmUYBSABKAIaNAoLT3V0ZG9vckRhdGESEwoLdGVtcGVyYXR1",
+            "cmUYASABKAISEAoIaHVtaWRpdHkYAiABKAIimwEKDUltYWdlTWVzc2FnZXMa",
+            "QAoMSW1hZ2VSZXF1ZXN0EhEKCWltYWdlUGF0aBgBIAEoCRINCgV3aWR0aBgC",
+            "IAEoBRIOCgZoZWlnaHQYAyABKAUaSAoJSW1hZ2VEYXRhEgwKBGRhdGEYASAB",
+            "KAwSDgoGZm9ybWF0GAIgASgJEg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgE",
+            "IAEoBTJpCgdOZXRhdG1vEl4KB0dldERhdGESKS5ncnBjX2Jhc2UuTmV0YXRt",
+            "b01lc3NhZ2VzLk5ldGF0bW9SZXF1ZXN0GiYuZ3JwY19iYXNlLk5ldGF0bW9N",
+            "ZXNzYWdlcy5OZXRhdG1vRGF0YSIAMmAKBUltYWdlElcKCEdldEltYWdlEiUu",
+            "Z3JwY19iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VSZXF1ZXN0GiIuZ3JwY19i",
+            "YXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VEYXRhIgBiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Base.NetatmoMessages), global::Base.NetatmoMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Base.NetatmoMessages.Types.NetatmoRequest), global::Base.NetatmoMessages.Types.NetatmoRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Base.NetatmoMessages.Types.NetatmoData), global::Base.NetatmoMessages.Types.NetatmoData.Parser, new[]{ "Indoor", "Outdoor" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Base.NetatmoMessages.Types.IndoorData), global::Base.NetatmoMessages.Types.IndoorData.Parser, new[]{ "Temperature", "CO2", "Humidity", "Noise", "Pressure" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Base.NetatmoMessages.Types.OutdoorData), global::Base.NetatmoMessages.Types.OutdoorData.Parser, new[]{ "Temperature", "Humidity" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Base.ImageMessages), global::Base.ImageMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Base.ImageMessages.Types.ImageRequest), global::Base.ImageMessages.Types.ImageRequest.Parser, new[]{ "ImageType", "Width", "Height" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Base.ImageMessages.Types.ImageData), global::Base.ImageMessages.Types.ImageData.Parser, new[]{ "Data", "Format", "Width", "Height" }, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages), global::GrpcBase.NetatmoMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.NetatmoRequest), global::GrpcBase.NetatmoMessages.Types.NetatmoRequest.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.NetatmoData), global::GrpcBase.NetatmoMessages.Types.NetatmoData.Parser, new[]{ "Indoor", "Outdoor" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.IndoorData), global::GrpcBase.NetatmoMessages.Types.IndoorData.Parser, new[]{ "Temperature", "CO2", "Humidity", "Noise", "Pressure" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.OutdoorData), global::GrpcBase.NetatmoMessages.Types.OutdoorData.Parser, new[]{ "Temperature", "Humidity" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages), global::GrpcBase.ImageMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.ImageRequest), global::GrpcBase.ImageMessages.Types.ImageRequest.Parser, new[]{ "ImagePath", "Width", "Height" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.ImageData), global::GrpcBase.ImageMessages.Types.ImageData.Parser, new[]{ "Data", "Format", "Width", "Height" }, null, null, null)})
           }));
     }
     #endregion
@@ -63,7 +63,7 @@ namespace Base {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Base.BaseReflection.Descriptor.MessageTypes[0]; }
+      get { return global::GrpcBase.BaseReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -166,7 +166,7 @@ namespace Base {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Base.NetatmoMessages.Descriptor.NestedTypes[0]; }
+          get { return global::GrpcBase.NetatmoMessages.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -267,7 +267,7 @@ namespace Base {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Base.NetatmoMessages.Descriptor.NestedTypes[1]; }
+          get { return global::GrpcBase.NetatmoMessages.Descriptor.NestedTypes[1]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -296,9 +296,9 @@ namespace Base {
 
         /// <summary>Field number for the "indoor" field.</summary>
         public const int IndoorFieldNumber = 1;
-        private global::Base.NetatmoMessages.Types.IndoorData indoor_;
+        private global::GrpcBase.NetatmoMessages.Types.IndoorData indoor_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public global::Base.NetatmoMessages.Types.IndoorData Indoor {
+        public global::GrpcBase.NetatmoMessages.Types.IndoorData Indoor {
           get { return indoor_; }
           set {
             indoor_ = value;
@@ -307,9 +307,9 @@ namespace Base {
 
         /// <summary>Field number for the "outdoor" field.</summary>
         public const int OutdoorFieldNumber = 2;
-        private global::Base.NetatmoMessages.Types.OutdoorData outdoor_;
+        private global::GrpcBase.NetatmoMessages.Types.OutdoorData outdoor_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public global::Base.NetatmoMessages.Types.OutdoorData Outdoor {
+        public global::GrpcBase.NetatmoMessages.Types.OutdoorData Outdoor {
           get { return outdoor_; }
           set {
             outdoor_ = value;
@@ -387,13 +387,13 @@ namespace Base {
           }
           if (other.indoor_ != null) {
             if (indoor_ == null) {
-              Indoor = new global::Base.NetatmoMessages.Types.IndoorData();
+              Indoor = new global::GrpcBase.NetatmoMessages.Types.IndoorData();
             }
             Indoor.MergeFrom(other.Indoor);
           }
           if (other.outdoor_ != null) {
             if (outdoor_ == null) {
-              Outdoor = new global::Base.NetatmoMessages.Types.OutdoorData();
+              Outdoor = new global::GrpcBase.NetatmoMessages.Types.OutdoorData();
             }
             Outdoor.MergeFrom(other.Outdoor);
           }
@@ -410,14 +410,14 @@ namespace Base {
                 break;
               case 10: {
                 if (indoor_ == null) {
-                  Indoor = new global::Base.NetatmoMessages.Types.IndoorData();
+                  Indoor = new global::GrpcBase.NetatmoMessages.Types.IndoorData();
                 }
                 input.ReadMessage(Indoor);
                 break;
               }
               case 18: {
                 if (outdoor_ == null) {
-                  Outdoor = new global::Base.NetatmoMessages.Types.OutdoorData();
+                  Outdoor = new global::GrpcBase.NetatmoMessages.Types.OutdoorData();
                 }
                 input.ReadMessage(Outdoor);
                 break;
@@ -436,7 +436,7 @@ namespace Base {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Base.NetatmoMessages.Descriptor.NestedTypes[2]; }
+          get { return global::GrpcBase.NetatmoMessages.Descriptor.NestedTypes[2]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -677,7 +677,7 @@ namespace Base {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Base.NetatmoMessages.Descriptor.NestedTypes[3]; }
+          get { return global::GrpcBase.NetatmoMessages.Descriptor.NestedTypes[3]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -839,7 +839,7 @@ namespace Base {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Base.BaseReflection.Descriptor.MessageTypes[1]; }
+      get { return global::GrpcBase.BaseReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -942,7 +942,7 @@ namespace Base {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Base.ImageMessages.Descriptor.NestedTypes[0]; }
+          get { return global::GrpcBase.ImageMessages.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -959,7 +959,7 @@ namespace Base {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public ImageRequest(ImageRequest other) : this() {
-          imageType_ = other.imageType_;
+          imagePath_ = other.imagePath_;
           width_ = other.width_;
           height_ = other.height_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -970,14 +970,14 @@ namespace Base {
           return new ImageRequest(this);
         }
 
-        /// <summary>Field number for the "imageType" field.</summary>
-        public const int ImageTypeFieldNumber = 1;
-        private string imageType_ = "";
+        /// <summary>Field number for the "imagePath" field.</summary>
+        public const int ImagePathFieldNumber = 1;
+        private string imagePath_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public string ImageType {
-          get { return imageType_; }
+        public string ImagePath {
+          get { return imagePath_; }
           set {
-            imageType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+            imagePath_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
           }
         }
 
@@ -1016,7 +1016,7 @@ namespace Base {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if (ImageType != other.ImageType) return false;
+          if (ImagePath != other.ImagePath) return false;
           if (Width != other.Width) return false;
           if (Height != other.Height) return false;
           return Equals(_unknownFields, other._unknownFields);
@@ -1025,7 +1025,7 @@ namespace Base {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override int GetHashCode() {
           int hash = 1;
-          if (ImageType.Length != 0) hash ^= ImageType.GetHashCode();
+          if (ImagePath.Length != 0) hash ^= ImagePath.GetHashCode();
           if (Width != 0) hash ^= Width.GetHashCode();
           if (Height != 0) hash ^= Height.GetHashCode();
           if (_unknownFields != null) {
@@ -1041,9 +1041,9 @@ namespace Base {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
-          if (ImageType.Length != 0) {
+          if (ImagePath.Length != 0) {
             output.WriteRawTag(10);
-            output.WriteString(ImageType);
+            output.WriteString(ImagePath);
           }
           if (Width != 0) {
             output.WriteRawTag(16);
@@ -1061,8 +1061,8 @@ namespace Base {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
           int size = 0;
-          if (ImageType.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeStringSize(ImageType);
+          if (ImagePath.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(ImagePath);
           }
           if (Width != 0) {
             size += 1 + pb::CodedOutputStream.ComputeInt32Size(Width);
@@ -1081,8 +1081,8 @@ namespace Base {
           if (other == null) {
             return;
           }
-          if (other.ImageType.Length != 0) {
-            ImageType = other.ImageType;
+          if (other.ImagePath.Length != 0) {
+            ImagePath = other.ImagePath;
           }
           if (other.Width != 0) {
             Width = other.Width;
@@ -1102,7 +1102,7 @@ namespace Base {
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
               case 10: {
-                ImageType = input.ReadString();
+                ImagePath = input.ReadString();
                 break;
               }
               case 16: {
@@ -1127,7 +1127,7 @@ namespace Base {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::Base.ImageMessages.Descriptor.NestedTypes[1]; }
+          get { return global::GrpcBase.ImageMessages.Descriptor.NestedTypes[1]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

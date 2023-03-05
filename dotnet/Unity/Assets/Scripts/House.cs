@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using Grpc.Core;
-using Base;
+using GrpcBase;
 
 public class House : MonoBehaviour
 {

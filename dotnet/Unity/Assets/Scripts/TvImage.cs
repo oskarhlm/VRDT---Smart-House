@@ -1,4 +1,3 @@
-using Assets.Scripts;
 using GrpcBase;
 using System;
 using System.Collections;
@@ -7,9 +6,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using UnityEngine.Windows.Speech;
+using GrpcClients;
 
 public class TvImage : MonoBehaviour
 {
@@ -20,11 +21,18 @@ public class TvImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //actions.Add("NTNU", Ntnu);
-        //actions.Add("temperature_graph", TemperatureGraph);
+        actions.Add("NTNU", Ntnu);
+        actions.Add("temperature graph", TemperatureGraph);
+        actions.Add("up", () => Debug.Log("Up"));
 
-        //keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
-        //keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
+        foreach (var d in Microphone.devices)
+        {
+            Debug.Log(d);
+        }
+
+        keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
+        keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
+        keywordRecognizer.Start();
     }
 
     // Update is called once per frame

@@ -1,8 +1,7 @@
-﻿using Assets.Scripts.GrpcClients;
-using Grpc.Core;
+﻿using Grpc.Core;
 using GrpcBase;
 
-namespace Assets.Scripts
+namespace GrpcClients
 {
     public sealed class Clients
     {

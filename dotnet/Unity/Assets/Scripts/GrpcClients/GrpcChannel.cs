@@ -1,6 +1,6 @@
 ﻿using Grpc.Core;
 
-namespace Assets.Scripts.GrpcClients
+namespace GrpcClients
 {
     internal sealed class GrpcChannel
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.10397912, g: 0.10129192, b: 0.103198685, a: 1}
+  m_IndirectSpecularColor: {r: 0.513901, g: 0.51229876, b: 0.51344675, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 187661100}
   - component: {fileID: 187661099}
+  - component: {fileID: 187661101}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -219,6 +220,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &187661101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187661098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceab14ec8b8fbdf408084936fe63ba8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  longitude: 10.50561
+  latitude: 63.4027
+  hour: 0
+  minutes: 0
+  timeSpeed: 1
+  frameSteps: 1
 --- !u!1 &407779914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 10a5b106f41151f47965dd11b8258d90,
@@ -455,7 +474,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.9008665
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -512,7 +531,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: -0.0028027296, y: 0.9628126, z: 0.009995544, w: 0.26997063}
+  m_LocalRotation: {x: -0.03309081, y: 0.966761, z: -0.17045939, w: -0.18767464}
   m_LocalPosition: {x: -2.5, y: 17.8, z: 4.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -534,8 +553,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   longitude: 10.50561
   latitude: 63.4027
-  hour: 10
-  minutes: 0
+  hour: 13
+  minutes: 51
   timeSpeed: 1
   frameSteps: 1
 --- !u!1001 &1089386356

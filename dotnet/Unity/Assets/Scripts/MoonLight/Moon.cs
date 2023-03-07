@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace MoonLight
 {
+    [RequireComponent(typeof(Light))]
+    [ExecuteInEditMode]
     public class Moon : MonoBehaviour
     {
         [SerializeField]
@@ -15,23 +13,18 @@ namespace MoonLight
         [SerializeField]
         float latitude = 63.4027f;
 
-        [SerializeField]
-        [Range(0, 24)]
-        int hour;
+        private int _hour;  //= TimeManager.Instance.Hour;
+        private int _minutes; // = TimeManager.Instance.Minutes;
 
-        [SerializeField]
-        [Range(0, 60)]
-        int minutes;
-
-        DateTime time;
-        Light light;
+        private DateTime _time;
+        private Light _light;
 
         [SerializeField]
         float timeSpeed = 1;
 
         [SerializeField]
         int frameSteps = 1;
-        int frameStep;
+        private int _frameStep;
 
         [SerializeField]
         DateTime date;
@@ -39,8 +32,8 @@ namespace MoonLight
 
         public void SetTime(int hour, int minutes)
         {
-            this.hour = hour;
-            this.minutes = minutes;
+            this._hour = hour;
+            this._minutes = minutes;
             OnValidate();
         }
 
@@ -52,8 +45,8 @@ namespace MoonLight
 
         public void SetDate(DateTime dateTime)
         {
-            hour = dateTime.Hour;
-            minutes = dateTime.Minute;
+            _hour = dateTime.Hour;
+            _minutes = dateTime.Minute;
             date = dateTime.Date;
             OnValidate();
         }
@@ -68,42 +61,37 @@ namespace MoonLight
 
         private void Awake()
         {
-            light = GetComponent<Light>();
-            time = DateTime.Now;
-            hour = time.Hour;
-            minutes = time.Minute;
-            date = time.Date;
+            _light = GetComponent<Light>();
+            _time = DateTime.Now;
+            _hour = _time.Hour;
+            _minutes = _time.Minute;
+            date = _time.Date;
         }
 
         private void OnValidate()
         {
-            time = date + new TimeSpan(hour, minutes, 0);
-
-            Debug.Log(time);
+            _time = date + new TimeSpan(_hour, _minutes, 0);
+            Debug.Log(_time);
         }
 
         private void Update()
         {
-            time = time.AddSeconds(timeSpeed * Time.deltaTime);
-            if (frameStep == 0)
-            {
+            _time = _time.AddSeconds(timeSpeed * Time.deltaTime);
+            if (_frameStep == 0)
                 SetPosition();
-            }
-            frameStep = (frameStep + 1) % frameSteps;
+            _frameStep = (_frameStep + 1) % frameSteps;
         }
 
         void SetPosition()
         {
             Vector3 angles = new Vector3();
-            double alt;
-            double azi;
-
-            MoonPosition.CalculateMoonPosition(time, latitude, longitude, out azi, out alt);
+            double alt, azi;
+            MoonPosition.CalculateMoonPosition(_time, latitude, longitude, out azi, out alt);
             angles.x = (float)alt * Mathf.Rad2Deg;
             angles.y = (float)azi * Mathf.Rad2Deg;
-            UnityEngine.Debug.Log("MOON:" + angles);
+            Debug.Log("MOON:" + angles);
             transform.localRotation = Quaternion.Euler(angles);
-            light.intensity = Mathf.InverseLerp(-12, 0, angles.x);
+            _light.intensity = Mathf.InverseLerp(-12, 0, angles.x);
         }
     }
 

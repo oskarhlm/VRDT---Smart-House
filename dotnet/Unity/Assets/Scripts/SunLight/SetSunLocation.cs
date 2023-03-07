@@ -38,7 +38,7 @@ namespace SunLight
             {
                 var locInfo = Input.location.lastData;
                 Debug.LogFormat("long={0} lat={1}", locInfo.longitude, locInfo.latitude);
-                sun.SetLocation(locInfo.longitude, locInfo.latitude);
+                //sun.SetLocation(locInfo.longitude, locInfo.latitude);
             }
 
             Input.location.Stop();

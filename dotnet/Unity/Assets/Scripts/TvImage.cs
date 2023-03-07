@@ -25,11 +25,6 @@ public class TvImage : MonoBehaviour
         actions.Add("temperature graph", TemperatureGraph);
         actions.Add("up", () => Debug.Log("Up"));
 
-        foreach (var d in Microphone.devices)
-        {
-            Debug.Log(d);
-        }
-
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();

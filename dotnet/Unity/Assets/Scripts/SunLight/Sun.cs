@@ -13,97 +13,38 @@ using UnityEngine;
 
 namespace SunLight
 {
-
     [RequireComponent(typeof(Light))]
     [ExecuteInEditMode]
     public class Sun : MonoBehaviour
     {
-        [SerializeField]
-        float longitude = 10.50561f;
-
-        [SerializeField]
-        float latitude = 63.4027f;
-
-        [SerializeField]
-        [Range(0, 24)]
-        int hour;
-
-        [SerializeField]
-        [Range(0, 60)]
-        int minutes;
-
-        private DateTime _time;
         private Light _light;
-
-        [SerializeField]
-        float timeSpeed = 1;
-
-        [SerializeField]
-        int frameSteps = 1;
-        private int _frameStep;
-
-        [SerializeField]
-        DateTime date;
-
-        public void SetTime(int hour, int minutes)
-        {
-            this.hour = hour;
-            this.minutes = minutes;
-            OnValidate();
-        }
-
-        public void SetLocation(float longitude, float latitude)
-        {
-            this.longitude = longitude;
-            this.latitude = latitude;
-        }
-
-        public void SetDate(DateTime dateTime)
-        {
-            hour = dateTime.Hour;
-            minutes = dateTime.Minute;
-            date = dateTime.Date;
-            OnValidate();
-        }
-
-        public void SetUpdateSteps(int i) =>
-            frameSteps = i;
-
-        public void SetTimeSpeed(float speed) =>
-            timeSpeed = speed;
-
+        private TimeManager _timeManager;
 
         private void Awake()
         {
             _light = GetComponent<Light>();
-            _time = DateTime.Now;
-            hour = _time.Hour;
-            minutes = _time.Minute;
-            date = _time.Date;
         }
 
-        private void OnValidate()
+        private void Start()
         {
-            _time = date + new TimeSpan(hour, minutes, 0);
-            Debug.Log(_time);
+            _timeManager = TimeManager.Instance;
         }
 
         private void Update()
         {
-            _time = _time.AddSeconds(timeSpeed * Time.deltaTime);
-            if (_frameStep == 0)
+            if (_timeManager.FrameStep == 0)
             {
-                //Awake(); //Updates time automatically - Comment out to work with hypothetical time
                 SetPosition();
             }
-            _frameStep = (_frameStep + 1) % frameSteps;
         }
 
         void SetPosition()
         { 
             var angles = new Vector3();
             double alt, azi;
-            SunPosition.CalculateSunPosition(_time, latitude, longitude, out azi, out alt);
+            var time = TimeManager.Instance.Time;
+            SunPosition.CalculateSunPosition(
+                time, _timeManager.Latitude, _timeManager.Longitude, out azi, out alt);
             angles.x = (float)alt * Mathf.Rad2Deg;
             angles.y = (float)azi * Mathf.Rad2Deg;
             //UnityEngine.Debug.Log("SUN:" + angles);

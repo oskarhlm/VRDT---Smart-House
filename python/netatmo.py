@@ -1,18 +1,10 @@
-from concurrent import futures
 from configparser import ConfigParser
-
-import grpc
-import logging
 import lnetatmo as nt
-import netatmo_pb2
-import netatmo_pb2_grpc
+import base_pb2_grpc
+from base_pb2 import NetatmoMessages as T
 
 
-def get_netatmo_data():
-    parser = ConfigParser()
-    parser.read('.env')
-    config = parser['NETATMO']
-
+def get_netatmo_data(config):
     client_id = config['client_id']
     client_secret = config['client_secret']
     username = config['username']
@@ -24,33 +16,24 @@ def get_netatmo_data():
     return weatherData.lastData()
 
 
-class NetatmoServicer(netatmo_pb2_grpc.NetatmoServicer):
+class NetatmoServicer(base_pb2_grpc.NetatmoServicer):
+
+    def __init__(self) -> None:
+        parser = ConfigParser()
+        parser.read('.env')
+        self.config = parser['NETATMO']
 
     def GetData(self, request, context):
-        data = get_netatmo_data()
+        data = get_netatmo_data(self.config)
         indoor = data['G3 Indoor']
         outdoor = data['G3 Outdoor']
-        return netatmo_pb2.NetatmoData(
-            indoor=netatmo_pb2.IndoorData(
+        return T.NetatmoData(
+            indoor=T.IndoorData(
                 temperature=indoor['Temperature'],
                 CO2=indoor['CO2'],
                 humidity=indoor['Humidity'],
                 noise=indoor['Noise'],
                 pressure=indoor['Pressure']),
-            outdoor=netatmo_pb2.OutdoorData(
+            outdoor=T.OutdoorData(
                 temperature=outdoor['Temperature'],
                 humidity=outdoor['Humidity']))
-
-
-def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    netatmo_pb2_grpc.add_NetatmoServicer_to_server(
-        NetatmoServicer(), server)
-    server.add_insecure_port('[::]:50051')
-    server.start()
-    server.wait_for_termination()
-
-
-if __name__ == '__main__':
-    logging.basicConfig()
-    serve()

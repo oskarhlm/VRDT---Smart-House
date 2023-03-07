@@ -5,13 +5,13 @@
 . ../config.ini # Add python_activate_path, protoc and grpc_csharp_plugin here
 proto_folder=.
 python_out_path=../python
-csharp_out_path=../dotnet/Unity/Assets/Scripts/Grpc
+csharp_out_path=../dotnet/Unity/Assets/Scripts/GrpcGens
 
 
 source $python_activate_path
-python -m grpc_tools.protoc -I $proto_folder --python_out=$python_out_path --pyi_out=$python_out_path --grpc_python_out=$python_out_path *.proto
+python -m grpc_tools.protoc -I $proto_folder --python_out=$python_out_path --pyi_out=$python_out_path --grpc_python_out=$python_out_path base.proto
+# $protoc --proto_path grpc_gens=$proto_folder --python_out $python_out_path $proto_folder/*.proto
 echo "Generated Python code"
-deactivate
 
-$protoc -I $proto_folder --csharp_out=$csharp_out_path --grpc_out=$csharp_out_path --plugin=protoc-gen-grpc=$grpc_csharp_plugin *.proto
+$protoc -I $proto_folder --proto_path=$proto_folder --csharp_out=$csharp_out_path --grpc_out=$csharp_out_path --plugin=protoc-gen-grpc=$grpc_csharp_plugin *.proto
 echo "Generated C# code"

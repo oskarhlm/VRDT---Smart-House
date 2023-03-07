@@ -3,7 +3,72 @@ guid: 10a5b106f41151f47965dd11b8258d90
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ash-Architextures
+    second: {fileID: 2800000, guid: 5ef9d19c8b0d85b4d9e15221611c9f04, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Charred-Timber-Staggered-Architextures
+    second: {fileID: 2800000, guid: 5cbb915844cb4464a834238a1f12956d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exposed-Aggregate-Architextures
+    second: {fileID: 2800000, guid: 4902ca138d884fd44aaf1588e7599fcb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Granite-common-1420x750mm-Architextures
+    second: {fileID: 2800000, guid: 24eb4a4f21b46814c881f8c80afa056b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Knotted-Timber-Staggered-Architextures
+    second: {fileID: 2800000, guid: bf789a7f92184044ebbe55aad2a65b2c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pinstripe-Tile-Stack-Architextures
+    second: {fileID: 2800000, guid: 526fc0616eaca8f4bbe9f56525221b99, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Reconstituted-Stone-Flemish-Architextures
+    second: {fileID: 2800000, guid: 49f258b48561d724aa942de651264e4e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: finishes.gypsum board.painted.white
+    second: {fileID: 2800000, guid: 3c61e7b5616fc8542b87174df162bf4f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: finishes.gypsum board.painted.white.bump
+    second: {fileID: 2800000, guid: 91f4e1eefcf2e91409e68c16d0fe65ea, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: grass
+    second: {fileID: 2800000, guid: f631fc96f169d5b4d88d123dae8d5880, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: green-mdf
+    second: {fileID: 2800000, guid: 1d928a75d9fdd964ab797be354f5ffe1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: steelplt
+    second: {fileID: 2800000, guid: 4f898f4929043f742a7066d85886eba4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: white-mdf
+    second: {fileID: 2800000, guid: a5e2c74ffc2055f48ad81baf764f08c9, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -7,6 +7,7 @@ proto_folder=.
 python_out_path=../python
 csharp_out_path=../dotnet/Unity/Assets/Scripts/Grpc
 
+
 source $python_activate_path
 python -m grpc_tools.protoc -I $proto_folder --python_out=$python_out_path --pyi_out=$python_out_path --grpc_python_out=$python_out_path *.proto
 echo "Generated Python code"

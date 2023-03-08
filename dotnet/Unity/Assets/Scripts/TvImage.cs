@@ -23,7 +23,9 @@ public class TvImage : MonoBehaviour
     {
         actions.Add("NTNU", Ntnu);
         actions.Add("temperature graph", TemperatureGraph);
-        actions.Add("up", () => Debug.Log("Up"));
+        actions.Add("heatmap", Heatmap);
+        actions.Add("tibber", Tibber);
+        actions.Add("melcloud", MelCloud);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -48,6 +50,30 @@ public class TvImage : MonoBehaviour
         LoadImage(new()
         {
             ImagePath = "temperature_graph.png",
+            Width = 600,
+            Height = 420
+        });
+
+    private void Heatmap() =>
+        LoadImage(new()
+        {
+            ImagePath = "heatmap.png",
+            Width = 600,
+            Height = 420
+        });
+
+    private void Tibber() =>
+        LoadImage(new()
+        {
+            ImagePath = "temperature_graph.png",
+            Width = 600,
+            Height = 420
+        });
+
+    private void MelCloud() =>
+        LoadImage(new()
+        {
+            ImagePath = "melcloud.png",
             Width = 600,
             Height = 420
         });

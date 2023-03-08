@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.513901, g: 0.51229876, b: 0.51344675, a: 1}
+  m_IndirectSpecularColor: {r: 0.43963, g: 0.43683797, b: 0.43883497, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -212,7 +212,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187661098}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.82573795, y: 0.14673097, z: -0.48358217, w: 0.25054964}
   m_LocalPosition: {x: 8.176232, y: 2.9242516, z: -6.1509304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -227,15 +227,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187661098}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceab14ec8b8fbdf408084936fe63ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   longitude: 10.50561
   latitude: 63.4027
-  hour: 0
-  minutes: 0
   timeSpeed: 1
   frameSteps: 1
 --- !u!1 &407779914 stripped
@@ -531,7 +529,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: -0.03309081, y: 0.966761, z: -0.17045939, w: -0.18767464}
+  m_LocalRotation: {x: 0.047414687, y: 0.89730215, z: -0.09953846, w: 0.42742574}
   m_LocalPosition: {x: -2.5, y: 17.8, z: 4.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -551,12 +549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8b167f32456c74391c908b83a9faab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  longitude: 10.50561
-  latitude: 63.4027
-  hour: 13
-  minutes: 51
-  timeSpeed: 1
-  frameSteps: 1
 --- !u!1001 &1089386356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -807,6 +799,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bf7f08b8408c94bb38e7a65d5552a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1713436362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1713436364}
+  - component: {fileID: 1713436363}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1713436363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713436362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e7aa75d8283ba4d9bbcd8cd92bb93a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Longitude: 10.50561
+  Latitude: 63.4027
+  Hour: 9
+  Minutes: 11
+  TimeSpeed: 1
+  FrameSteps: 1
+  FrameStep: 0
+--- !u!4 &1713436364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713436362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0651178, y: 21.935911, z: -6.1213436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1757351147 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 9014170783809206330, guid: 895f6f3c2d334633b5800312285058d2,

@@ -71,7 +71,6 @@ namespace MoonLight
         private void OnValidate()
         {
             _time = date + new TimeSpan(_hour, _minutes, 0);
-            Debug.Log(_time);
         }
 
         private void Update()

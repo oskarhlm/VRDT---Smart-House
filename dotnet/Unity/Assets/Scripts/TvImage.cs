@@ -21,11 +21,11 @@ public class TvImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actions.Add("NTNU", Ntnu);
+        //actions.Add("NTNU", Ntnu);
         actions.Add("temperature graph", TemperatureGraph);
-        actions.Add("heatmap", Heatmap);
-        actions.Add("tibber", Tibber);
-        actions.Add("melcloud", MelCloud);
+        //actions.Add("heatmap", Heatmap);
+        actions.Add("energy consumption", EnergyConsumption);
+        //actions.Add("melcloud", MelCloud);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -62,10 +62,10 @@ public class TvImage : MonoBehaviour
             Height = 420
         });
 
-    private void Tibber() =>
+    private void EnergyConsumption() =>
         LoadImage(new()
         {
-            ImagePath = "temperature_graph.png",
+            ImagePath = "energy_consumption.png",
             Width = 600,
             Height = 420
         });

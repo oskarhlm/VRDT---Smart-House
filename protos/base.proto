@@ -14,6 +14,10 @@ service Image {
     rpc GetImage(ImageMessages.ImageRequest) returns (ImageMessages.ImageData) {};
 }
 
+service Disruptive {
+    rpc GetTemoeratureStream(DisruptiveMessages.Request) returns (stream DisruptiveMessages.Response)
+}
+
 //
 // Message definitions
 //

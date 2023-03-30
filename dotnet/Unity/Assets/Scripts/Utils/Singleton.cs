@@ -44,10 +44,10 @@ namespace Utils
                                     Destroy(instances[i]);
                                 }
                             }
-                            else if (instances.Length == 1) Debug.Log("[SINGLETON]: Found only one instance of `" +
-                                                                  typeof(T) +
-                                                                  "` in `" + instances[0].gameObject.name +
-                                                                  "` So singlation successful! :)");
+                            //else if (instances.Length == 1) Debug.Log("[SINGLETON]: Found only one instance of `" +
+                            //                                      typeof(T) +
+                            //                                      "` in `" + instances[0].gameObject.name +
+                            //                                      "` So singlation successful! :)");
                             mInstance = instances[0];
                         }
                     }

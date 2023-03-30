@@ -6,44 +6,52 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class EdgeSnapping : MonoBehaviour
 {
-    [SerializeField] private Collider targetCollider;
+    public float SnapDistance = 1;
+    
+    [SerializeField] private Collider _targetCollider;
+    [SerializeField] private bool _hasSnapped = false;
+    [SerializeField] private Transform _rootObject;
+    
     private Collider _myCollider;
     private XRGrabInteractable _grabInteractable;
-    public float SnapDistance = 1;
-    [SerializeField] private bool hasSnapped = false;
+    private GameObject _parent;
+    private Vector3 _myClosestPoint;
+    private Vector3 _targetClosestPoint;
+    private Vector3 _offset;
 
     private void Start()
     {
         _myCollider = GetComponent<BoxCollider>();
-        _grabInteractable = GetComponent<XRGrabInteractable>();
+        _parent = transform.parent.gameObject;
+        _grabInteractable = _rootObject.GetComponent<XRGrabInteractable>();
     }
 
     private void FixedUpdate()
     {
-        var myClosestPoint = _myCollider.ClosestPoint(targetCollider.transform.position);
-        var targetClosestPoint = targetCollider.ClosestPoint(myClosestPoint);
-        var offset = targetClosestPoint - myClosestPoint;
-        if (offset.magnitude < SnapDistance)
+        _myClosestPoint = _myCollider.ClosestPoint(_targetCollider.transform.position);
+        _targetClosestPoint = _targetCollider.ClosestPoint(_myClosestPoint);
+        _offset = _targetClosestPoint - _myClosestPoint;
+
+        if (_offset.magnitude < SnapDistance)
         {
+            _rootObject.transform.eulerAngles = _targetCollider.transform.eulerAngles;
             _grabInteractable.trackRotation = false;
-            _grabInteractable.trackPosition = false;
+        } else
+        {
+            _grabInteractable.trackRotation = true;
+        }
+    }
 
-            if (hasSnapped)
-            {
-                _grabInteractable.trackPosition = true;
-                var rBody = GetComponent<Rigidbody>();
-                rBody.constraints = RigidbodyConstraints.FreezePositionY;
-            }
-            else
-            {
-                transform.eulerAngles = targetCollider.transform.eulerAngles;
-                myClosestPoint = _myCollider.ClosestPoint(targetCollider.transform.position);
-                targetClosestPoint = targetCollider.ClosestPoint(myClosestPoint);
-                offset = targetClosestPoint - myClosestPoint;
-                transform.position += offset;
-            }
-
-            hasSnapped = true;
+    public void SnapToPlane()
+    {
+        if (_offset.magnitude < SnapDistance)
+        {
+                _rootObject.transform.eulerAngles = _targetCollider.transform.eulerAngles;
+                _myClosestPoint = _myCollider.ClosestPoint(_targetCollider.transform.position);
+                _targetClosestPoint = _targetCollider.ClosestPoint(_myClosestPoint);
+                _offset = _targetClosestPoint - _myClosestPoint;
+                Debug.Log(_offset);
+                _rootObject.transform.position += _offset;
         }
     }
 }

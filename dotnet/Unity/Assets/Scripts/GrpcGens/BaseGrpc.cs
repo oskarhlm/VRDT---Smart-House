@@ -206,7 +206,7 @@ namespace GrpcBase {
     static readonly grpc::Marshaller<global::GrpcBase.DisruptiveMessages.Types.Response> __Marshaller_grpc_base_DisruptiveMessages_Response = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.DisruptiveMessages.Types.Response.Parser.ParseFrom);
 
     static readonly grpc::Method<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response> __Method_GetTemperatureStream = new grpc::Method<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response>(
-        grpc::MethodType.DuplexStreaming,
+        grpc::MethodType.ServerStreaming,
         __ServiceName,
         "GetTemperatureStream",
         __Marshaller_grpc_base_DisruptiveMessages_Request,
@@ -222,7 +222,7 @@ namespace GrpcBase {
     [grpc::BindServiceMethod(typeof(Disruptive), "BindService")]
     public abstract partial class DisruptiveBase
     {
-      public virtual global::System.Threading.Tasks.Task GetTemperatureStream(grpc::IAsyncStreamReader<global::GrpcBase.DisruptiveMessages.Types.Request> requestStream, grpc::IServerStreamWriter<global::GrpcBase.DisruptiveMessages.Types.Response> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetTemperatureStream(global::GrpcBase.DisruptiveMessages.Types.Request request, grpc::IServerStreamWriter<global::GrpcBase.DisruptiveMessages.Types.Response> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -252,13 +252,13 @@ namespace GrpcBase {
       {
       }
 
-      public virtual grpc::AsyncDuplexStreamingCall<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response> GetTemperatureStream(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::GrpcBase.DisruptiveMessages.Types.Response> GetTemperatureStream(global::GrpcBase.DisruptiveMessages.Types.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return GetTemperatureStream(new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetTemperatureStream(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncDuplexStreamingCall<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response> GetTemperatureStream(grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::GrpcBase.DisruptiveMessages.Types.Response> GetTemperatureStream(global::GrpcBase.DisruptiveMessages.Types.Request request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncDuplexStreamingCall(__Method_GetTemperatureStream, null, options);
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetTemperatureStream, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override DisruptiveClient NewInstance(ClientBaseConfiguration configuration)
@@ -281,7 +281,7 @@ namespace GrpcBase {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, DisruptiveBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetTemperatureStream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response>(serviceImpl.GetTemperatureStream));
+      serviceBinder.AddMethod(__Method_GetTemperatureStream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response>(serviceImpl.GetTemperatureStream));
     }
 
   }

@@ -148,7 +148,7 @@ class DisruptiveStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetTemperatureStream = channel.stream_stream(
+        self.GetTemperatureStream = channel.unary_stream(
                 '/grpc_base.Disruptive/GetTemperatureStream',
                 request_serializer=base__pb2.DisruptiveMessages.Request.SerializeToString,
                 response_deserializer=base__pb2.DisruptiveMessages.Response.FromString,
@@ -158,7 +158,7 @@ class DisruptiveStub(object):
 class DisruptiveServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def GetTemperatureStream(self, request_iterator, context):
+    def GetTemperatureStream(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -167,7 +167,7 @@ class DisruptiveServicer(object):
 
 def add_DisruptiveServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetTemperatureStream': grpc.stream_stream_rpc_method_handler(
+            'GetTemperatureStream': grpc.unary_stream_rpc_method_handler(
                     servicer.GetTemperatureStream,
                     request_deserializer=base__pb2.DisruptiveMessages.Request.FromString,
                     response_serializer=base__pb2.DisruptiveMessages.Response.SerializeToString,
@@ -183,7 +183,7 @@ class Disruptive(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetTemperatureStream(request_iterator,
+    def GetTemperatureStream(request,
             target,
             options=(),
             channel_credentials=None,
@@ -193,7 +193,7 @@ class Disruptive(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/grpc_base.Disruptive/GetTemperatureStream',
+        return grpc.experimental.unary_stream(request, target, '/grpc_base.Disruptive/GetTemperatureStream',
             base__pb2.DisruptiveMessages.Request.SerializeToString,
             base__pb2.DisruptiveMessages.Response.FromString,
             options, channel_credentials,

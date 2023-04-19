@@ -1,14 +1,14 @@
 import base_pb2_grpc
 from base_pb2 import DisruptiveMessages as T
-from time import sleep
+import asyncio
+import grpc
 
 
 class DisruptiveServicer(base_pb2_grpc.DisruptiveServicer):
-    def __init__(self) -> None:
-        self.count = 0
 
-    async def GetTemperatureStream(self, request_iterator, context):
+    async def GetTemperatureStream(self, request, context: grpc.RpcContext):
+        i = 0
         while True:
-            yield T.Response(sensorName=f'moren din {self.count}')
-            self.count += 1
-            sleep(5)
+            yield T.Response(sensorName=f'moren din {i}')
+            await asyncio.sleep(2)
+            i += 1

@@ -41,9 +41,9 @@ namespace GrpcBase {
             "Ji5ncnBjX2Jhc2UuTmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9EYXRhMl4KBUlt",
             "YWdlElUKCEdldEltYWdlEiUuZ3JwY19iYXNlLkltYWdlTWVzc2FnZXMuSW1h",
             "Z2VSZXF1ZXN0GiIuZ3JwY19iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VEYXRh",
-            "MncKCkRpc3J1cHRpdmUSaQoUR2V0VGVtcGVyYXR1cmVTdHJlYW0SJS5ncnBj",
+            "MnUKCkRpc3J1cHRpdmUSZwoUR2V0VGVtcGVyYXR1cmVTdHJlYW0SJS5ncnBj",
             "X2Jhc2UuRGlzcnVwdGl2ZU1lc3NhZ2VzLlJlcXVlc3QaJi5ncnBjX2Jhc2Uu",
-            "RGlzcnVwdGl2ZU1lc3NhZ2VzLlJlc3BvbnNlKAEwAWIGcHJvdG8z"));
+            "RGlzcnVwdGl2ZU1lc3NhZ2VzLlJlc3BvbnNlMAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {

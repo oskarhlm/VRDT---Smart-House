@@ -15,7 +15,7 @@ service Image {
 }
 
 service Disruptive {
-    rpc GetTemperatureStream(stream DisruptiveMessages.Request) returns (stream DisruptiveMessages.Response);
+    rpc GetTemperatureStream(DisruptiveMessages.Request) returns (stream DisruptiveMessages.Response);
 }
 
 //

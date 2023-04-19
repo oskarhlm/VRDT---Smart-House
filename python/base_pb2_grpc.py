@@ -137,3 +137,64 @@ class Image(object):
             base__pb2.ImageMessages.ImageData.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class DisruptiveStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetTemperatureStream = channel.stream_stream(
+                '/grpc_base.Disruptive/GetTemperatureStream',
+                request_serializer=base__pb2.DisruptiveMessages.Request.SerializeToString,
+                response_deserializer=base__pb2.DisruptiveMessages.Response.FromString,
+                )
+
+
+class DisruptiveServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetTemperatureStream(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_DisruptiveServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetTemperatureStream': grpc.stream_stream_rpc_method_handler(
+                    servicer.GetTemperatureStream,
+                    request_deserializer=base__pb2.DisruptiveMessages.Request.FromString,
+                    response_serializer=base__pb2.DisruptiveMessages.Response.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'grpc_base.Disruptive', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Disruptive(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetTemperatureStream(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/grpc_base.Disruptive/GetTemperatureStream',
+            base__pb2.DisruptiveMessages.Request.SerializeToString,
+            base__pb2.DisruptiveMessages.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

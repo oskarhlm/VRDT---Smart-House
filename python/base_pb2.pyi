@@ -4,6 +4,18 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class DisruptiveMessages(_message.Message):
+    __slots__ = []
+    class Request(_message.Message):
+        __slots__ = []
+        def __init__(self) -> None: ...
+    class Response(_message.Message):
+        __slots__ = ["sensorName"]
+        SENSORNAME_FIELD_NUMBER: _ClassVar[int]
+        sensorName: str
+        def __init__(self, sensorName: _Optional[str] = ...) -> None: ...
+    def __init__(self) -> None: ...
+
 class ImageMessages(_message.Message):
     __slots__ = []
     class ImageData(_message.Message):

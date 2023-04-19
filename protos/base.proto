@@ -7,15 +7,15 @@ package grpc_base;
 //
 
 service Netatmo {
-    rpc GetData(NetatmoMessages.NetatmoRequest) returns (NetatmoMessages.NetatmoData) {}; 
+    rpc GetData(NetatmoMessages.NetatmoRequest) returns (NetatmoMessages.NetatmoData); 
 }
 
 service Image {
-    rpc GetImage(ImageMessages.ImageRequest) returns (ImageMessages.ImageData) {};
+    rpc GetImage(ImageMessages.ImageRequest) returns (ImageMessages.ImageData);
 }
 
 service Disruptive {
-    rpc GetTemoeratureStream(DisruptiveMessages.Request) returns (stream DisruptiveMessages.Response)
+    rpc GetTemperatureStream(stream DisruptiveMessages.Request) returns (stream DisruptiveMessages.Response);
 }
 
 //
@@ -56,5 +56,13 @@ message ImageMessages {
         string format = 2;
         int32 width = 3;
         int32 height = 4;
+    }
+}
+
+message DisruptiveMessages {
+    message Request {}
+    
+    message Response {
+        string sensorName = 1;
     }
 }

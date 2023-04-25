@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nbase.proto\x12\tgrpc_base\"\xbb\x02\n\x0fNetatmoMessages\x1a\x10\n\x0eNetatmoRequest\x1a}\n\x0bNetatmoData\x12\x35\n\x06indoor\x18\x01 \x01(\x0b\x32%.grpc_base.NetatmoMessages.IndoorData\x12\x37\n\x07outdoor\x18\x02 \x01(\x0b\x32&.grpc_base.NetatmoMessages.OutdoorData\x1a\x61\n\nIndoorData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x0b\n\x03\x43O2\x18\x02 \x01(\x02\x12\x10\n\x08humidity\x18\x03 \x01(\x02\x12\r\n\x05noise\x18\x04 \x01(\x02\x12\x10\n\x08pressure\x18\x05 \x01(\x02\x1a\x34\n\x0bOutdoorData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x10\n\x08humidity\x18\x02 \x01(\x02\"\x9b\x01\n\rImageMessages\x1a@\n\x0cImageRequest\x12\x11\n\timagePath\x18\x01 \x01(\t\x12\r\n\x05width\x18\x02 \x01(\x05\x12\x0e\n\x06height\x18\x03 \x01(\x05\x1aH\n\tImageData\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x0e\n\x06\x66ormat\x18\x02 \x01(\t\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"?\n\x12\x44isruptiveMessages\x1a\t\n\x07Request\x1a\x1e\n\x08Response\x12\x12\n\nsensorName\x18\x01 \x01(\t2g\n\x07Netatmo\x12\\\n\x07GetData\x12).grpc_base.NetatmoMessages.NetatmoRequest\x1a&.grpc_base.NetatmoMessages.NetatmoData2^\n\x05Image\x12U\n\x08GetImage\x12%.grpc_base.ImageMessages.ImageRequest\x1a\".grpc_base.ImageMessages.ImageData2u\n\nDisruptive\x12g\n\x14GetTemperatureStream\x12%.grpc_base.DisruptiveMessages.Request\x1a&.grpc_base.DisruptiveMessages.Response0\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nbase.proto\x12\tgrpc_base\"\xbb\x02\n\x0fNetatmoMessages\x1a\x10\n\x0eNetatmoRequest\x1a}\n\x0bNetatmoData\x12\x35\n\x06indoor\x18\x01 \x01(\x0b\x32%.grpc_base.NetatmoMessages.IndoorData\x12\x37\n\x07outdoor\x18\x02 \x01(\x0b\x32&.grpc_base.NetatmoMessages.OutdoorData\x1a\x61\n\nIndoorData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x0b\n\x03\x43O2\x18\x02 \x01(\x02\x12\x10\n\x08humidity\x18\x03 \x01(\x02\x12\r\n\x05noise\x18\x04 \x01(\x02\x12\x10\n\x08pressure\x18\x05 \x01(\x02\x1a\x34\n\x0bOutdoorData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x10\n\x08humidity\x18\x02 \x01(\x02\"\x9b\x01\n\rImageMessages\x1a@\n\x0cImageRequest\x12\x11\n\timagePath\x18\x01 \x01(\t\x12\r\n\x05width\x18\x02 \x01(\x05\x12\x0e\n\x06height\x18\x03 \x01(\x05\x1aH\n\tImageData\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x0e\n\x06\x66ormat\x18\x02 \x01(\t\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"\xdf\x01\n\x0eTibberMessages\x1a^\n\x07Request\x12@\n\x0etimeResolution\x18\x01 \x01(\x0e\x32(.grpc_base.TibberMessages.TimeResolution\x12\x11\n\ttimeUnits\x18\x02 \x01(\x05\x1a=\n\x08Response\x12\x31\n\x05image\x18\x01 \x01(\x0b\x32\".grpc_base.ImageMessages.ImageData\".\n\x0eTimeResolution\x12\x08\n\x04HOUR\x10\x00\x12\x07\n\x03\x44\x41Y\x10\x01\x12\t\n\x05MONTH\x10\x02\"?\n\x12\x44isruptiveMessages\x1a\t\n\x07Request\x1a\x1e\n\x08Response\x12\x12\n\nsensorName\x18\x01 \x01(\t2g\n\x07Netatmo\x12\\\n\x07GetData\x12).grpc_base.NetatmoMessages.NetatmoRequest\x1a&.grpc_base.NetatmoMessages.NetatmoData2\xb7\x01\n\x05Image\x12U\n\x08GetImage\x12%.grpc_base.ImageMessages.ImageRequest\x1a\".grpc_base.ImageMessages.ImageData\x12W\n\x0eGetTibberImage\x12!.grpc_base.TibberMessages.Request\x1a\".grpc_base.TibberMessages.Response2u\n\nDisruptive\x12g\n\x14GetTemperatureStream\x12%.grpc_base.DisruptiveMessages.Request\x1a&.grpc_base.DisruptiveMessages.Response0\x01\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'base_pb2', globals())
@@ -36,16 +36,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _IMAGEMESSAGES_IMAGEREQUEST._serialized_end=425
   _IMAGEMESSAGES_IMAGEDATA._serialized_start=427
   _IMAGEMESSAGES_IMAGEDATA._serialized_end=499
-  _DISRUPTIVEMESSAGES._serialized_start=501
-  _DISRUPTIVEMESSAGES._serialized_end=564
-  _DISRUPTIVEMESSAGES_REQUEST._serialized_start=523
-  _DISRUPTIVEMESSAGES_REQUEST._serialized_end=532
-  _DISRUPTIVEMESSAGES_RESPONSE._serialized_start=534
-  _DISRUPTIVEMESSAGES_RESPONSE._serialized_end=564
-  _NETATMO._serialized_start=566
-  _NETATMO._serialized_end=669
-  _IMAGE._serialized_start=671
-  _IMAGE._serialized_end=765
-  _DISRUPTIVE._serialized_start=767
-  _DISRUPTIVE._serialized_end=884
+  _TIBBERMESSAGES._serialized_start=502
+  _TIBBERMESSAGES._serialized_end=725
+  _TIBBERMESSAGES_REQUEST._serialized_start=520
+  _TIBBERMESSAGES_REQUEST._serialized_end=614
+  _TIBBERMESSAGES_RESPONSE._serialized_start=616
+  _TIBBERMESSAGES_RESPONSE._serialized_end=677
+  _TIBBERMESSAGES_TIMERESOLUTION._serialized_start=679
+  _TIBBERMESSAGES_TIMERESOLUTION._serialized_end=725
+  _DISRUPTIVEMESSAGES._serialized_start=727
+  _DISRUPTIVEMESSAGES._serialized_end=790
+  _DISRUPTIVEMESSAGES_REQUEST._serialized_start=520
+  _DISRUPTIVEMESSAGES_REQUEST._serialized_end=529
+  _DISRUPTIVEMESSAGES_RESPONSE._serialized_start=760
+  _DISRUPTIVEMESSAGES_RESPONSE._serialized_end=790
+  _NETATMO._serialized_start=792
+  _NETATMO._serialized_end=895
+  _IMAGE._serialized_start=898
+  _IMAGE._serialized_end=1081
+  _DISRUPTIVE._serialized_start=1083
+  _DISRUPTIVE._serialized_end=1200
 # @@protoc_insertion_point(module_scope)

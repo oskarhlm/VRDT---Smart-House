@@ -109,6 +109,8 @@ namespace GrpcBase {
 
     static readonly grpc::Marshaller<global::GrpcBase.ImageMessages.Types.ImageRequest> __Marshaller_grpc_base_ImageMessages_ImageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.ImageMessages.Types.ImageRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GrpcBase.ImageMessages.Types.ImageData> __Marshaller_grpc_base_ImageMessages_ImageData = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.ImageMessages.Types.ImageData.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcBase.TibberMessages.Types.Request> __Marshaller_grpc_base_TibberMessages_Request = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.TibberMessages.Types.Request.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcBase.TibberMessages.Types.Response> __Marshaller_grpc_base_TibberMessages_Response = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.TibberMessages.Types.Response.Parser.ParseFrom);
 
     static readonly grpc::Method<global::GrpcBase.ImageMessages.Types.ImageRequest, global::GrpcBase.ImageMessages.Types.ImageData> __Method_GetImage = new grpc::Method<global::GrpcBase.ImageMessages.Types.ImageRequest, global::GrpcBase.ImageMessages.Types.ImageData>(
         grpc::MethodType.Unary,
@@ -116,6 +118,13 @@ namespace GrpcBase {
         "GetImage",
         __Marshaller_grpc_base_ImageMessages_ImageRequest,
         __Marshaller_grpc_base_ImageMessages_ImageData);
+
+    static readonly grpc::Method<global::GrpcBase.TibberMessages.Types.Request, global::GrpcBase.TibberMessages.Types.Response> __Method_GetTibberImage = new grpc::Method<global::GrpcBase.TibberMessages.Types.Request, global::GrpcBase.TibberMessages.Types.Response>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetTibberImage",
+        __Marshaller_grpc_base_TibberMessages_Request,
+        __Marshaller_grpc_base_TibberMessages_Response);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -128,6 +137,11 @@ namespace GrpcBase {
     public abstract partial class ImageBase
     {
       public virtual global::System.Threading.Tasks.Task<global::GrpcBase.ImageMessages.Types.ImageData> GetImage(global::GrpcBase.ImageMessages.Types.ImageRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::GrpcBase.TibberMessages.Types.Response> GetTibberImage(global::GrpcBase.TibberMessages.Types.Request request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -173,6 +187,22 @@ namespace GrpcBase {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetImage, null, options, request);
       }
+      public virtual global::GrpcBase.TibberMessages.Types.Response GetTibberImage(global::GrpcBase.TibberMessages.Types.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetTibberImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::GrpcBase.TibberMessages.Types.Response GetTibberImage(global::GrpcBase.TibberMessages.Types.Request request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetTibberImage, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcBase.TibberMessages.Types.Response> GetTibberImageAsync(global::GrpcBase.TibberMessages.Types.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetTibberImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcBase.TibberMessages.Types.Response> GetTibberImageAsync(global::GrpcBase.TibberMessages.Types.Request request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetTibberImage, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override ImageClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -185,7 +215,8 @@ namespace GrpcBase {
     public static grpc::ServerServiceDefinition BindService(ImageBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetImage, serviceImpl.GetImage).Build();
+          .AddMethod(__Method_GetImage, serviceImpl.GetImage)
+          .AddMethod(__Method_GetTibberImage, serviceImpl.GetTibberImage).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -195,6 +226,7 @@ namespace GrpcBase {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ImageBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_GetImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcBase.ImageMessages.Types.ImageRequest, global::GrpcBase.ImageMessages.Types.ImageData>(serviceImpl.GetImage));
+      serviceBinder.AddMethod(__Method_GetTibberImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcBase.TibberMessages.Types.Request, global::GrpcBase.TibberMessages.Types.Response>(serviceImpl.GetTibberImage));
     }
 
   }

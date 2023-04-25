@@ -35,15 +35,22 @@ namespace GrpcBase {
             "QAoMSW1hZ2VSZXF1ZXN0EhEKCWltYWdlUGF0aBgBIAEoCRINCgV3aWR0aBgC",
             "IAEoBRIOCgZoZWlnaHQYAyABKAUaSAoJSW1hZ2VEYXRhEgwKBGRhdGEYASAB",
             "KAwSDgoGZm9ybWF0GAIgASgJEg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgE",
-            "IAEoBSI/ChJEaXNydXB0aXZlTWVzc2FnZXMaCQoHUmVxdWVzdBoeCghSZXNw",
-            "b25zZRISCgpzZW5zb3JOYW1lGAEgASgJMmcKB05ldGF0bW8SXAoHR2V0RGF0",
-            "YRIpLmdycGNfYmFzZS5OZXRhdG1vTWVzc2FnZXMuTmV0YXRtb1JlcXVlc3Qa",
-            "Ji5ncnBjX2Jhc2UuTmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9EYXRhMl4KBUlt",
-            "YWdlElUKCEdldEltYWdlEiUuZ3JwY19iYXNlLkltYWdlTWVzc2FnZXMuSW1h",
-            "Z2VSZXF1ZXN0GiIuZ3JwY19iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VEYXRh",
-            "MnUKCkRpc3J1cHRpdmUSZwoUR2V0VGVtcGVyYXR1cmVTdHJlYW0SJS5ncnBj",
-            "X2Jhc2UuRGlzcnVwdGl2ZU1lc3NhZ2VzLlJlcXVlc3QaJi5ncnBjX2Jhc2Uu",
-            "RGlzcnVwdGl2ZU1lc3NhZ2VzLlJlc3BvbnNlMAFiBnByb3RvMw=="));
+            "IAEoBSLfAQoOVGliYmVyTWVzc2FnZXMaXgoHUmVxdWVzdBJACg50aW1lUmVz",
+            "b2x1dGlvbhgBIAEoDjIoLmdycGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5UaW1l",
+            "UmVzb2x1dGlvbhIRCgl0aW1lVW5pdHMYAiABKAUaPQoIUmVzcG9uc2USMQoF",
+            "aW1hZ2UYASABKAsyIi5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURh",
+            "dGEiLgoOVGltZVJlc29sdXRpb24SCAoESE9VUhAAEgcKA0RBWRABEgkKBU1P",
+            "TlRIEAIiPwoSRGlzcnVwdGl2ZU1lc3NhZ2VzGgkKB1JlcXVlc3QaHgoIUmVz",
+            "cG9uc2USEgoKc2Vuc29yTmFtZRgBIAEoCTJnCgdOZXRhdG1vElwKB0dldERh",
+            "dGESKS5ncnBjX2Jhc2UuTmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9SZXF1ZXN0",
+            "GiYuZ3JwY19iYXNlLk5ldGF0bW9NZXNzYWdlcy5OZXRhdG1vRGF0YTK3AQoF",
+            "SW1hZ2USVQoIR2V0SW1hZ2USJS5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5J",
+            "bWFnZVJlcXVlc3QaIi5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURh",
+            "dGESVwoOR2V0VGliYmVySW1hZ2USIS5ncnBjX2Jhc2UuVGliYmVyTWVzc2Fn",
+            "ZXMuUmVxdWVzdBoiLmdycGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5SZXNwb25z",
+            "ZTJ1CgpEaXNydXB0aXZlEmcKFEdldFRlbXBlcmF0dXJlU3RyZWFtEiUuZ3Jw",
+            "Y19iYXNlLkRpc3J1cHRpdmVNZXNzYWdlcy5SZXF1ZXN0GiYuZ3JwY19iYXNl",
+            "LkRpc3J1cHRpdmVNZXNzYWdlcy5SZXNwb25zZTABYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -53,6 +60,8 @@ namespace GrpcBase {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.OutdoorData), global::GrpcBase.NetatmoMessages.Types.OutdoorData.Parser, new[]{ "Temperature", "Humidity" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages), global::GrpcBase.ImageMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.ImageRequest), global::GrpcBase.ImageMessages.Types.ImageRequest.Parser, new[]{ "ImagePath", "Width", "Height" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.ImageData), global::GrpcBase.ImageMessages.Types.ImageData.Parser, new[]{ "Data", "Format", "Width", "Height" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages), global::GrpcBase.TibberMessages.Parser, null, null, new[]{ typeof(global::GrpcBase.TibberMessages.Types.TimeResolution) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Request), global::GrpcBase.TibberMessages.Types.Request.Parser, new[]{ "TimeResolution", "TimeUnits" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Response), global::GrpcBase.TibberMessages.Types.Response.Parser, new[]{ "Image" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages), global::GrpcBase.DisruptiveMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.Request), global::GrpcBase.DisruptiveMessages.Types.Request.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.Response), global::GrpcBase.DisruptiveMessages.Types.Response.Parser, new[]{ "SensorName" }, null, null, null)})
           }));
@@ -1343,6 +1352,412 @@ namespace GrpcBase {
 
   }
 
+  public sealed partial class TibberMessages : pb::IMessage<TibberMessages> {
+    private static readonly pb::MessageParser<TibberMessages> _parser = new pb::MessageParser<TibberMessages>(() => new TibberMessages());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TibberMessages> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcBase.BaseReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TibberMessages() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TibberMessages(TibberMessages other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TibberMessages Clone() {
+      return new TibberMessages(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TibberMessages);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TibberMessages other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TibberMessages other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the TibberMessages message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum TimeResolution {
+        [pbr::OriginalName("HOUR")] Hour = 0,
+        [pbr::OriginalName("DAY")] Day = 1,
+        [pbr::OriginalName("MONTH")] Month = 2,
+      }
+
+      public sealed partial class Request : pb::IMessage<Request> {
+        private static readonly pb::MessageParser<Request> _parser = new pb::MessageParser<Request>(() => new Request());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<Request> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::GrpcBase.TibberMessages.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Request() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Request(Request other) : this() {
+          timeResolution_ = other.timeResolution_;
+          timeUnits_ = other.timeUnits_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Request Clone() {
+          return new Request(this);
+        }
+
+        /// <summary>Field number for the "timeResolution" field.</summary>
+        public const int TimeResolutionFieldNumber = 1;
+        private global::GrpcBase.TibberMessages.Types.TimeResolution timeResolution_ = 0;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public global::GrpcBase.TibberMessages.Types.TimeResolution TimeResolution {
+          get { return timeResolution_; }
+          set {
+            timeResolution_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "timeUnits" field.</summary>
+        public const int TimeUnitsFieldNumber = 2;
+        private int timeUnits_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int TimeUnits {
+          get { return timeUnits_; }
+          set {
+            timeUnits_ = value;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as Request);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(Request other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (TimeResolution != other.TimeResolution) return false;
+          if (TimeUnits != other.TimeUnits) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (TimeResolution != 0) hash ^= TimeResolution.GetHashCode();
+          if (TimeUnits != 0) hash ^= TimeUnits.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (TimeResolution != 0) {
+            output.WriteRawTag(8);
+            output.WriteEnum((int) TimeResolution);
+          }
+          if (TimeUnits != 0) {
+            output.WriteRawTag(16);
+            output.WriteInt32(TimeUnits);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (TimeResolution != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TimeResolution);
+          }
+          if (TimeUnits != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(TimeUnits);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(Request other) {
+          if (other == null) {
+            return;
+          }
+          if (other.TimeResolution != 0) {
+            TimeResolution = other.TimeResolution;
+          }
+          if (other.TimeUnits != 0) {
+            TimeUnits = other.TimeUnits;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 8: {
+                TimeResolution = (global::GrpcBase.TibberMessages.Types.TimeResolution) input.ReadEnum();
+                break;
+              }
+              case 16: {
+                TimeUnits = input.ReadInt32();
+                break;
+              }
+            }
+          }
+        }
+
+      }
+
+      public sealed partial class Response : pb::IMessage<Response> {
+        private static readonly pb::MessageParser<Response> _parser = new pb::MessageParser<Response>(() => new Response());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<Response> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::GrpcBase.TibberMessages.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Response() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Response(Response other) : this() {
+          image_ = other.image_ != null ? other.image_.Clone() : null;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Response Clone() {
+          return new Response(this);
+        }
+
+        /// <summary>Field number for the "image" field.</summary>
+        public const int ImageFieldNumber = 1;
+        private global::GrpcBase.ImageMessages.Types.ImageData image_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public global::GrpcBase.ImageMessages.Types.ImageData Image {
+          get { return image_; }
+          set {
+            image_ = value;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as Response);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(Response other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (!object.Equals(Image, other.Image)) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (image_ != null) hash ^= Image.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (image_ != null) {
+            output.WriteRawTag(10);
+            output.WriteMessage(Image);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (image_ != null) {
+            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Image);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(Response other) {
+          if (other == null) {
+            return;
+          }
+          if (other.image_ != null) {
+            if (image_ == null) {
+              Image = new global::GrpcBase.ImageMessages.Types.ImageData();
+            }
+            Image.MergeFrom(other.Image);
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 10: {
+                if (image_ == null) {
+                  Image = new global::GrpcBase.ImageMessages.Types.ImageData();
+                }
+                input.ReadMessage(Image);
+                break;
+              }
+            }
+          }
+        }
+
+      }
+
+    }
+    #endregion
+
+  }
+
   public sealed partial class DisruptiveMessages : pb::IMessage<DisruptiveMessages> {
     private static readonly pb::MessageParser<DisruptiveMessages> _parser = new pb::MessageParser<DisruptiveMessages>(() => new DisruptiveMessages());
     private pb::UnknownFieldSet _unknownFields;
@@ -1351,7 +1766,7 @@ namespace GrpcBase {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GrpcBase.BaseReflection.Descriptor.MessageTypes[2]; }
+      get { return global::GrpcBase.BaseReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

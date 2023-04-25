@@ -12,6 +12,7 @@ service Netatmo {
 
 service Image {
     rpc GetImage(ImageMessages.ImageRequest) returns (ImageMessages.ImageData);
+    rpc GetTibberImage(TibberMessages.Request) returns (TibberMessages.Response);
 }
 
 service Disruptive {
@@ -59,10 +60,27 @@ message ImageMessages {
     }
 }
 
+message TibberMessages {
+    message Request {
+        TimeResolution timeResolution = 1;
+        int32 timeUnits = 2;
+    }
+
+    message Response {
+        ImageMessages.ImageData image = 1;
+    }
+}
+
 message DisruptiveMessages {
     message Request {}
     
     message Response {
         string sensorName = 1;
     }
+}
+
+enum TimeResolution {
+    HOUR = 0;
+    DAY = 1;
+    MONTH = 2;
 }

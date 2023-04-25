@@ -9,6 +9,6 @@ class DisruptiveServicer(base_pb2_grpc.DisruptiveServicer):
     async def GetTemperatureStream(self, request, context: grpc.RpcContext):
         i = 0
         while True:
-            yield T.Response(sensorName=f'moren din {i}')
+            yield T.Response()
             await asyncio.sleep(2)
             i += 1

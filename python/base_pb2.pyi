@@ -1,8 +1,12 @@
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
+DAY: TimeResolution
 DESCRIPTOR: _descriptor.FileDescriptor
+HOUR: TimeResolution
+MONTH: TimeResolution
 
 class DisruptiveMessages(_message.Message):
     __slots__ = []
@@ -73,3 +77,22 @@ class NetatmoMessages(_message.Message):
         temperature: float
         def __init__(self, temperature: _Optional[float] = ..., humidity: _Optional[float] = ...) -> None: ...
     def __init__(self) -> None: ...
+
+class TibberMessages(_message.Message):
+    __slots__ = []
+    class Request(_message.Message):
+        __slots__ = ["timeResolution", "timeUnits"]
+        TIMERESOLUTION_FIELD_NUMBER: _ClassVar[int]
+        TIMEUNITS_FIELD_NUMBER: _ClassVar[int]
+        timeResolution: TimeResolution
+        timeUnits: int
+        def __init__(self, timeResolution: _Optional[_Union[TimeResolution, str]] = ..., timeUnits: _Optional[int] = ...) -> None: ...
+    class Response(_message.Message):
+        __slots__ = ["image"]
+        IMAGE_FIELD_NUMBER: _ClassVar[int]
+        image: ImageMessages.ImageData
+        def __init__(self, image: _Optional[_Union[ImageMessages.ImageData, _Mapping]] = ...) -> None: ...
+    def __init__(self) -> None: ...
+
+class TimeResolution(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []

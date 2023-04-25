@@ -29,4 +29,4 @@ class ImageServicer(base_pb2_grpc.ImageServicer):
     def GetTibberImage(self, request: TTibber.Request, context):
         img = tibber_realtime(time_resolution=request.timeResolution,
                               time_units=request.timeUnits)
-        return pil_to_image_data(img)
+        return TTibber.Response(image=pil_to_image_data(img))

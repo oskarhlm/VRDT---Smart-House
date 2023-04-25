@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using UnityEngine.Windows.Speech;
 using GrpcClients;
+using static GrpcBase.ImageMessages.Types;
 
 public class TvImage : MonoBehaviour
 {
@@ -21,6 +22,18 @@ public class TvImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var image = gameObject.GetComponent<UnityEngine.UI.Image>();
+        var tibberImageData = _imageClient.GetTibberImage(new()
+        {
+            TimeResolution = TibberMessages.Types.TimeResolution.Day,
+            TimeUnits = 2
+        }).Image;
+        var texture = ConvertToTexture2D(tibberImageData);
+        var startSprite = Sprite.Create(texture, new Rect(0, 0, tibberImageData.Width, tibberImageData.Height), new Vector2(0, 0), 100.0f);
+
+        image.color = UnityEngine.Color.white;
+        image.sprite = startSprite;
+
         //actions.Add("NTNU", Ntnu);
         actions.Add("temperature graph", TemperatureGraph);
         //actions.Add("heatmap", Heatmap);
@@ -30,12 +43,6 @@ public class TvImage : MonoBehaviour
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void Ntnu() =>

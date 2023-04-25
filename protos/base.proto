@@ -69,6 +69,12 @@ message TibberMessages {
     message Response {
         ImageMessages.ImageData image = 1;
     }
+
+    enum TimeResolution {
+        HOUR = 0;
+        DAY = 1;
+        MONTH = 2;
+    }
 }
 
 message DisruptiveMessages {
@@ -79,8 +85,4 @@ message DisruptiveMessages {
     }
 }
 
-enum TimeResolution {
-    HOUR = 0;
-    DAY = 1;
-    MONTH = 2;
-}
+

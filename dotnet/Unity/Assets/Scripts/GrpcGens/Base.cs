@@ -35,32 +35,32 @@ namespace GrpcBase {
             "QAoMSW1hZ2VSZXF1ZXN0EhEKCWltYWdlUGF0aBgBIAEoCRINCgV3aWR0aBgC",
             "IAEoBRIOCgZoZWlnaHQYAyABKAUaSAoJSW1hZ2VEYXRhEgwKBGRhdGEYASAB",
             "KAwSDgoGZm9ybWF0GAIgASgJEg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgE",
-            "IAEoBSKgAQoOVGliYmVyTWVzc2FnZXMaTwoHUmVxdWVzdBIxCg50aW1lUmVz",
-            "b2x1dGlvbhgBIAEoDjIZLmdycGNfYmFzZS5UaW1lUmVzb2x1dGlvbhIRCgl0",
-            "aW1lVW5pdHMYAiABKAUaPQoIUmVzcG9uc2USMQoFaW1hZ2UYASABKAsyIi5n",
-            "cnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURhdGEiPwoSRGlzcnVwdGl2",
-            "ZU1lc3NhZ2VzGgkKB1JlcXVlc3QaHgoIUmVzcG9uc2USEgoKc2Vuc29yTmFt",
-            "ZRgBIAEoCSouCg5UaW1lUmVzb2x1dGlvbhIICgRIT1VSEAASBwoDREFZEAES",
-            "CQoFTU9OVEgQAjJnCgdOZXRhdG1vElwKB0dldERhdGESKS5ncnBjX2Jhc2Uu",
-            "TmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9SZXF1ZXN0GiYuZ3JwY19iYXNlLk5l",
-            "dGF0bW9NZXNzYWdlcy5OZXRhdG1vRGF0YTK3AQoFSW1hZ2USVQoIR2V0SW1h",
-            "Z2USJS5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZVJlcXVlc3QaIi5n",
-            "cnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURhdGESVwoOR2V0VGliYmVy",
-            "SW1hZ2USIS5ncnBjX2Jhc2UuVGliYmVyTWVzc2FnZXMuUmVxdWVzdBoiLmdy",
-            "cGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5SZXNwb25zZTJ1CgpEaXNydXB0aXZl",
-            "EmcKFEdldFRlbXBlcmF0dXJlU3RyZWFtEiUuZ3JwY19iYXNlLkRpc3J1cHRp",
-            "dmVNZXNzYWdlcy5SZXF1ZXN0GiYuZ3JwY19iYXNlLkRpc3J1cHRpdmVNZXNz",
-            "YWdlcy5SZXNwb25zZTABYgZwcm90bzM="));
+            "IAEoBSLfAQoOVGliYmVyTWVzc2FnZXMaXgoHUmVxdWVzdBJACg50aW1lUmVz",
+            "b2x1dGlvbhgBIAEoDjIoLmdycGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5UaW1l",
+            "UmVzb2x1dGlvbhIRCgl0aW1lVW5pdHMYAiABKAUaPQoIUmVzcG9uc2USMQoF",
+            "aW1hZ2UYASABKAsyIi5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURh",
+            "dGEiLgoOVGltZVJlc29sdXRpb24SCAoESE9VUhAAEgcKA0RBWRABEgkKBU1P",
+            "TlRIEAIiPwoSRGlzcnVwdGl2ZU1lc3NhZ2VzGgkKB1JlcXVlc3QaHgoIUmVz",
+            "cG9uc2USEgoKc2Vuc29yTmFtZRgBIAEoCTJnCgdOZXRhdG1vElwKB0dldERh",
+            "dGESKS5ncnBjX2Jhc2UuTmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9SZXF1ZXN0",
+            "GiYuZ3JwY19iYXNlLk5ldGF0bW9NZXNzYWdlcy5OZXRhdG1vRGF0YTK3AQoF",
+            "SW1hZ2USVQoIR2V0SW1hZ2USJS5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5J",
+            "bWFnZVJlcXVlc3QaIi5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURh",
+            "dGESVwoOR2V0VGliYmVySW1hZ2USIS5ncnBjX2Jhc2UuVGliYmVyTWVzc2Fn",
+            "ZXMuUmVxdWVzdBoiLmdycGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5SZXNwb25z",
+            "ZTJ1CgpEaXNydXB0aXZlEmcKFEdldFRlbXBlcmF0dXJlU3RyZWFtEiUuZ3Jw",
+            "Y19iYXNlLkRpc3J1cHRpdmVNZXNzYWdlcy5SZXF1ZXN0GiYuZ3JwY19iYXNl",
+            "LkRpc3J1cHRpdmVNZXNzYWdlcy5SZXNwb25zZTABYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::GrpcBase.TimeResolution), }, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages), global::GrpcBase.NetatmoMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.NetatmoRequest), global::GrpcBase.NetatmoMessages.Types.NetatmoRequest.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.NetatmoData), global::GrpcBase.NetatmoMessages.Types.NetatmoData.Parser, new[]{ "Indoor", "Outdoor" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.IndoorData), global::GrpcBase.NetatmoMessages.Types.IndoorData.Parser, new[]{ "Temperature", "CO2", "Humidity", "Noise", "Pressure" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.OutdoorData), global::GrpcBase.NetatmoMessages.Types.OutdoorData.Parser, new[]{ "Temperature", "Humidity" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages), global::GrpcBase.ImageMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.ImageRequest), global::GrpcBase.ImageMessages.Types.ImageRequest.Parser, new[]{ "ImagePath", "Width", "Height" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.ImageData), global::GrpcBase.ImageMessages.Types.ImageData.Parser, new[]{ "Data", "Format", "Width", "Height" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages), global::GrpcBase.TibberMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Request), global::GrpcBase.TibberMessages.Types.Request.Parser, new[]{ "TimeResolution", "TimeUnits" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages), global::GrpcBase.TibberMessages.Parser, null, null, new[]{ typeof(global::GrpcBase.TibberMessages.Types.TimeResolution) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Request), global::GrpcBase.TibberMessages.Types.Request.Parser, new[]{ "TimeResolution", "TimeUnits" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Response), global::GrpcBase.TibberMessages.Types.Response.Parser, new[]{ "Image" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages), global::GrpcBase.DisruptiveMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.Request), global::GrpcBase.DisruptiveMessages.Types.Request.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.Response), global::GrpcBase.DisruptiveMessages.Types.Response.Parser, new[]{ "SensorName" }, null, null, null)})
@@ -69,15 +69,6 @@ namespace GrpcBase {
     #endregion
 
   }
-  #region Enums
-  public enum TimeResolution {
-    [pbr::OriginalName("HOUR")] Hour = 0,
-    [pbr::OriginalName("DAY")] Day = 1,
-    [pbr::OriginalName("MONTH")] Month = 2,
-  }
-
-  #endregion
-
   #region Messages
   public sealed partial class NetatmoMessages : pb::IMessage<NetatmoMessages> {
     private static readonly pb::MessageParser<NetatmoMessages> _parser = new pb::MessageParser<NetatmoMessages>(() => new NetatmoMessages());
@@ -1464,6 +1455,12 @@ namespace GrpcBase {
     /// <summary>Container for nested types declared in the TibberMessages message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
+      public enum TimeResolution {
+        [pbr::OriginalName("HOUR")] Hour = 0,
+        [pbr::OriginalName("DAY")] Day = 1,
+        [pbr::OriginalName("MONTH")] Month = 2,
+      }
+
       public sealed partial class Request : pb::IMessage<Request> {
         private static readonly pb::MessageParser<Request> _parser = new pb::MessageParser<Request>(() => new Request());
         private pb::UnknownFieldSet _unknownFields;
@@ -1501,9 +1498,9 @@ namespace GrpcBase {
 
         /// <summary>Field number for the "timeResolution" field.</summary>
         public const int TimeResolutionFieldNumber = 1;
-        private global::GrpcBase.TimeResolution timeResolution_ = 0;
+        private global::GrpcBase.TibberMessages.Types.TimeResolution timeResolution_ = 0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public global::GrpcBase.TimeResolution TimeResolution {
+        public global::GrpcBase.TibberMessages.Types.TimeResolution TimeResolution {
           get { return timeResolution_; }
           set {
             timeResolution_ = value;
@@ -1608,7 +1605,7 @@ namespace GrpcBase {
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
               case 8: {
-                TimeResolution = (global::GrpcBase.TimeResolution) input.ReadEnum();
+                TimeResolution = (global::GrpcBase.TibberMessages.Types.TimeResolution) input.ReadEnum();
                 break;
               }
               case 16: {

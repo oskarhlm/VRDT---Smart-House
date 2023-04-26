@@ -10,7 +10,8 @@ import numpy as np
 SPR_Max3_400 = {
     "Pmax": 400,
     'efficiency': 0.226,
-    'temp_coeff': -0.0029,  # Temperature Coefficient of Pmax, reduction per degree celsius offset from 25 degrees celsius
+    # Temperature Coefficient of Pmax, reduction per degree celsius offset from 25 degrees celsius
+    'temp_coeff': -0.0029,
     'panel_size': (1.690*1.046)  # Square meters with panel dimensions
 }
 
@@ -53,6 +54,7 @@ def get_irradiance(site_location, date, tilt, surface_azimuth):
         dhi=clearsky['dhi'],
         solar_zenith=solar_position['apparent_zenith'],
         solar_azimuth=solar_position['azimuth'])
+
     # Return DataFrame with only GHI and POA
     return pd.DataFrame({'GHI': clearsky['ghi'],
                          'POA': POA_irradiance['poa_global']})
@@ -86,8 +88,10 @@ def plot_irradiance(comparison, summer_irr, current_irr):
 def calculate_irr(panel_tilt=25, panel_azimuth=180, current_time='12:00'):
     # Get irradiance data for summer and winter solstice, assuming 25 degree tilt
     # and a south facing array
-    summer_irradiance = get_irradiance(site, '06-20-2020', panel_tilt, panel_azimuth)
-    current_irradiance = get_irradiance(site, str(now.date()), panel_tilt, panel_azimuth)
+    summer_irradiance = get_irradiance(
+        site, '06-20-2020', panel_tilt, panel_azimuth)
+    current_irradiance = get_irradiance(
+        site, str(now.date()), panel_tilt, panel_azimuth)
     # Convert Dataframe Indexes to Hour:Minute format to make plotting easier
     summer_irradiance.index = summer_irradiance.index.strftime("%H:%M")
     current_irradiance.index = current_irradiance.index.strftime("%H:%M")
@@ -112,12 +116,14 @@ def approximated_outp(model=SPR_Max3_400, temp=20, num_panels=1):
     POA_irradiance = current_irradiance.at[time_rounded, 'POA']
 
     print('Current POA irradiance:', POA_irradiance)
-    print('Offset from optimal solarpanel tilt (GHI - POA):', np.abs(current_irradiance.at[time_rounded, 'GHI'] - POA_irradiance))
+    print('Offset from optimal solarpanel tilt (GHI - POA):',
+          np.abs(current_irradiance.at[time_rounded, 'GHI'] - POA_irradiance))
 
     temp_eff = panel_temp_efficiency(model, temp)
     print('Approx efficiency at', temp, ': ', temp_eff)
 
-    power_outp = current_irradiance.at[time_rounded, 'POA'] * temp_eff * (model['panel_size']*num_panels)
+    power_outp = current_irradiance.at[time_rounded,
+                                       'POA'] * temp_eff * (model['panel_size']*num_panels)
 
     return power_outp, summer_irradiance, current_irradiance
 

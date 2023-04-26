@@ -10,7 +10,7 @@ public class EdgeSnapping : MonoBehaviour
 {
     public float SnapDistance = 1;
 
-    [SerializeField] private Collider _targetCollider;
+    public Collider TargetCollider;
     [SerializeField] private bool _hasSnapped = false;
     [SerializeField] private Transform _rootObject;
 
@@ -28,14 +28,14 @@ public class EdgeSnapping : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _myClosestPoint = _myCollider.ClosestPoint(_targetCollider.transform.position);
+        _myClosestPoint = _myCollider.ClosestPoint(TargetCollider.transform.position);
         var closestTarget = GameObject.FindGameObjectsWithTag("Snappable").MinBy(obj =>
         {
             var closestPoint = obj.GetComponent<BoxCollider>().ClosestPointOnBounds(_myClosestPoint);
             return closestPoint - _myClosestPoint;
         });
-        _targetCollider = closestTarget.GetComponent<BoxCollider>();
-        _targetClosestPoint = _targetCollider.ClosestPoint(_myClosestPoint);
+        TargetCollider = closestTarget.GetComponent<BoxCollider>();
+        _targetClosestPoint = TargetCollider.ClosestPoint(_myClosestPoint);
         _offset = _targetClosestPoint - _myClosestPoint;
 
         //_targetClosestPoint = _targetCollider.ClosestPoint(_myClosestPoint);
@@ -43,7 +43,7 @@ public class EdgeSnapping : MonoBehaviour
 
         if (_offset.magnitude < SnapDistance)
         {
-            _rootObject.transform.eulerAngles = _targetCollider.transform.eulerAngles;
+            _rootObject.transform.eulerAngles = TargetCollider.transform.eulerAngles;
             _grabInteractable.trackRotation = false;
         }
         else
@@ -57,9 +57,9 @@ public class EdgeSnapping : MonoBehaviour
         Debug.Log(_offset.magnitude);
         if (_offset.magnitude < SnapDistance)
         {
-            _rootObject.transform.eulerAngles = _targetCollider.transform.eulerAngles;
-            _myClosestPoint = _myCollider.ClosestPoint(_targetCollider.transform.position);
-            _targetClosestPoint = _targetCollider.ClosestPoint(_myClosestPoint);
+            _rootObject.transform.eulerAngles = TargetCollider.transform.eulerAngles;
+            _myClosestPoint = _myCollider.ClosestPoint(TargetCollider.transform.position);
+            _targetClosestPoint = TargetCollider.ClosestPoint(_myClosestPoint);
             _offset = _targetClosestPoint - _myClosestPoint;
             Debug.Log(_offset);
             _rootObject.transform.position += _offset;

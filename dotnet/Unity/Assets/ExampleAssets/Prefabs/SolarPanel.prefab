@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnapDistance: 1
-  _targetCollider: {fileID: 0}
+  TargetCollider: {fileID: 0}
   _hasSnapped: 0
   _rootObject: {fileID: 7477732979489969068}
 --- !u!1 &5198301364881365278
@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 7477732979489969068}
   - component: {fileID: 1000623751}
   - component: {fileID: 1000623750}
+  - component: {fileID: 3640466472323491582}
   m_Layer: 0
   m_Name: SolarPanel
   m_TagString: Untagged
@@ -676,6 +677,18 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &3640466472323491582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822169992858257686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2400cad7105a54cb207875804a8054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8754105181571594420
 GameObject:
   m_ObjectHideFlags: 0

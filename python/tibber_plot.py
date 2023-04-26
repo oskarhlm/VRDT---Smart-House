@@ -12,7 +12,6 @@ def tibber_realtime(time_resolution=T.TimeResolution, time_units=7, filename="ti
     account = tibber.Account("hoMAFvQcasnMQyhIZpprgcKbdhOEYen3PBcpmX0q_K4")
     home = account.homes[0]
 
-    resolutions_str = ""
     match time_resolution:
         case T.TimeResolution.HOUR:
             resolutions_str = 'hour'
@@ -39,12 +38,10 @@ def tibber_realtime(time_resolution=T.TimeResolution, time_units=7, filename="ti
     price = nonetype_to_zero(price)
 
     num = np.linspace(0, len(energy), len(energy))
-    data_dic = {
-        "Energy kWh": energy,
-        "Num": num,
-        "Cost/": cost,
-        "Unit price/": price
-    }
+    data_dic = {"Energy kWh": energy,
+                "Num": num,
+                "Cost/": cost,
+                "Unit price/": price}
     df = pd.DataFrame(data_dic)
     fig_sub = make_subplots(rows=2, cols=1,
                             subplot_titles=["Peak electricity price/" + resolutions_str, "Consumption kWh"])  # rows=2, cols=2)

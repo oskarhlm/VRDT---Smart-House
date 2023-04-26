@@ -12,24 +12,30 @@ using UnityEngine.UIElements;
 using UnityEngine.Windows.Speech;
 using GrpcClients;
 using static GrpcBase.ImageMessages.Types;
+using Unity.VisualScripting.FullSerializer;
 
 public class TvImage : MonoBehaviour
 {
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
     private GrpcBase.Image.ImageClient _imageClient = Clients.Instance.Image;
+    private GrpcBase.Disruptive.DisruptiveClient _disruptiveClient = Clients.Instance.Disruptive;
 
     // Start is called before the first frame update
     void Start()
     {
         var image = gameObject.GetComponent<UnityEngine.UI.Image>();
-        var tibberImageData = _imageClient.GetTibberImage(new()
+        //var imageData = _imageClient.GetTibberImage(new()
+        //{
+        //    TimeResolution = TibberMessages.Types.TimeResolution.Day,
+        //    TimeUnits = 2
+        //}).Image;
+        var imageData = _disruptiveClient.GetHeatmapImage(new()
         {
-            TimeResolution = TibberMessages.Types.TimeResolution.Day,
-            TimeUnits = 2
-        }).Image;
-        var texture = ConvertToTexture2D(tibberImageData);
-        var startSprite = Sprite.Create(texture, new Rect(0, 0, tibberImageData.Width, tibberImageData.Height), new Vector2(0, 0), 100.0f);
+            FloorNumber = 2
+        });
+        var texture = ConvertToTexture2D(imageData);
+        var startSprite = Sprite.Create(texture, new Rect(0, 0, imageData.Width, imageData.Height), new Vector2(0, 0), 100.0f);
 
         image.color = UnityEngine.Color.white;
         image.sprite = startSprite;

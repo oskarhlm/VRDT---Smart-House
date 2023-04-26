@@ -4,7 +4,7 @@ from base_pb2 import ImageMessages as TImage
 from image import pil_to_image_data
 import asyncio
 import grpc
-from test import heatmap
+from heatmap_functions import heatmap
 
 
 class DisruptiveServicer(base_pb2_grpc.DisruptiveServicer):
@@ -18,4 +18,4 @@ class DisruptiveServicer(base_pb2_grpc.DisruptiveServicer):
 
     def GetHeatmapImage(self, request: T.HeatmapRequest, context):
         img = heatmap(request.floorNumber)
-        return TImage.ImageData(pil_to_image_data(img))
+        return pil_to_image_data(img)

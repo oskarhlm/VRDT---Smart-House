@@ -369,11 +369,6 @@ def interpolate(room,I,J):
 
 
 def heatmap(nr):
-    Floor={
-        1:['GF_Room','GF_Bod','GF_Bath','Ungdomsavdeling','Stairs'],
-        2:['GuestRoom','MainRoom','FF_Soverom','FF_Bath','Entre'],
-        3:['Office','LivingRoom','Fireplace']
-        }
     fig=plt.figure()
     ax = fig.add_subplot(111)  # Add a new subplot to the figure
     for room in Floor[nr]:
@@ -406,7 +401,7 @@ def heatmap(nr):
         grid=room_grid(room)
         xi,yi=grid[1],grid[2]
         plt.figure(1)
-        plt.title('Floor '+str(nr-1))
+        plt.title(str(Floor[nr]))
         z0=interpolate(room,grid[3],grid[4])
         z=z0[0]
         if np.shape(z)==(1,):
@@ -418,9 +413,9 @@ def heatmap(nr):
         if len(z0[1])==0:
             None
         else:
-            textr='Water Detected! in '+str(room)
-            props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
-            plt.text(0.1,0.1, textr, transform=ax.transAxes, fontsize=10, verticalalignment='bottom', bbox=props)
+            print('Water detected in '+str(room))
+            plt.plot(z0[1][0][0],z0[1][0][1],'bo',label='Water Detected')
+
         if len(z0[2])==0:
             None
         else:
@@ -428,9 +423,7 @@ def heatmap(nr):
                 textr='Humidity in '+str(room)+ ' is higher than recomended'
                 props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
             plt.text(0.1,0.1, textr, transform=ax.transAxes, fontsize=10, verticalalignment='bottom', bbox=props)
-    
-    levels = np.linspace(vmin, vmax, 30)
-    plt.colorbar(ticks=levels)
+
     # Render the figure as an image
     canvas = FigureCanvasAgg(fig)
     buf = io.BytesIO()
@@ -439,6 +432,5 @@ def heatmap(nr):
 
     # Convert the image to a PIL image
     img = Image.open(buf)
-    img.show()
+    
     return img
-

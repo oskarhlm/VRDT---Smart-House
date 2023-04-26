@@ -1,6 +1,6 @@
 import disruptive as dt
 import matplotlib.pyplot as plt
-from scipy.interpolate import griddata
+from scipy.interpolate import griddata,Rbf
 import numpy as np
 
 
@@ -136,7 +136,7 @@ Sensor_Values["0BathroomWater"]['room']=    ['GF_Bath']
 
 
 Sensor_Values["0BDoor"]['room']=            ['Stairs','Ungdomsavdeling']
-Sensor_Values['0BGuestDoor']['room']=       ['GF_room','Ungdomsavdeling']
+Sensor_Values['0BGuestDoor']['room']=       ['GF_Room','Ungdomsavdeling']
 
 
 #FF
@@ -165,7 +165,7 @@ Sensor_Values["1GuestRoom"]['room']=        ['GuestRoom']
 
 Sensor_Values["1MainRoom"]['room']=         ['MainBedRoom']
 Sensor_Values["1MainBRHum"]['room']=        ['MainBedRoom']
-Sensor_Values["1OutdoorEntrance"]['room']=  ['Out','Entre']
+Sensor_Values["1OutdoorEntrance"]['room']=  ['Out']
 
 Sensor_Values["1MainDoor"]['room']=         ['Out','Entre']
 Sensor_Values["1BathRoomWatet"]['room']=    ['FF_Bad']      #Yes Watet
@@ -301,8 +301,11 @@ def interpolate(room,I,J):
     sensor_coord=[]
     sensor_value_temp=[]
     sensor_door=[]
+    sensor_value_water=[]
+    sensor_waterDetector=[]
+    max_humidity=30
     if room not in room_sensors:
-        return [1]
+        return [1,],[],[]
     sensor_in_room=room_sensors[room]
     for sensor in sensor_in_room:
         if Sensor_Values[sensor]['Type']=='temperature':
@@ -321,6 +324,19 @@ def interpolate(room,I,J):
                         if Sensor_Values[sensor]['Type']=='temperature':
                             sensor_value_temp.append(Sensor_Values[sensor]['Value'])
                             sensor_coord.append(Sensor_Values[sensor]['coords'])
+
+        elif Sensor_Values[sensor]['Type']=='humidity':
+            sensor_value_temp.append(Sensor_Values[sensor]['Value'][1])
+            sensor_coord.append(Sensor_Values[sensor]['coords'])
+            if Sensor_Values[sensor]['Value'][0]>max_humidity:
+                sensor_value_water.append(Sensor_Values[sensor]['coords'])
+                sensor_value_water.append(Sensor_Values[sensor]['Value'][0])
+                sensor_value_water.append(sensor)
+                                
+        elif Sensor_Values[sensor]['Type']=='waterDetector':
+            if Sensor_Values[sensor]['Type']=='present':
+                sensor_waterDetector.append(Sensor_Values[sensor]['coords'])
+                
     if len(sensor_value_temp)==1:   
         interpolated_temp=np.ones_like(room_grid(room)[1])*sensor_value_temp[0]
     elif len(sensor_value_temp)==0:
@@ -328,44 +344,31 @@ def interpolate(room,I,J):
     else:
         interpolated_temp_near=griddata(sensor_coord,sensor_value_temp,room_grid(room)[0],method='nearest')
         if len(sensor_value_temp)<3:
-            return interpolated_temp_near
+            return interpolated_temp_near,sensor_waterDetector, sensor_value_water
+        x=[coord[0] for coord in sensor_coord]
+        y=[coord[1] for coord in sensor_coord]
         interpolated_temp=griddata(sensor_coord,sensor_value_temp,room_grid(room)[0],method='linear',fill_value=0)
+        try:
+            rbfi=Rbf(x,y,sensor_value_temp)
+            interpolated_temp_rbf=rbfi(room_grid(room)[1],room_grid(room)[2])
+            interpolated_temp_rbf=np.reshape(interpolated_temp_rbf,N*N,)
+        except:
+            interpolated_temp_rbf=interpolated_temp_near
         for i in range(len(interpolated_temp)):
             if interpolated_temp[i]==0:
-                interpolated_temp[i]=interpolated_temp_near[i]
+                interpolated_temp[i]=interpolated_temp_rbf[i]
         try:
             for k in range(len(I)):
                 interpolated_temp[I[k]+J[k]*N]=None
         except:
             None
-    return interpolated_temp
+    return interpolated_temp,sensor_waterDetector,sensor_value_water
 
-plt.figure(3)
-vmin=0
-vmax=25
-
-room='LivingRoom'
+room='Entre'
 grid=room_grid(room)
 xi,yi=grid[1],grid[2]
-z=interpolate(room,grid[3],grid[4])
-if np.shape(z)==(1,):
-    z_2d=np.ones_like(xi)
-else:
-    z_2d=np.reshape(z,(xi.shape))
-plt.pcolormesh(xi,yi,z_2d,shading='auto',vmin=vmin,vmax=vmax,cmap='jet', alpha=0.5)
+z=interpolate(room,grid[3],grid[4])[0]
 
-room='Office'
-grid=room_grid(room)
-xi,yi=grid[1],grid[2]
-z=interpolate(room,grid[3],grid[4])
-if np.shape(z)==(1,):
-    z_2d=np.ones_like(xi)
-else:
-    z_2d=np.reshape(z,(xi.shape))
-plt.pcolormesh(xi,yi,z_2d,shading='auto',vmin=vmin,vmax=vmax,cmap='jet', alpha=0.5)
-
-levels = np.linspace(vmin, vmax, 30)
-plt.colorbar(ticks=levels)
 
 
 i=0
@@ -394,23 +397,39 @@ for floor in Floor:
                 elif Sensor_Values[sensor]['Type']=='proximity':
                     plt.plot(x,y,'go')
                 elif Sensor_Values[sensor]['Type']=='humidity':
+                    plt.plot(x,y,'co')
+                elif Sensor_Values[sensor]['Type']=='waterDetector':
                     plt.plot(x,y,'bo')
                 plt.legend(loc='upper right')
         except:
             None
         vmin=0
-        vmax=25
+        vmax=30
         grid=room_grid(room)
         xi,yi=grid[1],grid[2]
-        plt.figure(4+i)
+        plt.figure(3+i)
         plt.title(str(floor))
-        z=interpolate(room,grid[3],grid[4])
+        z0=interpolate(room,grid[3],grid[4])
+        z=z0[0]
         if np.shape(z)==(1,):
             z_2d=np.ones_like(xi)
         else:
             z_2d=np.reshape(z,(xi.shape))
 
         plt.pcolormesh(xi,yi,z_2d,shading='auto',vmin=vmin,vmax=vmax,cmap='jet', alpha=0.5)
+        
+        if len(z0[1])==0:
+            None
+        else:
+            print('Water detected in '+str(room))
+            plt.plot(z0[1][0][0],z0[1][0][1],'bo',label='Water Detected')
+
+        if len(z0[2])==0:
+            None
+        else:
+            for j in range(2):
+                print('Humidity in '+str(room)+ ' is higher than recomended '+str(z0[2][2+3*j]))
+                plt.plot(z0[2][3*j][0],z0[2][3*j][1],'co',label=str(sensor))
 
     levels = np.linspace(vmin, vmax, 30)
     plt.colorbar(ticks=levels)

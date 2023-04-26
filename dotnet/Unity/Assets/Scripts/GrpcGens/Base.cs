@@ -40,17 +40,20 @@ namespace GrpcBase {
             "UmVzb2x1dGlvbhIRCgl0aW1lVW5pdHMYAiABKAUaPQoIUmVzcG9uc2USMQoF",
             "aW1hZ2UYASABKAsyIi5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURh",
             "dGEiLgoOVGltZVJlc29sdXRpb24SCAoESE9VUhAAEgcKA0RBWRABEgkKBU1P",
-            "TlRIEAIiPwoSRGlzcnVwdGl2ZU1lc3NhZ2VzGgkKB1JlcXVlc3QaHgoIUmVz",
-            "cG9uc2USEgoKc2Vuc29yTmFtZRgBIAEoCTJnCgdOZXRhdG1vElwKB0dldERh",
-            "dGESKS5ncnBjX2Jhc2UuTmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9SZXF1ZXN0",
-            "GiYuZ3JwY19iYXNlLk5ldGF0bW9NZXNzYWdlcy5OZXRhdG1vRGF0YTK3AQoF",
-            "SW1hZ2USVQoIR2V0SW1hZ2USJS5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5J",
-            "bWFnZVJlcXVlc3QaIi5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURh",
-            "dGESVwoOR2V0VGliYmVySW1hZ2USIS5ncnBjX2Jhc2UuVGliYmVyTWVzc2Fn",
-            "ZXMuUmVxdWVzdBoiLmdycGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5SZXNwb25z",
-            "ZTJ1CgpEaXNydXB0aXZlEmcKFEdldFRlbXBlcmF0dXJlU3RyZWFtEiUuZ3Jw",
-            "Y19iYXNlLkRpc3J1cHRpdmVNZXNzYWdlcy5SZXF1ZXN0GiYuZ3JwY19iYXNl",
-            "LkRpc3J1cHRpdmVNZXNzYWdlcy5SZXNwb25zZTABYgZwcm90bzM="));
+            "TlRIEAIiZgoSRGlzcnVwdGl2ZU1lc3NhZ2VzGgkKB1JlcXVlc3QaHgoIUmVz",
+            "cG9uc2USEgoKc2Vuc29yTmFtZRgBIAEoCRolCg5IZWF0bWFwUmVxdWVzdBIT",
+            "CgtmbG9vck51bWJlchgBIAEoBTJnCgdOZXRhdG1vElwKB0dldERhdGESKS5n",
+            "cnBjX2Jhc2UuTmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9SZXF1ZXN0GiYuZ3Jw",
+            "Y19iYXNlLk5ldGF0bW9NZXNzYWdlcy5OZXRhdG1vRGF0YTK3AQoFSW1hZ2US",
+            "VQoIR2V0SW1hZ2USJS5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZVJl",
+            "cXVlc3QaIi5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURhdGESVwoO",
+            "R2V0VGliYmVySW1hZ2USIS5ncnBjX2Jhc2UuVGliYmVyTWVzc2FnZXMuUmVx",
+            "dWVzdBoiLmdycGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5SZXNwb25zZTLaAQoK",
+            "RGlzcnVwdGl2ZRJnChRHZXRUZW1wZXJhdHVyZVN0cmVhbRIlLmdycGNfYmFz",
+            "ZS5EaXNydXB0aXZlTWVzc2FnZXMuUmVxdWVzdBomLmdycGNfYmFzZS5EaXNy",
+            "dXB0aXZlTWVzc2FnZXMuUmVzcG9uc2UwARJjCg9HZXRIZWF0bWFwSW1hZ2US",
+            "LC5ncnBjX2Jhc2UuRGlzcnVwdGl2ZU1lc3NhZ2VzLkhlYXRtYXBSZXF1ZXN0",
+            "GiIuZ3JwY19iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VEYXRhYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -63,7 +66,8 @@ namespace GrpcBase {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages), global::GrpcBase.TibberMessages.Parser, null, null, new[]{ typeof(global::GrpcBase.TibberMessages.Types.TimeResolution) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Request), global::GrpcBase.TibberMessages.Types.Request.Parser, new[]{ "TimeResolution", "TimeUnits" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Response), global::GrpcBase.TibberMessages.Types.Response.Parser, new[]{ "Image" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages), global::GrpcBase.DisruptiveMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.Request), global::GrpcBase.DisruptiveMessages.Types.Request.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.Response), global::GrpcBase.DisruptiveMessages.Types.Response.Parser, new[]{ "SensorName" }, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.Response), global::GrpcBase.DisruptiveMessages.Types.Response.Parser, new[]{ "SensorName" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest), global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest.Parser, new[]{ "FloorNumber" }, null, null, null)})
           }));
     }
     #endregion
@@ -2083,6 +2087,135 @@ namespace GrpcBase {
                 break;
               case 10: {
                 SensorName = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+
+      }
+
+      public sealed partial class HeatmapRequest : pb::IMessage<HeatmapRequest> {
+        private static readonly pb::MessageParser<HeatmapRequest> _parser = new pb::MessageParser<HeatmapRequest>(() => new HeatmapRequest());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<HeatmapRequest> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::GrpcBase.DisruptiveMessages.Descriptor.NestedTypes[2]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public HeatmapRequest() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public HeatmapRequest(HeatmapRequest other) : this() {
+          floorNumber_ = other.floorNumber_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public HeatmapRequest Clone() {
+          return new HeatmapRequest(this);
+        }
+
+        /// <summary>Field number for the "floorNumber" field.</summary>
+        public const int FloorNumberFieldNumber = 1;
+        private int floorNumber_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int FloorNumber {
+          get { return floorNumber_; }
+          set {
+            floorNumber_ = value;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as HeatmapRequest);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(HeatmapRequest other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (FloorNumber != other.FloorNumber) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (FloorNumber != 0) hash ^= FloorNumber.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (FloorNumber != 0) {
+            output.WriteRawTag(8);
+            output.WriteInt32(FloorNumber);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (FloorNumber != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeInt32Size(FloorNumber);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(HeatmapRequest other) {
+          if (other == null) {
+            return;
+          }
+          if (other.FloorNumber != 0) {
+            FloorNumber = other.FloorNumber;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 8: {
+                FloorNumber = input.ReadInt32();
                 break;
               }
             }

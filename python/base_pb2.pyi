@@ -7,6 +7,11 @@ DESCRIPTOR: _descriptor.FileDescriptor
 
 class DisruptiveMessages(_message.Message):
     __slots__ = []
+    class HeatmapRequest(_message.Message):
+        __slots__ = ["floorNumber"]
+        FLOORNUMBER_FIELD_NUMBER: _ClassVar[int]
+        floorNumber: int
+        def __init__(self, floorNumber: _Optional[int] = ...) -> None: ...
     class Request(_message.Message):
         __slots__ = []
         def __init__(self) -> None: ...

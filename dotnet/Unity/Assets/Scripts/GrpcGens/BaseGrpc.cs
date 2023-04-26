@@ -236,6 +236,8 @@ namespace GrpcBase {
 
     static readonly grpc::Marshaller<global::GrpcBase.DisruptiveMessages.Types.Request> __Marshaller_grpc_base_DisruptiveMessages_Request = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.DisruptiveMessages.Types.Request.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::GrpcBase.DisruptiveMessages.Types.Response> __Marshaller_grpc_base_DisruptiveMessages_Response = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.DisruptiveMessages.Types.Response.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest> __Marshaller_grpc_base_DisruptiveMessages_HeatmapRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::GrpcBase.ImageMessages.Types.ImageData> __Marshaller_grpc_base_ImageMessages_ImageData = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.ImageMessages.Types.ImageData.Parser.ParseFrom);
 
     static readonly grpc::Method<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response> __Method_GetTemperatureStream = new grpc::Method<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response>(
         grpc::MethodType.ServerStreaming,
@@ -243,6 +245,13 @@ namespace GrpcBase {
         "GetTemperatureStream",
         __Marshaller_grpc_base_DisruptiveMessages_Request,
         __Marshaller_grpc_base_DisruptiveMessages_Response);
+
+    static readonly grpc::Method<global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest, global::GrpcBase.ImageMessages.Types.ImageData> __Method_GetHeatmapImage = new grpc::Method<global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest, global::GrpcBase.ImageMessages.Types.ImageData>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetHeatmapImage",
+        __Marshaller_grpc_base_DisruptiveMessages_HeatmapRequest,
+        __Marshaller_grpc_base_ImageMessages_ImageData);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -255,6 +264,11 @@ namespace GrpcBase {
     public abstract partial class DisruptiveBase
     {
       public virtual global::System.Threading.Tasks.Task GetTemperatureStream(global::GrpcBase.DisruptiveMessages.Types.Request request, grpc::IServerStreamWriter<global::GrpcBase.DisruptiveMessages.Types.Response> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::GrpcBase.ImageMessages.Types.ImageData> GetHeatmapImage(global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -292,6 +306,22 @@ namespace GrpcBase {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetTemperatureStream, null, options, request);
       }
+      public virtual global::GrpcBase.ImageMessages.Types.ImageData GetHeatmapImage(global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetHeatmapImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::GrpcBase.ImageMessages.Types.ImageData GetHeatmapImage(global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetHeatmapImage, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcBase.ImageMessages.Types.ImageData> GetHeatmapImageAsync(global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetHeatmapImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::GrpcBase.ImageMessages.Types.ImageData> GetHeatmapImageAsync(global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetHeatmapImage, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override DisruptiveClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -304,7 +334,8 @@ namespace GrpcBase {
     public static grpc::ServerServiceDefinition BindService(DisruptiveBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetTemperatureStream, serviceImpl.GetTemperatureStream).Build();
+          .AddMethod(__Method_GetTemperatureStream, serviceImpl.GetTemperatureStream)
+          .AddMethod(__Method_GetHeatmapImage, serviceImpl.GetHeatmapImage).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -314,6 +345,7 @@ namespace GrpcBase {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, DisruptiveBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_GetTemperatureStream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::GrpcBase.DisruptiveMessages.Types.Request, global::GrpcBase.DisruptiveMessages.Types.Response>(serviceImpl.GetTemperatureStream));
+      serviceBinder.AddMethod(__Method_GetHeatmapImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest, global::GrpcBase.ImageMessages.Types.ImageData>(serviceImpl.GetHeatmapImage));
     }
 
   }

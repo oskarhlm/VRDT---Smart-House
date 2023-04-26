@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import griddata,Rbf
 import numpy as np
 
+import io
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+from PIL import Image
+
 
 project_id='c1qprqlh2t8g02sfoq30'
 dt.default_auth = dt.Auth.service_account('C73lmqav1410008ofpvg', 'a97dd7320f7845b7b6c7e2499f9e03c9','c73llpqv1410008ofpug@c1qprqlh2t8g02sfoq30.serviceaccount.d21s.com')
@@ -264,9 +268,9 @@ FF=GuestRoom,MainBedRoom,FF_Soveroom,FF_Bath,Entre
 GF=GF_Room,GF_Bod,GF_Bath,Ungdomsavdeling,Stair
 SF=Office,LivingRoom,Fireplace
 
-Floor={'GF':['GF_Room','GF_Bod','GF_Bath','Ungdomsavdeling','Stairs'],
-        'FF':['GuestRoom','MainRoom','FF_Soverom','FF_Bath','Entre'],
-        'SF':['Office','LivingRoom','Fireplace']
+Floor={1:['GF_Room','GF_Bod','GF_Bath','Ungdomsavdeling','Stairs'],
+        2:['GuestRoom','MainRoom','FF_Soverom','FF_Bath','Entre'],
+        3:['Office','LivingRoom','Fireplace']
 }
 
 
@@ -364,32 +368,23 @@ def interpolate(room,I,J):
             None
     return interpolated_temp,sensor_waterDetector,sensor_value_water
 
-room='Entre'
-grid=room_grid(room)
-xi,yi=grid[1],grid[2]
-z=interpolate(room,grid[3],grid[4])[0]
 
-
-
-i=0
-for floor in Floor:
-    i+=1
-    for room in Floor[floor]:
-        temp=[]
+def heatmap(nr):
+    fig=plt.figure()
+    ax = fig.add_subplot(111)  # Add a new subplot to the figure
+    for room in Floor[nr]:
         if len(room_coords[room])<5:
             a=Square_room(room_coords[room])
         else:
             a=Not_square_room(room_coords[room])
         x_coords=a[0],a[2],a[2],a[0],a[0]
         y_coords=a[1],a[1],a[3],a[3],a[1]
-        plt.figure(i)
+        plt.figure(1)
         plt.plot(x_coords,y_coords, label=room)
-        plt.legend()
         try:
             S_V=room_sensors[room]
             for sensor in S_V:
                 sensor_coord=Sensor_Values[sensor]['coords']
-                sensor_name=sensor
                 x=sensor_coord[0]
                 y=sensor_coord[1]
                 if Sensor_Values[sensor]['Type']=='temperature':
@@ -400,15 +395,14 @@ for floor in Floor:
                     plt.plot(x,y,'co')
                 elif Sensor_Values[sensor]['Type']=='waterDetector':
                     plt.plot(x,y,'bo')
-                plt.legend(loc='upper right')
         except:
             None
-        vmin=0
+        vmin=10
         vmax=30
         grid=room_grid(room)
         xi,yi=grid[1],grid[2]
-        plt.figure(3+i)
-        plt.title(str(floor))
+        plt.figure(1)
+        plt.title(str(Floor[nr]))
         z0=interpolate(room,grid[3],grid[4])
         z=z0[0]
         if np.shape(z)==(1,):
@@ -417,7 +411,6 @@ for floor in Floor:
             z_2d=np.reshape(z,(xi.shape))
 
         plt.pcolormesh(xi,yi,z_2d,shading='auto',vmin=vmin,vmax=vmax,cmap='jet', alpha=0.5)
-        
         if len(z0[1])==0:
             None
         else:
@@ -428,10 +421,17 @@ for floor in Floor:
             None
         else:
             for j in range(2):
-                print('Humidity in '+str(room)+ ' is higher than recomended '+str(z0[2][2+3*j]))
+                textr='Humidity in '+str(room)+ ' is higher than recomended'
+                props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
                 plt.plot(z0[2][3*j][0],z0[2][3*j][1],'co',label=str(sensor))
+            plt.text(0.1,0.1, textr, transform=ax.transAxes, fontsize=10, verticalalignment='bottom', bbox=props)
+    # Render the figure as an image
+    canvas = FigureCanvasAgg(fig)
+    buf = io.BytesIO()
+    canvas.print_png(buf)
+    buf.seek(0)
 
-    levels = np.linspace(vmin, vmax, 30)
-    plt.colorbar(ticks=levels)
-    plt.show()  
+    # Convert the image to a PIL image
+    img = Image.open(buf)
 
+    return img

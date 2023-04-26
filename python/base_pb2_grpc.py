@@ -186,12 +186,23 @@ class DisruptiveStub(object):
                 request_serializer=base__pb2.DisruptiveMessages.Request.SerializeToString,
                 response_deserializer=base__pb2.DisruptiveMessages.Response.FromString,
                 )
+        self.GetHeatmapImage = channel.unary_unary(
+                '/grpc_base.Disruptive/GetHeatmapImage',
+                request_serializer=base__pb2.DisruptiveMessages.HeatmapRequest.SerializeToString,
+                response_deserializer=base__pb2.ImageMessages.ImageData.FromString,
+                )
 
 
 class DisruptiveServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetTemperatureStream(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetHeatmapImage(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -204,6 +215,11 @@ def add_DisruptiveServicer_to_server(servicer, server):
                     servicer.GetTemperatureStream,
                     request_deserializer=base__pb2.DisruptiveMessages.Request.FromString,
                     response_serializer=base__pb2.DisruptiveMessages.Response.SerializeToString,
+            ),
+            'GetHeatmapImage': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetHeatmapImage,
+                    request_deserializer=base__pb2.DisruptiveMessages.HeatmapRequest.FromString,
+                    response_serializer=base__pb2.ImageMessages.ImageData.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -229,5 +245,22 @@ class Disruptive(object):
         return grpc.experimental.unary_stream(request, target, '/grpc_base.Disruptive/GetTemperatureStream',
             base__pb2.DisruptiveMessages.Request.SerializeToString,
             base__pb2.DisruptiveMessages.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetHeatmapImage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/grpc_base.Disruptive/GetHeatmapImage',
+            base__pb2.DisruptiveMessages.HeatmapRequest.SerializeToString,
+            base__pb2.ImageMessages.ImageData.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

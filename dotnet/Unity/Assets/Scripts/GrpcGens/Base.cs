@@ -43,26 +43,27 @@ namespace GrpcBase {
             "c29sdXRpb24SCAoESE9VUhAAEgcKA0RBWRABEgkKBU1PTlRIEAIiZgoSRGlz",
             "cnVwdGl2ZU1lc3NhZ2VzGgkKB1JlcXVlc3QaHgoIUmVzcG9uc2USEgoKc2Vu",
             "c29yTmFtZRgBIAEoCRolCg5IZWF0bWFwUmVxdWVzdBITCgtmbG9vck51bWJl",
-            "chgBIAEoBSLYAQoSU29sYXJQYW5lbE1lc3NhZ2VzGpsBChBQYW5lbEluZm9S",
+            "chgBIAEoBSKMAgoSU29sYXJQYW5lbE1lc3NhZ2VzGpsBChBQYW5lbEluZm9S",
             "ZXF1ZXN0EhEKCXBhbmVsTmFtZRgBIAEoCRISCgpwYW5lbFdpZHRoGAIgASgC",
             "EhMKC3BhbmVsSGVpZ2h0GAMgASgCEgwKBHRpbHQYBCABKAISDwoHYXppbXV0",
             "aBgFIAEoAhIsCghkYXRldGltZRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
-            "aW1lc3RhbXAaJAoRUGFuZWxJbmZvUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEo",
-            "CDJnCgdOZXRhdG1vElwKB0dldERhdGESKS5ncnBjX2Jhc2UuTmV0YXRtb01l",
-            "c3NhZ2VzLk5ldGF0bW9SZXF1ZXN0GiYuZ3JwY19iYXNlLk5ldGF0bW9NZXNz",
-            "YWdlcy5OZXRhdG1vRGF0YTK3AQoFSW1hZ2USVQoIR2V0SW1hZ2USJS5ncnBj",
-            "X2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZVJlcXVlc3QaIi5ncnBjX2Jhc2Uu",
-            "SW1hZ2VNZXNzYWdlcy5JbWFnZURhdGESVwoOR2V0VGliYmVySW1hZ2USIS5n",
-            "cnBjX2Jhc2UuVGliYmVyTWVzc2FnZXMuUmVxdWVzdBoiLmdycGNfYmFzZS5U",
-            "aWJiZXJNZXNzYWdlcy5SZXNwb25zZTLaAQoKRGlzcnVwdGl2ZRJnChRHZXRU",
-            "ZW1wZXJhdHVyZVN0cmVhbRIlLmdycGNfYmFzZS5EaXNydXB0aXZlTWVzc2Fn",
-            "ZXMuUmVxdWVzdBomLmdycGNfYmFzZS5EaXNydXB0aXZlTWVzc2FnZXMuUmVz",
-            "cG9uc2UwARJjCg9HZXRIZWF0bWFwSW1hZ2USLC5ncnBjX2Jhc2UuRGlzcnVw",
-            "dGl2ZU1lc3NhZ2VzLkhlYXRtYXBSZXF1ZXN0GiIuZ3JwY19iYXNlLkltYWdl",
-            "TWVzc2FnZXMuSW1hZ2VEYXRhMoIBCgpTb2xhclBhbmVsEnQKEUdldFNvbGFy",
-            "UGFuZWxJbmZvEi4uZ3JwY19iYXNlLlNvbGFyUGFuZWxNZXNzYWdlcy5QYW5l",
-            "bEluZm9SZXF1ZXN0Gi8uZ3JwY19iYXNlLlNvbGFyUGFuZWxNZXNzYWdlcy5Q",
-            "YW5lbEluZm9SZXNwb25zZWIGcHJvdG8z"));
+            "aW1lc3RhbXAaWAoRUGFuZWxJbmZvUmVzcG9uc2USFAoMY3VycmVudFBvd2Vy",
+            "GAEgASgCEhkKEWN1cnJlbnRJcnJhZGlhbmNlGAIgASgCEhIKCmVmZmVjaWVu",
+            "Y3kYAyABKAIyZwoHTmV0YXRtbxJcCgdHZXREYXRhEikuZ3JwY19iYXNlLk5l",
+            "dGF0bW9NZXNzYWdlcy5OZXRhdG1vUmVxdWVzdBomLmdycGNfYmFzZS5OZXRh",
+            "dG1vTWVzc2FnZXMuTmV0YXRtb0RhdGEytwEKBUltYWdlElUKCEdldEltYWdl",
+            "EiUuZ3JwY19iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VSZXF1ZXN0GiIuZ3Jw",
+            "Y19iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VEYXRhElcKDkdldFRpYmJlcklt",
+            "YWdlEiEuZ3JwY19iYXNlLlRpYmJlck1lc3NhZ2VzLlJlcXVlc3QaIi5ncnBj",
+            "X2Jhc2UuVGliYmVyTWVzc2FnZXMuUmVzcG9uc2Uy2gEKCkRpc3J1cHRpdmUS",
+            "ZwoUR2V0VGVtcGVyYXR1cmVTdHJlYW0SJS5ncnBjX2Jhc2UuRGlzcnVwdGl2",
+            "ZU1lc3NhZ2VzLlJlcXVlc3QaJi5ncnBjX2Jhc2UuRGlzcnVwdGl2ZU1lc3Nh",
+            "Z2VzLlJlc3BvbnNlMAESYwoPR2V0SGVhdG1hcEltYWdlEiwuZ3JwY19iYXNl",
+            "LkRpc3J1cHRpdmVNZXNzYWdlcy5IZWF0bWFwUmVxdWVzdBoiLmdycGNfYmFz",
+            "ZS5JbWFnZU1lc3NhZ2VzLkltYWdlRGF0YTKGAQoKU29sYXJQYW5lbBJ4ChFH",
+            "ZXRTb2xhclBhbmVsSW5mbxIuLmdycGNfYmFzZS5Tb2xhclBhbmVsTWVzc2Fn",
+            "ZXMuUGFuZWxJbmZvUmVxdWVzdBovLmdycGNfYmFzZS5Tb2xhclBhbmVsTWVz",
+            "c2FnZXMuUGFuZWxJbmZvUmVzcG9uc2UoATABYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -78,7 +79,7 @@ namespace GrpcBase {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.Response), global::GrpcBase.DisruptiveMessages.Types.Response.Parser, new[]{ "SensorName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest), global::GrpcBase.DisruptiveMessages.Types.HeatmapRequest.Parser, new[]{ "FloorNumber" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.SolarPanelMessages), global::GrpcBase.SolarPanelMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest), global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest.Parser, new[]{ "PanelName", "PanelWidth", "PanelHeight", "Tilt", "Azimuth", "Datetime" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse), global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse.Parser, new[]{ "Success" }, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse), global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse.Parser, new[]{ "CurrentPower", "CurrentIrradiance", "Effeciency" }, null, null, null)})
           }));
     }
     #endregion
@@ -2643,7 +2644,9 @@ namespace GrpcBase {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public PanelInfoResponse(PanelInfoResponse other) : this() {
-          success_ = other.success_;
+          currentPower_ = other.currentPower_;
+          currentIrradiance_ = other.currentIrradiance_;
+          effeciency_ = other.effeciency_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -2652,14 +2655,36 @@ namespace GrpcBase {
           return new PanelInfoResponse(this);
         }
 
-        /// <summary>Field number for the "success" field.</summary>
-        public const int SuccessFieldNumber = 1;
-        private bool success_;
+        /// <summary>Field number for the "currentPower" field.</summary>
+        public const int CurrentPowerFieldNumber = 1;
+        private float currentPower_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public bool Success {
-          get { return success_; }
+        public float CurrentPower {
+          get { return currentPower_; }
           set {
-            success_ = value;
+            currentPower_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "currentIrradiance" field.</summary>
+        public const int CurrentIrradianceFieldNumber = 2;
+        private float currentIrradiance_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public float CurrentIrradiance {
+          get { return currentIrradiance_; }
+          set {
+            currentIrradiance_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "effeciency" field.</summary>
+        public const int EffeciencyFieldNumber = 3;
+        private float effeciency_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public float Effeciency {
+          get { return effeciency_; }
+          set {
+            effeciency_ = value;
           }
         }
 
@@ -2676,14 +2701,18 @@ namespace GrpcBase {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if (Success != other.Success) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(CurrentPower, other.CurrentPower)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(CurrentIrradiance, other.CurrentIrradiance)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Effeciency, other.Effeciency)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override int GetHashCode() {
           int hash = 1;
-          if (Success != false) hash ^= Success.GetHashCode();
+          if (CurrentPower != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(CurrentPower);
+          if (CurrentIrradiance != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(CurrentIrradiance);
+          if (Effeciency != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Effeciency);
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -2697,9 +2726,17 @@ namespace GrpcBase {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
-          if (Success != false) {
-            output.WriteRawTag(8);
-            output.WriteBool(Success);
+          if (CurrentPower != 0F) {
+            output.WriteRawTag(13);
+            output.WriteFloat(CurrentPower);
+          }
+          if (CurrentIrradiance != 0F) {
+            output.WriteRawTag(21);
+            output.WriteFloat(CurrentIrradiance);
+          }
+          if (Effeciency != 0F) {
+            output.WriteRawTag(29);
+            output.WriteFloat(Effeciency);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -2709,8 +2746,14 @@ namespace GrpcBase {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
           int size = 0;
-          if (Success != false) {
-            size += 1 + 1;
+          if (CurrentPower != 0F) {
+            size += 1 + 4;
+          }
+          if (CurrentIrradiance != 0F) {
+            size += 1 + 4;
+          }
+          if (Effeciency != 0F) {
+            size += 1 + 4;
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -2723,8 +2766,14 @@ namespace GrpcBase {
           if (other == null) {
             return;
           }
-          if (other.Success != false) {
-            Success = other.Success;
+          if (other.CurrentPower != 0F) {
+            CurrentPower = other.CurrentPower;
+          }
+          if (other.CurrentIrradiance != 0F) {
+            CurrentIrradiance = other.CurrentIrradiance;
+          }
+          if (other.Effeciency != 0F) {
+            Effeciency = other.Effeciency;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -2737,8 +2786,16 @@ namespace GrpcBase {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 8: {
-                Success = input.ReadBool();
+              case 13: {
+                CurrentPower = input.ReadFloat();
+                break;
+              }
+              case 21: {
+                CurrentIrradiance = input.ReadFloat();
+                break;
+              }
+              case 29: {
+                Effeciency = input.ReadFloat();
                 break;
               }
             }

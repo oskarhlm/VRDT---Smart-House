@@ -357,7 +357,7 @@ namespace GrpcBase {
     static readonly grpc::Marshaller<global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse> __Marshaller_grpc_base_SolarPanelMessages_PanelInfoResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest, global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse> __Method_GetSolarPanelInfo = new grpc::Method<global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest, global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse>(
-        grpc::MethodType.Unary,
+        grpc::MethodType.DuplexStreaming,
         __ServiceName,
         "GetSolarPanelInfo",
         __Marshaller_grpc_base_SolarPanelMessages_PanelInfoRequest,
@@ -373,7 +373,7 @@ namespace GrpcBase {
     [grpc::BindServiceMethod(typeof(SolarPanel), "BindService")]
     public abstract partial class SolarPanelBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse> GetSolarPanelInfo(global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetSolarPanelInfo(grpc::IAsyncStreamReader<global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest> requestStream, grpc::IServerStreamWriter<global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -403,21 +403,13 @@ namespace GrpcBase {
       {
       }
 
-      public virtual global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse GetSolarPanelInfo(global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncDuplexStreamingCall<global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest, global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse> GetSolarPanelInfo(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return GetSolarPanelInfo(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetSolarPanelInfo(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse GetSolarPanelInfo(global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncDuplexStreamingCall<global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest, global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse> GetSolarPanelInfo(grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_GetSolarPanelInfo, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse> GetSolarPanelInfoAsync(global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetSolarPanelInfoAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse> GetSolarPanelInfoAsync(global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetSolarPanelInfo, null, options, request);
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_GetSolarPanelInfo, null, options);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override SolarPanelClient NewInstance(ClientBaseConfiguration configuration)
@@ -440,7 +432,7 @@ namespace GrpcBase {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, SolarPanelBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetSolarPanelInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest, global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse>(serviceImpl.GetSolarPanelInfo));
+      serviceBinder.AddMethod(__Method_GetSolarPanelInfo, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::GrpcBase.SolarPanelMessages.Types.PanelInfoRequest, global::GrpcBase.SolarPanelMessages.Types.PanelInfoResponse>(serviceImpl.GetSolarPanelInfo));
     }
 
   }

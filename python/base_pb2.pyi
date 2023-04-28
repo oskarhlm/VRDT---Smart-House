@@ -99,10 +99,14 @@ class SolarPanelMessages(_message.Message):
         tilt: float
         def __init__(self, panelName: _Optional[str] = ..., panelWidth: _Optional[float] = ..., panelHeight: _Optional[float] = ..., tilt: _Optional[float] = ..., azimuth: _Optional[float] = ..., datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
     class PanelInfoResponse(_message.Message):
-        __slots__ = ["success"]
-        SUCCESS_FIELD_NUMBER: _ClassVar[int]
-        success: bool
-        def __init__(self, success: bool = ...) -> None: ...
+        __slots__ = ["currentIrradiance", "currentPower", "effeciency"]
+        CURRENTIRRADIANCE_FIELD_NUMBER: _ClassVar[int]
+        CURRENTPOWER_FIELD_NUMBER: _ClassVar[int]
+        EFFECIENCY_FIELD_NUMBER: _ClassVar[int]
+        currentIrradiance: float
+        currentPower: float
+        effeciency: float
+        def __init__(self, currentPower: _Optional[float] = ..., currentIrradiance: _Optional[float] = ..., effeciency: _Optional[float] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class TibberMessages(_message.Message):

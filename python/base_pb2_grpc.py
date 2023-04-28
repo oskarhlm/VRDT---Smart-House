@@ -275,7 +275,7 @@ class SolarPanelStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetSolarPanelInfo = channel.unary_unary(
+        self.GetSolarPanelInfo = channel.stream_stream(
                 '/grpc_base.SolarPanel/GetSolarPanelInfo',
                 request_serializer=base__pb2.SolarPanelMessages.PanelInfoRequest.SerializeToString,
                 response_deserializer=base__pb2.SolarPanelMessages.PanelInfoResponse.FromString,
@@ -285,7 +285,7 @@ class SolarPanelStub(object):
 class SolarPanelServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def GetSolarPanelInfo(self, request, context):
+    def GetSolarPanelInfo(self, request_iterator, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -294,7 +294,7 @@ class SolarPanelServicer(object):
 
 def add_SolarPanelServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetSolarPanelInfo': grpc.unary_unary_rpc_method_handler(
+            'GetSolarPanelInfo': grpc.stream_stream_rpc_method_handler(
                     servicer.GetSolarPanelInfo,
                     request_deserializer=base__pb2.SolarPanelMessages.PanelInfoRequest.FromString,
                     response_serializer=base__pb2.SolarPanelMessages.PanelInfoResponse.SerializeToString,
@@ -310,7 +310,7 @@ class SolarPanel(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetSolarPanelInfo(request,
+    def GetSolarPanelInfo(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -320,7 +320,7 @@ class SolarPanel(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/grpc_base.SolarPanel/GetSolarPanelInfo',
+        return grpc.experimental.stream_stream(request_iterator, target, '/grpc_base.SolarPanel/GetSolarPanelInfo',
             base__pb2.SolarPanelMessages.PanelInfoRequest.SerializeToString,
             base__pb2.SolarPanelMessages.PanelInfoResponse.FromString,
             options, channel_credentials,

@@ -7,6 +7,7 @@ import numpy as np
 import requests
 from typing import Tuple, List
 from utils import plt_fig_to_pil
+from base_pb2 import SolarPanelMessages as T
 
 now = datetime.datetime.now()
 tz = 'Europe/Oslo'
@@ -14,10 +15,14 @@ lat, lon = 10.5030113, 63.4021589
 adil_house_site = location.Location(lat, lon, tz=tz)
 
 # Rounds the timefrequency to 10 min intervals
-rounded = now - datetime.timedelta(minutes=now.minute % 10,
-                                   seconds=now.second,
-                                   microseconds=now.microsecond)
-time_rounded = rounded.strftime('%H:%M')
+
+
+def rounded_time(time: datetime):
+    rounded = now - datetime.timedelta(minutes=now.minute % 10,
+                                       seconds=now.second,
+                                       microseconds=now.microsecond)
+    time_rounded = rounded.strftime('%H:%M')
+    return time_rounded
 
 
 class SolarPanel():
@@ -51,8 +56,9 @@ class SolarPanel():
 
     def get_current_power_output(self, time=now):
         current_irradiance = self.get_current_irradiance(time)
-        return current_irradiance.at[time_rounded, 'POA'] * \
+        power = current_irradiance.at[rounded_time(time), 'POA'] * \
             self.get_temp_efficiency() * self.panel_size
+        return power
 
 
 class SPRMax400(SolarPanel):
@@ -146,6 +152,26 @@ def power_plot(panels: List[SolarPanel], temp=20, time=now):
     return plt_fig_to_pil(fig)
 
 
-panels = [SPRMax400(25, 180) for _ in range(4)]
-img = power_plot(panels=panels, temp=20, time=now)
-img.show()
+# def get_power_stats(panels: List[SolarPanel], temp=20, time=now) -> T.PanelInfoResponse:
+#     current_total_power = np.sum(
+#         [p.get_current_power_output(time) for p in panels])
+#     avg_irradiance = np.mean([p.get_current_irradiance() for p in panels])
+#     avg_temp_eff = np.mean([p.get_temp_efficiency(temp) for p in panels])
+#     stats = {'current_total_power': current_total_power,
+#              'avg_irradiance': avg_irradiance,
+#              'avg_temp_eff': avg_temp_eff}
+#     return stats
+
+
+def get_power_stats(panel: SolarPanel, temp=20, time=now) -> T.PanelInfoResponse:
+    return T.PanelInfoResponse(currentPower=panel.get_current_power_output(time),
+                               #    currentIrradiance=panel.get_current_irradiance(
+                               #        time),
+                               currentIrradiance=10,
+                               effeciency=panel.get_temp_efficiency(temp))
+
+
+if __name__ == '__main__':
+    panels = [SPRMax400(25, 180) for _ in range(4)]
+    img = power_plot(panels=panels, temp=20, time=now)
+    img.show()

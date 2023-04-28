@@ -23,7 +23,7 @@ service Disruptive {
 }
 
 service SolarPanel {
-    rpc GetSolarPanelInfo(SolarPanelMessages.PanelInfoRequest) returns (SolarPanelMessages.PanelInfoResponse);
+    rpc GetSolarPanelInfo(stream SolarPanelMessages.PanelInfoRequest) returns (stream SolarPanelMessages.PanelInfoResponse);
 }
 
 //
@@ -107,7 +107,9 @@ message SolarPanelMessages {
     }
 
     message PanelInfoResponse {
-        bool success = 1;
+        float currentPower = 1;
+        float currentIrradiance = 2;
+        float effeciency = 3;
     }
 }
 

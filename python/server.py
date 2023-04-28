@@ -5,6 +5,7 @@ from concurrent import futures
 from netatmo import NetatmoServicer
 from image import ImageServicer
 from disruptive_servicer import DisruptiveServicer
+from solarpanel_servicer import SolarPanelServicer
 import asyncio
 
 
@@ -16,6 +17,8 @@ async def serve():
         ImageServicer(), server)
     base_pb2_grpc.add_DisruptiveServicer_to_server(
         DisruptiveServicer(), server)
+    base_pb2_grpc.add_SolarPanelServicer_to_server(
+        SolarPanelServicer(), server)
     server.add_insecure_port('[::]:50051')
     await server.start()
     await server.wait_for_termination()

@@ -54,14 +54,12 @@ public class EdgeSnapping : MonoBehaviour
 
     public void SnapToPlane()
     {
-        Debug.Log(_offset.magnitude);
         if (_offset.magnitude < SnapDistance)
         {
             _rootObject.transform.eulerAngles = TargetCollider.transform.eulerAngles;
             _myClosestPoint = _myCollider.ClosestPoint(TargetCollider.transform.position);
             _targetClosestPoint = TargetCollider.ClosestPoint(_myClosestPoint);
             _offset = _targetClosestPoint - _myClosestPoint;
-            Debug.Log(_offset);
             _rootObject.transform.position += _offset;
         }
     }

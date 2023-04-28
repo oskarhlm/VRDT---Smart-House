@@ -52,13 +52,11 @@ class SolarPanel():
     def get_current_irradiance(self, time=now):
         current_irradiance = get_irradiance(self, time)
         current_irradiance.index = current_irradiance.index.strftime("%H:%M")
-        return current_irradiance
+        return current_irradiance[rounded_time(time), 'POA']
 
     def get_current_power_output(self, time=now):
         current_irradiance = self.get_current_irradiance(time)
-        power = current_irradiance.at[rounded_time(time), 'POA'] * \
-            self.get_temp_efficiency() * self.panel_size
-        return power
+        return current_irradiance * self.get_temp_efficiency() * self.panel_size
 
 
 class SPRMax400(SolarPanel):
@@ -165,9 +163,8 @@ def power_plot(panels: List[SolarPanel], temp=20, time=now):
 
 def get_power_stats(panel: SolarPanel, temp=20, time=now) -> T.PanelInfoResponse:
     return T.PanelInfoResponse(currentPower=panel.get_current_power_output(time),
-                               #    currentIrradiance=panel.get_current_irradiance(
-                               #        time),
-                               currentIrradiance=10,
+                               currentIrradiance=panel.get_current_irradiance(
+                                   time),
                                effeciency=panel.get_temp_efficiency(temp))
 
 

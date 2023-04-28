@@ -28,8 +28,17 @@ class Server:
         await self.server.start()
         await self.server.wait_for_termination()
 
+<<<<<<< HEAD
     async def stop(self):
         self.server.stop(None)
+=======
+    def stop(self):
+        self.server.stop(None)
+
+
+async def stop_server(server):
+    server.stop()
+>>>>>>> 7117d33c5bd6b18baae2066f308b9f4408e8e89c
 
 
 if __name__ == '__main__':
@@ -41,7 +50,11 @@ if __name__ == '__main__':
     # Register the signal handler
     loop = asyncio.get_event_loop()
     loop.add_signal_handler(
+<<<<<<< HEAD
         signal.SIGINT, lambda: asyncio.create_task(server.stop()))
+=======
+        signal.SIGINT, lambda: asyncio.create_task(stop_server(server)))
+>>>>>>> 7117d33c5bd6b18baae2066f308b9f4408e8e89c
 
     # Start the server
     asyncio.run(server.start())

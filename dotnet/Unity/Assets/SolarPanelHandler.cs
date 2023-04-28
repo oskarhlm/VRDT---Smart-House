@@ -24,10 +24,10 @@ public class SolarPanelHandler : Singleton<SolarPanelHandler>
         await GetInfo();
     }
 
-    private async Task GetInfo()
+    private async Task<GrpcBase.SolarPanelMessages.Types.PanelInfoResponse[]> GetInfo()
     {
         var call = _client.GetSolarPanelInfo();
-        foreach (var panel in _solarPanels)
+        var panelInfos = _solarPanels.Select(async panel =>
         {
             var (width, height) = panel.GetWidthAndHeight();
             var (tilt, azimuth) = panel.GetTiltAndAzimuth();
@@ -39,12 +39,16 @@ public class SolarPanelHandler : Singleton<SolarPanelHandler>
                 Tilt = tilt,
                 Azimuth = azimuth,
                 Datetime = new() { Seconds = TimeManager.Instance.Time.Second }
-            }) ;
+            });
 
             await call.ResponseStream.MoveNext();
             GrpcBase.SolarPanelMessages.Types.PanelInfoResponse response = call.ResponseStream.Current;
-            Debug.Log($"Received response: {response}");
-        }
+            return response;
+            //Debug.Log($"Received response: {response}");
+        });
+        var results = await Task.WhenAll(panelInfos);
+        Debug.Log(results);
+        return results;
     }
 
 

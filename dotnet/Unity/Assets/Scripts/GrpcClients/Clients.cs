@@ -9,6 +9,7 @@ namespace GrpcClients
         public readonly Netatmo.NetatmoClient Netatmo;
         public readonly Image.ImageClient Image;
         public readonly Disruptive.DisruptiveClient Disruptive;
+        public readonly GrpcBase.SolarPanel.SolarPanelClient SolarPanel;
         private static Clients _instance = null;
 
         private Clients()
@@ -16,6 +17,7 @@ namespace GrpcClients
             Netatmo = new Netatmo.NetatmoClient(_channel);
             Image = new Image.ImageClient(_channel);
             Disruptive = new Disruptive.DisruptiveClient(_channel);
+            SolarPanel = new GrpcBase.SolarPanel.SolarPanelClient(_channel);
         }
 
         internal static Clients Instance

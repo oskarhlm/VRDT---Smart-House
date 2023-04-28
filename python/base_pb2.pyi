@@ -1,3 +1,4 @@
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -78,6 +79,30 @@ class NetatmoMessages(_message.Message):
         humidity: float
         temperature: float
         def __init__(self, temperature: _Optional[float] = ..., humidity: _Optional[float] = ...) -> None: ...
+    def __init__(self) -> None: ...
+
+class SolarPanelMessages(_message.Message):
+    __slots__ = []
+    class PanelInfoRequest(_message.Message):
+        __slots__ = ["azimuth", "datetime", "panelHeight", "panelName", "panelWidth", "tilt"]
+        AZIMUTH_FIELD_NUMBER: _ClassVar[int]
+        DATETIME_FIELD_NUMBER: _ClassVar[int]
+        PANELHEIGHT_FIELD_NUMBER: _ClassVar[int]
+        PANELNAME_FIELD_NUMBER: _ClassVar[int]
+        PANELWIDTH_FIELD_NUMBER: _ClassVar[int]
+        TILT_FIELD_NUMBER: _ClassVar[int]
+        azimuth: float
+        datetime: _timestamp_pb2.Timestamp
+        panelHeight: float
+        panelName: str
+        panelWidth: float
+        tilt: float
+        def __init__(self, panelName: _Optional[str] = ..., panelWidth: _Optional[float] = ..., panelHeight: _Optional[float] = ..., tilt: _Optional[float] = ..., azimuth: _Optional[float] = ..., datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    class PanelInfoResponse(_message.Message):
+        __slots__ = ["success"]
+        SUCCESS_FIELD_NUMBER: _ClassVar[int]
+        success: bool
+        def __init__(self, success: bool = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class TibberMessages(_message.Message):

@@ -2,7 +2,9 @@ syntax = "proto3";
 
 package grpc_base;
 
-//
+import "google/protobuf/timestamp.proto";
+
+// 
 // Service definitions
 //
 
@@ -18,6 +20,10 @@ service Image {
 service Disruptive {
     rpc GetTemperatureStream(DisruptiveMessages.Request) returns (stream DisruptiveMessages.Response);
     rpc GetHeatmapImage(DisruptiveMessages.HeatmapRequest) returns (ImageMessages.ImageData);
+}
+
+service SolarPanel {
+    rpc GetSolarPanelInfo(SolarPanelMessages.PanelInfoRequest) returns (SolarPanelMessages.PanelInfoResponse);
 }
 
 //
@@ -87,6 +93,21 @@ message DisruptiveMessages {
 
     message HeatmapRequest {
         int32 floorNumber = 1;
+    }
+}
+
+message SolarPanelMessages {
+    message PanelInfoRequest {
+        string panelName = 1;
+        float panelWidth = 2;
+        float panelHeight = 3;
+        float tilt = 4;
+        float azimuth = 5;
+        google.protobuf.Timestamp datetime = 6;
+    }
+
+    message PanelInfoResponse {
+        bool success = 1;
     }
 }
 

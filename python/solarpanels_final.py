@@ -224,6 +224,8 @@ def plot_current_pow(model=SPR_Max3_400, temp=20, num_panels=4, panel_tilt=25, p
     x_labels = ['Power (W)', 'Panel efficiency']
     y_val = [current_approx_power, temp_eff]
 
+    print(current_approx_power)
+
     colors = np.random.rand(5)
 
     fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 4))
@@ -362,7 +364,9 @@ def setup(model=SPR_Max3_400, temp=20, num_panels=4, panel_tilt=25, panel_azimut
 
 
 # display_statistics()
-# plot_irradiance(model=SPR_Max3_400, temp=20, num_panels=4, panel_tilt=25, panel_azimuth=180, time=now)
-# plot_irr_vs_pow(model=SPR_Max3_400, temp=20, num_panels=4, panel_tilt=25, panel_azimuth=180, time=now)
+plot_irradiance(model=SPR_Max3_400, temp=20, num_panels=4,
+                panel_tilt=25, panel_azimuth=180, time=now)
+plot_irr_vs_pow(model=SPR_Max3_400, temp=20, num_panels=4,
+                panel_tilt=25, panel_azimuth=180, time=now)
 plot_current_pow(model=SPR_Max3_400, temp=20, num_panels=4,
                  panel_tilt=25, panel_azimuth=180, time=now)

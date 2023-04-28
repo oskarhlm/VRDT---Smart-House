@@ -113,19 +113,10 @@ def get_irradiance(panel: SolarPanel, time: datetime):
                          'POA': POA_irradiance['poa_global']})
 
 
-def approximated_outp(model: SolarPanel, temp=20, time=now):
-    current_irradiance = model.get_current_irradiance()
-    temp_eff = model.get_temp_efficiency(temp)
-    current_power_outp = current_irradiance.at[time_rounded,
-                                               'POA'] * temp_eff * (model['panel_size'])
-    daily_power_outp = current_irradiance['POA'] * \
-        temp_eff * (model['panel_size'])
-    return current_power_outp, daily_power_outp, current_irradiance, temp_eff
-
-
 def power_plot(panels: List[SolarPanel], temp=20, time=now):
     current_total_power = np.sum(
         [p.get_current_power_output(time) for p in panels])
+    print(current_total_power)
     avg_temp_eff = np.mean([p.get_temp_efficiency(temp) for p in panels])
     x_labels = ['Total power generated (W)', 'Avg. panel efficiency']
     y_val = [current_total_power, avg_temp_eff]

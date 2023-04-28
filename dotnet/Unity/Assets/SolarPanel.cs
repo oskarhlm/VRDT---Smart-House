@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class SolarPanel : MonoBehaviour
 {
-    public void SetSnapPlane(GameObject gameObject)
+    public void SetSnapPlane(BoxCollider collider)
     {
         var panelComponentTransform = transform.Find("Panel_50");
-        if (panelComponentTransform is null)
-        {
-            Debug.LogError("Could not find panel component");
-            return;
-        }
-        var snapPlane = panelComponentTransform.Find("SnapPlane").gameObject;
+        var snapPlane = panelComponentTransform.GetComponentInChildren<EdgeSnapping>();
+
+        snapPlane.TargetCollider = collider;
+    }
+
+    public (float width, float length) GetWidthAndHeight()
+    {
+        Renderer renderer = gameObject.GetComponentInChildren<Renderer>();
+        Bounds bounds = renderer.bounds;
+
+        float width = bounds.size.x;
+        float length = bounds.size.z;
         
-        //var roofCollider 
-        //snapPlane.GetComponent<EdgeSnapping>().TargetCollider;
+        return (width, length);
     }
 }

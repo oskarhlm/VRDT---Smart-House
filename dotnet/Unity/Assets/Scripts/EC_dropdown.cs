@@ -3,20 +3,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GrpcBase.TibberMessages.Types;
 
 
 public class EC_dropdown : MonoBehaviour
 {
-    public TibberMessages.Types.TimeResolution dd_output;
-    // Start is called before the first frame update
+    public TimeResolution dd_output;
+
     public void HandleInputDD(int val)
     {
-        Debug.Log(val);
-        dd_output = (TibberMessages.Types.TimeResolution) Enum.Parse(typeof(TibberMessages.Types.TimeResolution), val.ToString());
-        Debug.Log(val);
+        dd_output = (TimeResolution) Enum.Parse(typeof(TimeResolution), val.ToString());
     }
 
-    public TibberMessages.Types.TimeResolution GetDDVal(){
+    public TimeResolution GetDDVal()
+    {
         return dd_output;
     }
 }

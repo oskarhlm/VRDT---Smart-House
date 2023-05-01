@@ -1,13 +1,12 @@
 using GrpcBase;
 using GrpcClients;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using static GrpcBase.ImageMessages.Types;
+using static GrpcBase.TibberMessages.Types;
 
 public class ButtonHandler : MonoBehaviour
 {
-    private GrpcBase.Image.ImageClient _imageClient = Clients.Instance.Image;
+    private Image.ImageClient _imageClient = Clients.Instance.Image;
 
     public void GetImage()
     {
@@ -19,8 +18,6 @@ public class ButtonHandler : MonoBehaviour
 
         var imageData = _imageClient.GetTibberImage(new()
         {
-            //TimeResolution = TibberMessages.Types.TimeResolution.Day,
-            //TimeUnits = 2
             TimeResolution = timeResolution,
             TimeUnits = timeUnits
         }).Image;
@@ -30,7 +27,7 @@ public class ButtonHandler : MonoBehaviour
         transform.parent.Find("Image").GetComponent<UnityEngine.UI.Image>().sprite = imageSprite;
     }
 
-    private Texture2D ConvertToTexture2D(ImageMessages.Types.ImageData imageData)
+    private Texture2D ConvertToTexture2D(ImageData imageData)
     {
         var texture = new Texture2D(imageData.Width, imageData.Height);
         var byteArray = imageData.Data.ToByteArray();

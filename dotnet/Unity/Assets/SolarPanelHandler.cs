@@ -31,7 +31,7 @@ public class SolarPanelHandler : Singleton<SolarPanelHandler>
         _solarPanels.Add(panel);
     }
 
-    private async Task GetInfo()
+    public async Task<Collection<PanelInfoResponse>> GetInfo()
     {
         var call = _client.GetSolarPanelInfo();
         var panelInfos = new Collection<PanelInfoResponse>();
@@ -43,5 +43,6 @@ public class SolarPanelHandler : Singleton<SolarPanelHandler>
         var totalPower = panelInfos.Sum(p => p.CurrentPower);
         Debug.Log(totalPower);
         call.Dispose();
+        return panelInfos;
     }
 }

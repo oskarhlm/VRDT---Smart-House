@@ -19,8 +19,6 @@ public class SpawnSolarPanel: MonoBehaviour
             mainCamera = cameraOffset.GetComponentInChildren<Camera>();
         else 
             mainCamera = GetComponentInChildren<Camera>();
-
-        Debug.Log(mainCamera);
     }
 
     private void Update()

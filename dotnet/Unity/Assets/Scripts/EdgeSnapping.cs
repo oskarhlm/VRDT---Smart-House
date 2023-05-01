@@ -2,6 +2,7 @@ using Assets.Scripts.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -62,5 +63,6 @@ public class EdgeSnapping : MonoBehaviour
             _offset = _targetClosestPoint - _myClosestPoint;
             _rootObject.transform.position += _offset;
         }
+        SolarPanelHandler.Instance.OnSolarPanelPlaced.Invoke();
     }
 }

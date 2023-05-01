@@ -1,19 +1,15 @@
-using GrpcClients;
-using System.Collections;
+using Grpc.Core;
+using System.Threading.Tasks;
 using UnityEngine;
+using static GrpcBase.SolarPanelMessages.Types;
+
 
 public class SolarPanel : MonoBehaviour
 {
     [SerializeField] private int infoFetchFrequencyInSeconds = 5;
     [SerializeField] private bool shouldFetch = true;
 
-    private GrpcBase.SolarPanel.SolarPanelClient _client = Clients.Instance.SolarPanel;
     private Transform _panelMesh { get { return transform.Find("Panel_50"); } }
-
-    private void Start()
-    {
-        //StartCoroutine(FetchInfoWithFrequency());
-    }
 
     public void SetSnapPlane(BoxCollider collider)
     {
@@ -37,28 +33,22 @@ public class SolarPanel : MonoBehaviour
         return (_panelMesh.eulerAngles.y, _panelMesh.eulerAngles.z);
     }
 
-    //private IEnumerator FetchInfoWithFrequency()
-    //{
-    //    while (shouldFetch)
-    //    {
-    //        var info = GetInfo();
-    //        Debug.Log(info);
-    //        yield return new WaitForSeconds(infoFetchFrequencyInSeconds);
-    //    }
-    //}
-
-
-    //private GrpcBase.SolarPanelMessages.Types.PanelInfoResponse GetInfo()
-    //{
-    //    var (width, height) = GetWidthAndHeight();
-    //    return _client.GetSolarPanelInfo(new()
-    //    {
-    //        PanelName = "SPR",
-    //        PanelWidth = width,
-    //        PanelHeight = height,
-    //        Tilt = _panelMesh.eulerAngles.y,
-    //        Azimuth = _panelMesh.eulerAngles.z,
-    //        Datetime = new() { Seconds = TimeManager.Instance.Date.Second }
-    //    });
-    //}
+    public async Task<PanelInfoResponse> GetInfo(AsyncDuplexStreamingCall<PanelInfoRequest, PanelInfoResponse> call)
+    {
+        var (width, height) = GetWidthAndHeight();
+        var (tilt, azimuth) = GetTiltAndAzimuth();
+        await call.RequestStream.WriteAsync(new()
+        {
+            PanelName = "SPR",
+            PanelWidth = width,
+            PanelHeight = height,
+            Tilt = tilt,
+            Azimuth = azimuth,
+            Datetime = new() { Seconds = TimeManager.Instance.Time.Second }
+        });
+        await call.ResponseStream.MoveNext();
+        var response = call.ResponseStream.Current;
+        //Debug.Log($"Received response: {response}");
+        return response;
+    }
 }

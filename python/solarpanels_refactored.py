@@ -14,10 +14,9 @@ tz = 'Europe/Oslo'
 lat, lon = 10.5030113, 63.4021589
 adil_house_site = location.Location(lat, lon, tz=tz)
 
-# Rounds the timefrequency to 10 min intervals
-
 
 def rounded_time(time: datetime):
+    """Rounds the timefrequency to 10 min intervals"""
     rounded = now - datetime.timedelta(minutes=now.minute % 10,
                                        seconds=now.second,
                                        microseconds=now.microsecond)
@@ -52,7 +51,7 @@ class SolarPanel():
     def get_current_irradiance(self, time=now):
         current_irradiance = get_irradiance(self, time)
         current_irradiance.index = current_irradiance.index.strftime("%H:%M")
-        return current_irradiance[rounded_time(time), 'POA']
+        return current_irradiance.at[rounded_time(time), 'POA']
 
     def get_current_power_output(self, time=now):
         current_irradiance = self.get_current_irradiance(time)

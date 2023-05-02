@@ -102,6 +102,7 @@ LivingRoom = SF_up, SF_right, 0, 0, Office
 
 Fireplace = Fireplace_, Fireplace_, 0, 0
 
+Out=(4,6),(8.1,8.6),0,0
 
 def Square_room(room):
     return room[0][room[2]], room[1][room[3]], room[0][room[2]+1], room[1][room[3]+1]
@@ -146,20 +147,16 @@ Sensor_Values['0BGuestDoor']['room'] = ['GF_Room', 'Ungdomsavdeling']
 
 # Coords
 Sensor_Values["1Entrance1"]['coords'] = [FF_up[1]+a_l, FF_left[3]-a_l]
-Sensor_Values["1Stair bottom"]['coords'] = [
-    GF_down[1]/2+a_l, (GF_left[2]-GF_left[1])/2+GF_left[1]+2*a_l]
+Sensor_Values["1Stair bottom"]['coords'] = [GF_down[1]/2+a_l, (GF_left[2]-GF_left[1])/2+GF_left[1]+2*a_l]
 Sensor_Values["1Entrance2"]['coords'] = [FF_down[1]-2*a_l, FF_left[1]+a_l]
 Sensor_Values["1GuestRoom"]['coords'] = [a_l, FF_left[1]/2]
 Sensor_Values["1MainRoom"]['coords'] = [FF_down[2]-a_l, FF_right[1]/2]
 
-Sensor_Values["1MainBRHum"]['coords'] = [
-    FF_down[1]+(FF_down[2]-FF_down[1])/2-a_l, FF_right[1]-a_l]
+Sensor_Values["1MainBRHum"]['coords'] = [FF_down[1]+(FF_down[2]-FF_down[1])/2-a_l, FF_right[1]-a_l]
 
-Sensor_Values["1MainDoor"]['coords'] = [FF_up[1]+a_l, FF_left[3]-a_l]
-Sensor_Values["1BathRoomWatet"]['coords'] = [
-    GF_down[1]/2+a_l, (GF_left[2]-GF_left[1])/2+GF_left[1]+2*a_l]
-Sensor_Values["1OutdoorEntrance"]['coords'] = [
-    FF_down[1]-2*a_l, FF_left[1]+a_l]
+Sensor_Values["1MainDoor"]['coords'] = [FF_up[1]+2*a_l, FF_left[3]]
+Sensor_Values["1BathRoomWatet"]['coords']=  [3*a_l,GF_left[2]+a_l]
+Sensor_Values["1OutdoorEntrance"]['coords'] = [FF_down[1]-2*a_l, FF_left[3]+2*a_l]
 
 
 # Room
@@ -175,24 +172,20 @@ Sensor_Values["1MainBRHum"]['room'] = ['MainBedRoom']
 Sensor_Values["1OutdoorEntrance"]['room'] = ['Out']
 
 Sensor_Values["1MainDoor"]['room'] = ['Out', 'Entre']
-Sensor_Values["1BathRoomWatet"]['room'] = ['FF_Bad']  # Yes Watet
+Sensor_Values["1BathRoomWatet"]['room'] = ['FF_Bath']  # Yes Watet
 
 
 # SF
 Sensor_Values["2OfficeDesk"]['coords'] = [5*a_l, SF_left[2]-2*a_l]
-Sensor_Values["2Stair"]['coords'] = [SF_up[1]/2+3 *
-                                     a_l, (SF_left[2]-SF_left[1])/2+SF_left[1]+2*a_l]
-Sensor_Values["2LivingRoomCenter"]['coords'] = [
-    SF_down[1]/2+a_l, SF_right[1]/2]
+Sensor_Values["2Stair"]['coords'] = [SF_up[1]/2+3 * a_l, (SF_left[2]-SF_left[1])/2+SF_left[1]+2*a_l]
+Sensor_Values["2LivingRoomCenter"]['coords'] = [SF_down[1]/2+a_l, SF_right[1]/2]
 Sensor_Values["2LRWindow"]['coords'] = [SF_down[1]/2+2*a_l, 2*a_l]
 Sensor_Values["2Cooking"]['coords'] = [a_l, SF_left[1]/2-2*a_l]
 Sensor_Values["2Fireplace"]['coords'] = [SF_down[1]/2+a_l, SF_left[1]+a_l]
 Sensor_Values["2BalconyEntrance"]['coords'] = [SF_up[1]+5*a_l, SF_right[1]]
-Sensor_Values["2LivingRoomHumidifier"]['coords'] = [
-    SF_down[1]/2+a_l, SF_left[1]-2*a_l]
+Sensor_Values["2LivingRoomHumidifier"]['coords'] = [SF_down[1]/2+a_l, SF_left[1]-2*a_l]
 
-Sensor_Values["2LivingRoomCenterHumidity"]['coords'] = [
-    SF_down[1]-a_l, SF_right[1]/2-4*a_l]
+Sensor_Values["2LivingRoomCenterHumidity"]['coords'] = [SF_down[1]-a_l, SF_right[1]/2-4*a_l]
 Sensor_Values["KitchenSinkWater"]['coords'] = [10*a_l, 2*a_l]
 Sensor_Values["2FirePlaceDoor"]['coords'] = [SF_down[1]/2, SF_left[1]-5*a_l]
 Sensor_Values["2OfficeDoor"]['coords'] = [SF_up[1]-3*a_l, SF_left[1]]
@@ -267,6 +260,7 @@ room_coords = {'GF_Room': GF_Room,
                'Office': Office,
                'LivingRoom': LivingRoom,
                'Fireplace': Fireplace
+            #    'Out':Out
                }
 
 FF = GuestRoom, MainBedRoom, FF_Soveroom, FF_Bath, Entre
@@ -388,7 +382,7 @@ def heatmap(nr):
         2: ['GuestRoom', 'MainBedRoom', 'FF_Soverom', 'FF_Bath', 'Entre'],
         3: ['Office', 'LivingRoom', 'Fireplace']
     }
-    fig = plt.figure()
+    fig = plt.figure(1)
     ax = fig.add_subplot(111)  # Add a new subplot to the figure
     for room in Floor[nr]:
         if len(room_coords[room]) < 5:
@@ -399,7 +393,7 @@ def heatmap(nr):
         y_coords = a[1], a[1], a[3], a[3], a[1]
         plt.figure(1)
         plt.plot(x_coords, y_coords, label=room)
-        try:
+        if room in room_sensors:
             S_V = room_sensors[room]
             for sensor in S_V:
                 sensor_coord = Sensor_Values[sensor]['coords']
@@ -408,13 +402,20 @@ def heatmap(nr):
                 if Sensor_Values[sensor]['Type'] == 'temperature':
                     plt.plot(x, y, 'ro')
                 elif Sensor_Values[sensor]['Type'] == 'proximity':
-                    plt.plot(x, y, 'go')
+                    if Sensor_Values[sensor]['Value']=='PRESENT':
+                        label=str(sensor)+' open'
+                    else:
+                        label=None
+                    plt.plot(x, y, 'bo',label=label)
                 elif Sensor_Values[sensor]['Type'] == 'humidity':
-                    plt.plot(x, y, 'co')
+                    plt.plot(x, y, 'go')
                 elif Sensor_Values[sensor]['Type'] == 'waterDetector':
-                    plt.plot(x, y, 'bo')
-        except:
-            None
+                    if Sensor_Values[sensor]['Value']=='PRESENT':
+                        label='Water Detected at' +str(sensor)
+                    else:
+                        label=None
+                    plt.plot(x, y, 'co',label=label)
+            plt.legend()
         vmin = 10
         vmax = 30
         grid = room_grid(room)
@@ -450,7 +451,3 @@ def heatmap(nr):
     img = plt_fig_to_pil(fig)
     plt.show()
     return img
-
-heatmap(2)
-heatmap(1)
-heatmap(3)

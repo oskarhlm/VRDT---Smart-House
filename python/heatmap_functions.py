@@ -260,7 +260,7 @@ room_coords = {'GF_Room': GF_Room,
                'Ungdomsavdeling': Ungdomsavdeling,
                'Stairs': Stair,
                'GuestRoom': GuestRoom,
-               'MainRoom': MainBedRoom,
+               'MainBedRoom': MainBedRoom,
                'FF_Soverom': FF_Soveroom,
                'FF_Bath': FF_Bath,
                'Entre': Entre,
@@ -274,7 +274,7 @@ GF = GF_Room, GF_Bod, GF_Bath, Ungdomsavdeling, Stair
 SF = Office, LivingRoom, Fireplace
 
 Floor = {1: ['GF_Room', 'GF_Bod', 'GF_Bath', 'Ungdomsavdeling', 'Stairs'],
-         2: ['GuestRoom', 'MainRoom', 'FF_Soverom', 'FF_Bath', 'Entre'],
+         2: ['GuestRoom', 'MainBedRoom', 'FF_Soverom', 'FF_Bath', 'Entre'],
          3: ['Office', 'LivingRoom', 'Fireplace']
          }
 
@@ -314,9 +314,9 @@ def interpolate(room, I, J):
     sensor_door = []
     sensor_value_water = []
     sensor_waterDetector = []
-    max_humidity = 30
+    max_humidity = 40
     if room not in room_sensors:
-        return [1,], [], []
+        return [], [], []
     sensor_in_room = room_sensors[room]
     for sensor in sensor_in_room:
         if Sensor_Values[sensor]['Type'] == 'temperature':
@@ -350,42 +350,42 @@ def interpolate(room, I, J):
             if Sensor_Values[sensor]['Type'] == 'present':
                 sensor_waterDetector.append(Sensor_Values[sensor]['coords'])
 
-    if len(sensor_value_temp) == 1:
-        interpolated_temp = np.ones_like(
-            room_grid(room)[1])*sensor_value_temp[0]
-    elif len(sensor_value_temp) == 0:
-        interpolated_temp = [1]
-    else:
-        interpolated_temp_near = griddata(
-            sensor_coord, sensor_value_temp, room_grid(room)[0], method='nearest')
-        if len(sensor_value_temp) < 3:
-            return interpolated_temp_near, sensor_waterDetector, sensor_value_water
-        x = [coord[0] for coord in sensor_coord]
-        y = [coord[1] for coord in sensor_coord]
-        interpolated_temp = griddata(sensor_coord, sensor_value_temp, room_grid(room)[
-                                     0], method='linear', fill_value=0)
-        try:
-            rbfi = Rbf(x, y, sensor_value_temp)
-            interpolated_temp_rbf = rbfi(
-                room_grid(room)[1], room_grid(room)[2])
-            interpolated_temp_rbf = np.reshape(interpolated_temp_rbf, N*N,)
-        except:
-            interpolated_temp_rbf = interpolated_temp_near
-        for i in range(len(interpolated_temp)):
-            if interpolated_temp[i] == 0:
-                interpolated_temp[i] = interpolated_temp_rbf[i]
-        try:
+    x=[coord[0] for coord in sensor_coord]
+    y=[coord[1] for coord in sensor_coord]
+    interpolated_temp=idw(x,y,sensor_value_temp, room_grid(room)[1],room_grid(room)[2])
+    if len(room_coords[room])>4:
             for k in range(len(I)):
-                interpolated_temp[I[k]+J[k]*N] = None
-        except:
-            None
+                interpolated_temp[J[k],I[k]]=None
+
     return interpolated_temp, sensor_waterDetector, sensor_value_water
+
+def idw(x,y,v,xi,yi,p=2):
+
+    v=np.array(v)
+    interp2=weights_list=np.zeros((N,N))
+    if len(x)>0:
+        for i in range(len(x)):
+            dist = np.sqrt((x[i]-xi)**2 + (y[i]-yi)**2)
+
+            weights=1/dist**p
+
+            weights/=np.sum(weights)
+
+            weights_list=np.add(weights,weights_list)
+    
+
+            interp2=np.add(weights*v[i],interp2)
+    else:
+        return interp2
+
+    interp=interp2/weights_list
+    return interp
 
 
 def heatmap(nr):
     Floor = {
         1: ['GF_Room', 'GF_Bod', 'GF_Bath', 'Ungdomsavdeling', 'Stairs'],
-        2: ['GuestRoom', 'MainRoom', 'FF_Soverom', 'FF_Bath', 'Entre'],
+        2: ['GuestRoom', 'MainBedRoom', 'FF_Soverom', 'FF_Bath', 'Entre'],
         3: ['Office', 'LivingRoom', 'Fireplace']
     }
     fig = plt.figure()
@@ -423,12 +423,10 @@ def heatmap(nr):
         plt.title('Floor '+str(nr-1))
         z0 = interpolate(room, grid[3], grid[4])
         z = z0[0]
-        if np.shape(z) == (1,):
-            z_2d = np.ones_like(xi)
+        if np.sum(z)<5:
+            None
         else:
-            z_2d = np.reshape(z, (xi.shape))
-
-        plt.pcolormesh(xi, yi, z_2d, shading='auto', vmin=vmin,
+            plt.pcolormesh(xi, yi, z, shading='auto', vmin=vmin,
                        vmax=vmax, cmap='jet', alpha=0.5)
         if len(z0[1]) == 0:
             None
@@ -450,4 +448,9 @@ def heatmap(nr):
     plt.colorbar(ticks=levels)
 
     img = plt_fig_to_pil(fig)
+    plt.show()
     return img
+
+heatmap(2)
+heatmap(1)
+heatmap(3)

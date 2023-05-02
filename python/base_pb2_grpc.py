@@ -97,6 +97,11 @@ class ImageStub(object):
                 request_serializer=base__pb2.TibberMessages.Request.SerializeToString,
                 response_deserializer=base__pb2.TibberMessages.Response.FromString,
                 )
+        self.GetKongefamilieImage = channel.unary_stream(
+                '/grpc_base.Image/GetKongefamilieImage',
+                request_serializer=base__pb2.ImageMessages.KongefamilieRequest.SerializeToString,
+                response_deserializer=base__pb2.ImageMessages.ImageData.FromString,
+                )
 
 
 class ImageServicer(object):
@@ -114,6 +119,12 @@ class ImageServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetKongefamilieImage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ImageServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -126,6 +137,11 @@ def add_ImageServicer_to_server(servicer, server):
                     servicer.GetTibberImage,
                     request_deserializer=base__pb2.TibberMessages.Request.FromString,
                     response_serializer=base__pb2.TibberMessages.Response.SerializeToString,
+            ),
+            'GetKongefamilieImage': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetKongefamilieImage,
+                    request_deserializer=base__pb2.ImageMessages.KongefamilieRequest.FromString,
+                    response_serializer=base__pb2.ImageMessages.ImageData.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -168,6 +184,23 @@ class Image(object):
         return grpc.experimental.unary_unary(request, target, '/grpc_base.Image/GetTibberImage',
             base__pb2.TibberMessages.Request.SerializeToString,
             base__pb2.TibberMessages.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetKongefamilieImage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/grpc_base.Image/GetKongefamilieImage',
+            base__pb2.ImageMessages.KongefamilieRequest.SerializeToString,
+            base__pb2.ImageMessages.ImageData.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

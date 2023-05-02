@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpawnSolarPanel: MonoBehaviour
 {
     [SerializeField] private GameObject _solarPanelToSpawn; 
-    [SerializeField] private float _spawnDistance = 200f; // distance to spawn in front of the camera
+    [SerializeField] private float _spawnDistance = 100f; // distance to spawn in front of the camera
 
     private Camera mainCamera;
 

@@ -102,7 +102,8 @@ LivingRoom = SF_up, SF_right, 0, 0, Office
 
 Fireplace = Fireplace_, Fireplace_, 0, 0
 
-Out=(4,6),(8.1,8.6),0,0
+Out = (4, 6), (8.1, 8.6), 0, 0
+
 
 def Square_room(room):
     return room[0][room[2]], room[1][room[3]], room[0][room[2]+1], room[1][room[3]+1]
@@ -147,16 +148,19 @@ Sensor_Values['0BGuestDoor']['room'] = ['GF_Room', 'Ungdomsavdeling']
 
 # Coords
 Sensor_Values["1Entrance1"]['coords'] = [FF_up[1]+a_l, FF_left[3]-a_l]
-Sensor_Values["1Stair bottom"]['coords'] = [GF_down[1]/2+a_l, (GF_left[2]-GF_left[1])/2+GF_left[1]+2*a_l]
+Sensor_Values["1Stair bottom"]['coords'] = [
+    GF_down[1]/2+a_l, (GF_left[2]-GF_left[1])/2+GF_left[1]+2*a_l]
 Sensor_Values["1Entrance2"]['coords'] = [FF_down[1]-2*a_l, FF_left[1]+a_l]
 Sensor_Values["1GuestRoom"]['coords'] = [a_l, FF_left[1]/2]
 Sensor_Values["1MainRoom"]['coords'] = [FF_down[2]-a_l, FF_right[1]/2]
 
-Sensor_Values["1MainBRHum"]['coords'] = [FF_down[1]+(FF_down[2]-FF_down[1])/2-a_l, FF_right[1]-a_l]
+Sensor_Values["1MainBRHum"]['coords'] = [
+    FF_down[1]+(FF_down[2]-FF_down[1])/2-a_l, FF_right[1]-a_l]
 
 Sensor_Values["1MainDoor"]['coords'] = [FF_up[1]+2*a_l, FF_left[3]]
-Sensor_Values["1BathRoomWatet"]['coords']=  [3*a_l,GF_left[2]+a_l]
-Sensor_Values["1OutdoorEntrance"]['coords'] = [FF_down[1]-2*a_l, FF_left[3]+2*a_l]
+Sensor_Values["1BathRoomWatet"]['coords'] = [3*a_l, GF_left[2]+a_l]
+Sensor_Values["1OutdoorEntrance"]['coords'] = [
+    FF_down[1]-2*a_l, FF_left[3]+2*a_l]
 
 
 # Room
@@ -177,15 +181,19 @@ Sensor_Values["1BathRoomWatet"]['room'] = ['FF_Bath']  # Yes Watet
 
 # SF
 Sensor_Values["2OfficeDesk"]['coords'] = [5*a_l, SF_left[2]-2*a_l]
-Sensor_Values["2Stair"]['coords'] = [SF_up[1]/2+3 * a_l, (SF_left[2]-SF_left[1])/2+SF_left[1]+2*a_l]
-Sensor_Values["2LivingRoomCenter"]['coords'] = [SF_down[1]/2+a_l, SF_right[1]/2]
+Sensor_Values["2Stair"]['coords'] = [SF_up[1]/2+3 *
+                                     a_l, (SF_left[2]-SF_left[1])/2+SF_left[1]+2*a_l]
+Sensor_Values["2LivingRoomCenter"]['coords'] = [
+    SF_down[1]/2+a_l, SF_right[1]/2]
 Sensor_Values["2LRWindow"]['coords'] = [SF_down[1]/2+2*a_l, 2*a_l]
 Sensor_Values["2Cooking"]['coords'] = [a_l, SF_left[1]/2-2*a_l]
 Sensor_Values["2Fireplace"]['coords'] = [SF_down[1]/2+a_l, SF_left[1]+a_l]
 Sensor_Values["2BalconyEntrance"]['coords'] = [SF_up[1]+5*a_l, SF_right[1]]
-Sensor_Values["2LivingRoomHumidifier"]['coords'] = [SF_down[1]/2+a_l, SF_left[1]-2*a_l]
+Sensor_Values["2LivingRoomHumidifier"]['coords'] = [
+    SF_down[1]/2+a_l, SF_left[1]-2*a_l]
 
-Sensor_Values["2LivingRoomCenterHumidity"]['coords'] = [SF_down[1]-a_l, SF_right[1]/2-4*a_l]
+Sensor_Values["2LivingRoomCenterHumidity"]['coords'] = [
+    SF_down[1]-a_l, SF_right[1]/2-4*a_l]
 Sensor_Values["KitchenSinkWater"]['coords'] = [10*a_l, 2*a_l]
 Sensor_Values["2FirePlaceDoor"]['coords'] = [SF_down[1]/2, SF_left[1]-5*a_l]
 Sensor_Values["2OfficeDoor"]['coords'] = [SF_up[1]-3*a_l, SF_left[1]]
@@ -260,7 +268,7 @@ room_coords = {'GF_Room': GF_Room,
                'Office': Office,
                'LivingRoom': LivingRoom,
                'Fireplace': Fireplace
-            #    'Out':Out
+               #    'Out':Out
                }
 
 FF = GuestRoom, MainBedRoom, FF_Soveroom, FF_Bath, Entre
@@ -344,35 +352,36 @@ def interpolate(room, I, J):
             if Sensor_Values[sensor]['Type'] == 'present':
                 sensor_waterDetector.append(Sensor_Values[sensor]['coords'])
 
-    x=[coord[0] for coord in sensor_coord]
-    y=[coord[1] for coord in sensor_coord]
-    interpolated_temp=idw(x,y,sensor_value_temp, room_grid(room)[1],room_grid(room)[2])
-    if len(room_coords[room])>4:
-            for k in range(len(I)):
-                interpolated_temp[J[k],I[k]]=None
+    x = [coord[0] for coord in sensor_coord]
+    y = [coord[1] for coord in sensor_coord]
+    interpolated_temp = idw(x, y, sensor_value_temp,
+                            room_grid(room)[1], room_grid(room)[2])
+    if len(room_coords[room]) > 4:
+        for k in range(len(I)):
+            interpolated_temp[J[k], I[k]] = None
 
     return interpolated_temp, sensor_waterDetector, sensor_value_water
 
-def idw(x,y,v,xi,yi,p=2):
 
-    v=np.array(v)
-    interp2=weights_list=np.zeros((N,N))
-    if len(x)>0:
+def idw(x, y, v, xi, yi, p=2):
+
+    v = np.array(v)
+    interp2 = weights_list = np.zeros((N, N))
+    if len(x) > 0:
         for i in range(len(x)):
             dist = np.sqrt((x[i]-xi)**2 + (y[i]-yi)**2)
 
-            weights=1/dist**p
+            weights = 1/dist**p
 
-            weights/=np.sum(weights)
+            weights /= np.sum(weights)
 
-            weights_list=np.add(weights,weights_list)
-    
+            weights_list = np.add(weights, weights_list)
 
-            interp2=np.add(weights*v[i],interp2)
+            interp2 = np.add(weights*v[i], interp2)
     else:
         return interp2
 
-    interp=interp2/weights_list
+    interp = interp2/weights_list
     return interp
 
 
@@ -402,19 +411,19 @@ def heatmap(nr):
                 if Sensor_Values[sensor]['Type'] == 'temperature':
                     plt.plot(x, y, 'ro')
                 elif Sensor_Values[sensor]['Type'] == 'proximity':
-                    if Sensor_Values[sensor]['Value']=='PRESENT':
-                        label=str(sensor)+' open'
+                    if Sensor_Values[sensor]['Value'] == 'PRESENT':
+                        label = str(sensor)+' open'
                     else:
-                        label=None
-                    plt.plot(x, y, 'bo',label=label)
+                        label = None
+                    plt.plot(x, y, 'bo', label=label)
                 elif Sensor_Values[sensor]['Type'] == 'humidity':
                     plt.plot(x, y, 'go')
                 elif Sensor_Values[sensor]['Type'] == 'waterDetector':
-                    if Sensor_Values[sensor]['Value']=='PRESENT':
-                        label='Water Detected at' +str(sensor)
+                    if Sensor_Values[sensor]['Value'] == 'PRESENT':
+                        label = 'Water Detected at' + str(sensor)
                     else:
-                        label=None
-                    plt.plot(x, y, 'co',label=label)
+                        label = None
+                    plt.plot(x, y, 'co', label=label)
             plt.legend()
         vmin = 10
         vmax = 30
@@ -424,11 +433,11 @@ def heatmap(nr):
         plt.title('Floor '+str(nr-1))
         z0 = interpolate(room, grid[3], grid[4])
         z = z0[0]
-        if np.sum(z)<5:
+        if np.sum(z) < 5:
             None
         else:
             plt.pcolormesh(xi, yi, z, shading='auto', vmin=vmin,
-                       vmax=vmax, cmap='jet', alpha=0.5)
+                           vmax=vmax, cmap='jet', alpha=0.5)
         if len(z0[1]) == 0:
             None
         else:
@@ -449,5 +458,4 @@ def heatmap(nr):
     plt.colorbar(ticks=levels)
 
     img = plt_fig_to_pil(fig)
-    plt.show()
     return img

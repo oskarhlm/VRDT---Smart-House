@@ -3,6 +3,9 @@ import io
 from base_pb2 import ImageMessages as TImage, TibberMessages as TTibber
 from PIL import Image
 from tibber_plot import tibber_realtime
+import asyncio
+import os
+import random
 
 
 def load_image(file_name: str):
@@ -30,3 +33,13 @@ class ImageServicer(base_pb2_grpc.ImageServicer):
         img = tibber_realtime(time_resolution=request.timeResolution,
                               time_units=request.timeUnits)
         return TTibber.Response(image=pil_to_image_data(img))
+
+    async def GetKongefamilieImage(self, request, context):
+        folder_path = './kongefamilien'
+        while True:
+            img_files = [os.path.join(folder_path, f) for f in os.listdir(
+                folder_path) if f.endswith(('.png', '.jpg', '.jpeg'))]
+            rand_img = random.choice(img_files)
+            img = Image.open(rand_img)
+            yield pil_to_image_data(img)
+            await asyncio.sleep(5)

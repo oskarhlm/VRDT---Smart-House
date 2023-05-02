@@ -41,7 +41,7 @@ public class SolarPanelHandler : Singleton<SolarPanelHandler>
             panelInfos.Add(info);
         }
         var totalPower = panelInfos.Sum(p => p.CurrentPower);
-        Debug.Log(totalPower);
+        Debug.Log($"Tot. power: {totalPower}");
         call.Dispose();
         return panelInfos;
     }

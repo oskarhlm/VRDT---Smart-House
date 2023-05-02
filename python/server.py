@@ -3,7 +3,7 @@ import logging
 import base_pb2_grpc
 from concurrent import futures
 from netatmo import NetatmoServicer
-from image import ImageServicer
+from image_servicer import ImageServicer
 from disruptive_servicer import DisruptiveServicer
 from solarpanel_servicer import SolarPanelServicer
 import asyncio

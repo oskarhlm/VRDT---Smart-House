@@ -45,6 +45,9 @@ class ImageMessages(_message.Message):
         imagePath: str
         width: int
         def __init__(self, imagePath: _Optional[str] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
+    class KongefamilieRequest(_message.Message):
+        __slots__ = []
+        def __init__(self) -> None: ...
     def __init__(self) -> None: ...
 
 class NetatmoMessages(_message.Message):

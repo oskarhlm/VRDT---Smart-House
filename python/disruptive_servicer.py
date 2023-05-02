@@ -1,7 +1,6 @@
 import base_pb2_grpc
 from base_pb2 import DisruptiveMessages as T
-from base_pb2 import ImageMessages as TImage
-from image import pil_to_image_data
+from image_servicer import pil_to_image_data
 import asyncio
 import grpc
 from heatmap_functions import heatmap

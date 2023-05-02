@@ -32,38 +32,41 @@ namespace GrpcBase {
             "SW5kb29yRGF0YRITCgt0ZW1wZXJhdHVyZRgBIAEoAhILCgNDTzIYAiABKAIS",
             "EAoIaHVtaWRpdHkYAyABKAISDQoFbm9pc2UYBCABKAISEAoIcHJlc3N1cmUY",
             "BSABKAIaNAoLT3V0ZG9vckRhdGESEwoLdGVtcGVyYXR1cmUYASABKAISEAoI",
-            "aHVtaWRpdHkYAiABKAIimwEKDUltYWdlTWVzc2FnZXMaQAoMSW1hZ2VSZXF1",
+            "aHVtaWRpdHkYAiABKAIisgEKDUltYWdlTWVzc2FnZXMaQAoMSW1hZ2VSZXF1",
             "ZXN0EhEKCWltYWdlUGF0aBgBIAEoCRINCgV3aWR0aBgCIAEoBRIOCgZoZWln",
-            "aHQYAyABKAUaSAoJSW1hZ2VEYXRhEgwKBGRhdGEYASABKAwSDgoGZm9ybWF0",
-            "GAIgASgJEg0KBXdpZHRoGAMgASgFEg4KBmhlaWdodBgEIAEoBSLfAQoOVGli",
-            "YmVyTWVzc2FnZXMaXgoHUmVxdWVzdBJACg50aW1lUmVzb2x1dGlvbhgBIAEo",
-            "DjIoLmdycGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5UaW1lUmVzb2x1dGlvbhIR",
-            "Cgl0aW1lVW5pdHMYAiABKAUaPQoIUmVzcG9uc2USMQoFaW1hZ2UYASABKAsy",
-            "Ii5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5JbWFnZURhdGEiLgoOVGltZVJl",
-            "c29sdXRpb24SCAoESE9VUhAAEgcKA0RBWRABEgkKBU1PTlRIEAIiZgoSRGlz",
-            "cnVwdGl2ZU1lc3NhZ2VzGgkKB1JlcXVlc3QaHgoIUmVzcG9uc2USEgoKc2Vu",
-            "c29yTmFtZRgBIAEoCRolCg5IZWF0bWFwUmVxdWVzdBITCgtmbG9vck51bWJl",
-            "chgBIAEoBSKMAgoSU29sYXJQYW5lbE1lc3NhZ2VzGpsBChBQYW5lbEluZm9S",
-            "ZXF1ZXN0EhEKCXBhbmVsTmFtZRgBIAEoCRISCgpwYW5lbFdpZHRoGAIgASgC",
-            "EhMKC3BhbmVsSGVpZ2h0GAMgASgCEgwKBHRpbHQYBCABKAISDwoHYXppbXV0",
-            "aBgFIAEoAhIsCghkYXRldGltZRgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
-            "aW1lc3RhbXAaWAoRUGFuZWxJbmZvUmVzcG9uc2USFAoMY3VycmVudFBvd2Vy",
-            "GAEgASgCEhkKEWN1cnJlbnRJcnJhZGlhbmNlGAIgASgCEhIKCmVmZmVjaWVu",
-            "Y3kYAyABKAIyZwoHTmV0YXRtbxJcCgdHZXREYXRhEikuZ3JwY19iYXNlLk5l",
-            "dGF0bW9NZXNzYWdlcy5OZXRhdG1vUmVxdWVzdBomLmdycGNfYmFzZS5OZXRh",
-            "dG1vTWVzc2FnZXMuTmV0YXRtb0RhdGEytwEKBUltYWdlElUKCEdldEltYWdl",
-            "EiUuZ3JwY19iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VSZXF1ZXN0GiIuZ3Jw",
-            "Y19iYXNlLkltYWdlTWVzc2FnZXMuSW1hZ2VEYXRhElcKDkdldFRpYmJlcklt",
-            "YWdlEiEuZ3JwY19iYXNlLlRpYmJlck1lc3NhZ2VzLlJlcXVlc3QaIi5ncnBj",
-            "X2Jhc2UuVGliYmVyTWVzc2FnZXMuUmVzcG9uc2Uy2gEKCkRpc3J1cHRpdmUS",
-            "ZwoUR2V0VGVtcGVyYXR1cmVTdHJlYW0SJS5ncnBjX2Jhc2UuRGlzcnVwdGl2",
-            "ZU1lc3NhZ2VzLlJlcXVlc3QaJi5ncnBjX2Jhc2UuRGlzcnVwdGl2ZU1lc3Nh",
-            "Z2VzLlJlc3BvbnNlMAESYwoPR2V0SGVhdG1hcEltYWdlEiwuZ3JwY19iYXNl",
-            "LkRpc3J1cHRpdmVNZXNzYWdlcy5IZWF0bWFwUmVxdWVzdBoiLmdycGNfYmFz",
-            "ZS5JbWFnZU1lc3NhZ2VzLkltYWdlRGF0YTKGAQoKU29sYXJQYW5lbBJ4ChFH",
-            "ZXRTb2xhclBhbmVsSW5mbxIuLmdycGNfYmFzZS5Tb2xhclBhbmVsTWVzc2Fn",
-            "ZXMuUGFuZWxJbmZvUmVxdWVzdBovLmdycGNfYmFzZS5Tb2xhclBhbmVsTWVz",
-            "c2FnZXMuUGFuZWxJbmZvUmVzcG9uc2UoATABYgZwcm90bzM="));
+            "aHQYAyABKAUaFQoTS29uZ2VmYW1pbGllUmVxdWVzdBpICglJbWFnZURhdGES",
+            "DAoEZGF0YRgBIAEoDBIOCgZmb3JtYXQYAiABKAkSDQoFd2lkdGgYAyABKAUS",
+            "DgoGaGVpZ2h0GAQgASgFIt8BCg5UaWJiZXJNZXNzYWdlcxpeCgdSZXF1ZXN0",
+            "EkAKDnRpbWVSZXNvbHV0aW9uGAEgASgOMiguZ3JwY19iYXNlLlRpYmJlck1l",
+            "c3NhZ2VzLlRpbWVSZXNvbHV0aW9uEhEKCXRpbWVVbml0cxgCIAEoBRo9CghS",
+            "ZXNwb25zZRIxCgVpbWFnZRgBIAEoCzIiLmdycGNfYmFzZS5JbWFnZU1lc3Nh",
+            "Z2VzLkltYWdlRGF0YSIuCg5UaW1lUmVzb2x1dGlvbhIICgRIT1VSEAASBwoD",
+            "REFZEAESCQoFTU9OVEgQAiJmChJEaXNydXB0aXZlTWVzc2FnZXMaCQoHUmVx",
+            "dWVzdBoeCghSZXNwb25zZRISCgpzZW5zb3JOYW1lGAEgASgJGiUKDkhlYXRt",
+            "YXBSZXF1ZXN0EhMKC2Zsb29yTnVtYmVyGAEgASgFIowCChJTb2xhclBhbmVs",
+            "TWVzc2FnZXMamwEKEFBhbmVsSW5mb1JlcXVlc3QSEQoJcGFuZWxOYW1lGAEg",
+            "ASgJEhIKCnBhbmVsV2lkdGgYAiABKAISEwoLcGFuZWxIZWlnaHQYAyABKAIS",
+            "DAoEdGlsdBgEIAEoAhIPCgdhemltdXRoGAUgASgCEiwKCGRhdGV0aW1lGAYg",
+            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBpYChFQYW5lbEluZm9S",
+            "ZXNwb25zZRIUCgxjdXJyZW50UG93ZXIYASABKAISGQoRY3VycmVudElycmFk",
+            "aWFuY2UYAiABKAISEgoKZWZmZWNpZW5jeRgDIAEoAjJnCgdOZXRhdG1vElwK",
+            "B0dldERhdGESKS5ncnBjX2Jhc2UuTmV0YXRtb01lc3NhZ2VzLk5ldGF0bW9S",
+            "ZXF1ZXN0GiYuZ3JwY19iYXNlLk5ldGF0bW9NZXNzYWdlcy5OZXRhdG1vRGF0",
+            "YTKjAgoFSW1hZ2USVQoIR2V0SW1hZ2USJS5ncnBjX2Jhc2UuSW1hZ2VNZXNz",
+            "YWdlcy5JbWFnZVJlcXVlc3QaIi5ncnBjX2Jhc2UuSW1hZ2VNZXNzYWdlcy5J",
+            "bWFnZURhdGESVwoOR2V0VGliYmVySW1hZ2USIS5ncnBjX2Jhc2UuVGliYmVy",
+            "TWVzc2FnZXMuUmVxdWVzdBoiLmdycGNfYmFzZS5UaWJiZXJNZXNzYWdlcy5S",
+            "ZXNwb25zZRJqChRHZXRLb25nZWZhbWlsaWVJbWFnZRIsLmdycGNfYmFzZS5J",
+            "bWFnZU1lc3NhZ2VzLktvbmdlZmFtaWxpZVJlcXVlc3QaIi5ncnBjX2Jhc2Uu",
+            "SW1hZ2VNZXNzYWdlcy5JbWFnZURhdGEwATLaAQoKRGlzcnVwdGl2ZRJnChRH",
+            "ZXRUZW1wZXJhdHVyZVN0cmVhbRIlLmdycGNfYmFzZS5EaXNydXB0aXZlTWVz",
+            "c2FnZXMuUmVxdWVzdBomLmdycGNfYmFzZS5EaXNydXB0aXZlTWVzc2FnZXMu",
+            "UmVzcG9uc2UwARJjCg9HZXRIZWF0bWFwSW1hZ2USLC5ncnBjX2Jhc2UuRGlz",
+            "cnVwdGl2ZU1lc3NhZ2VzLkhlYXRtYXBSZXF1ZXN0GiIuZ3JwY19iYXNlLklt",
+            "YWdlTWVzc2FnZXMuSW1hZ2VEYXRhMoYBCgpTb2xhclBhbmVsEngKEUdldFNv",
+            "bGFyUGFuZWxJbmZvEi4uZ3JwY19iYXNlLlNvbGFyUGFuZWxNZXNzYWdlcy5Q",
+            "YW5lbEluZm9SZXF1ZXN0Gi8uZ3JwY19iYXNlLlNvbGFyUGFuZWxNZXNzYWdl",
+            "cy5QYW5lbEluZm9SZXNwb25zZSgBMAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -72,6 +75,7 @@ namespace GrpcBase {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.IndoorData), global::GrpcBase.NetatmoMessages.Types.IndoorData.Parser, new[]{ "Temperature", "CO2", "Humidity", "Noise", "Pressure" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.NetatmoMessages.Types.OutdoorData), global::GrpcBase.NetatmoMessages.Types.OutdoorData.Parser, new[]{ "Temperature", "Humidity" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages), global::GrpcBase.ImageMessages.Parser, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.ImageRequest), global::GrpcBase.ImageMessages.Types.ImageRequest.Parser, new[]{ "ImagePath", "Width", "Height" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.KongefamilieRequest), global::GrpcBase.ImageMessages.Types.KongefamilieRequest.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.ImageMessages.Types.ImageData), global::GrpcBase.ImageMessages.Types.ImageData.Parser, new[]{ "Data", "Format", "Width", "Height" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages), global::GrpcBase.TibberMessages.Parser, null, null, new[]{ typeof(global::GrpcBase.TibberMessages.Types.TimeResolution) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Request), global::GrpcBase.TibberMessages.Types.Request.Parser, new[]{ "TimeResolution", "TimeUnits" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcBase.TibberMessages.Types.Response), global::GrpcBase.TibberMessages.Types.Response.Parser, new[]{ "Image" }, null, null, null)}),
@@ -1150,6 +1154,107 @@ namespace GrpcBase {
 
       }
 
+      public sealed partial class KongefamilieRequest : pb::IMessage<KongefamilieRequest> {
+        private static readonly pb::MessageParser<KongefamilieRequest> _parser = new pb::MessageParser<KongefamilieRequest>(() => new KongefamilieRequest());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<KongefamilieRequest> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::GrpcBase.ImageMessages.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public KongefamilieRequest() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public KongefamilieRequest(KongefamilieRequest other) : this() {
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public KongefamilieRequest Clone() {
+          return new KongefamilieRequest(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as KongefamilieRequest);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(KongefamilieRequest other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(KongefamilieRequest other) {
+          if (other == null) {
+            return;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+            }
+          }
+        }
+
+      }
+
       public sealed partial class ImageData : pb::IMessage<ImageData> {
         private static readonly pb::MessageParser<ImageData> _parser = new pb::MessageParser<ImageData>(() => new ImageData());
         private pb::UnknownFieldSet _unknownFields;
@@ -1158,7 +1263,7 @@ namespace GrpcBase {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::GrpcBase.ImageMessages.Descriptor.NestedTypes[1]; }
+          get { return global::GrpcBase.ImageMessages.Descriptor.NestedTypes[2]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

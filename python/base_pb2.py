@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nbase.proto\x12\tgrpc_base\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x02\n\x0fNetatmoMessages\x1a\x10\n\x0eNetatmoRequest\x1a}\n\x0bNetatmoData\x12\x35\n\x06indoor\x18\x01 \x01(\x0b\x32%.grpc_base.NetatmoMessages.IndoorData\x12\x37\n\x07outdoor\x18\x02 \x01(\x0b\x32&.grpc_base.NetatmoMessages.OutdoorData\x1a\x61\n\nIndoorData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x0b\n\x03\x43O2\x18\x02 \x01(\x02\x12\x10\n\x08humidity\x18\x03 \x01(\x02\x12\r\n\x05noise\x18\x04 \x01(\x02\x12\x10\n\x08pressure\x18\x05 \x01(\x02\x1a\x34\n\x0bOutdoorData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x10\n\x08humidity\x18\x02 \x01(\x02\"\x9b\x01\n\rImageMessages\x1a@\n\x0cImageRequest\x12\x11\n\timagePath\x18\x01 \x01(\t\x12\r\n\x05width\x18\x02 \x01(\x05\x12\x0e\n\x06height\x18\x03 \x01(\x05\x1aH\n\tImageData\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x0e\n\x06\x66ormat\x18\x02 \x01(\t\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"\xdf\x01\n\x0eTibberMessages\x1a^\n\x07Request\x12@\n\x0etimeResolution\x18\x01 \x01(\x0e\x32(.grpc_base.TibberMessages.TimeResolution\x12\x11\n\ttimeUnits\x18\x02 \x01(\x05\x1a=\n\x08Response\x12\x31\n\x05image\x18\x01 \x01(\x0b\x32\".grpc_base.ImageMessages.ImageData\".\n\x0eTimeResolution\x12\x08\n\x04HOUR\x10\x00\x12\x07\n\x03\x44\x41Y\x10\x01\x12\t\n\x05MONTH\x10\x02\"f\n\x12\x44isruptiveMessages\x1a\t\n\x07Request\x1a\x1e\n\x08Response\x12\x12\n\nsensorName\x18\x01 \x01(\t\x1a%\n\x0eHeatmapRequest\x12\x13\n\x0b\x66loorNumber\x18\x01 \x01(\x05\"\x8c\x02\n\x12SolarPanelMessages\x1a\x9b\x01\n\x10PanelInfoRequest\x12\x11\n\tpanelName\x18\x01 \x01(\t\x12\x12\n\npanelWidth\x18\x02 \x01(\x02\x12\x13\n\x0bpanelHeight\x18\x03 \x01(\x02\x12\x0c\n\x04tilt\x18\x04 \x01(\x02\x12\x0f\n\x07\x61zimuth\x18\x05 \x01(\x02\x12,\n\x08\x64\x61tetime\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1aX\n\x11PanelInfoResponse\x12\x14\n\x0c\x63urrentPower\x18\x01 \x01(\x02\x12\x19\n\x11\x63urrentIrradiance\x18\x02 \x01(\x02\x12\x12\n\neffeciency\x18\x03 \x01(\x02\x32g\n\x07Netatmo\x12\\\n\x07GetData\x12).grpc_base.NetatmoMessages.NetatmoRequest\x1a&.grpc_base.NetatmoMessages.NetatmoData2\xb7\x01\n\x05Image\x12U\n\x08GetImage\x12%.grpc_base.ImageMessages.ImageRequest\x1a\".grpc_base.ImageMessages.ImageData\x12W\n\x0eGetTibberImage\x12!.grpc_base.TibberMessages.Request\x1a\".grpc_base.TibberMessages.Response2\xda\x01\n\nDisruptive\x12g\n\x14GetTemperatureStream\x12%.grpc_base.DisruptiveMessages.Request\x1a&.grpc_base.DisruptiveMessages.Response0\x01\x12\x63\n\x0fGetHeatmapImage\x12,.grpc_base.DisruptiveMessages.HeatmapRequest\x1a\".grpc_base.ImageMessages.ImageData2\x86\x01\n\nSolarPanel\x12x\n\x11GetSolarPanelInfo\x12..grpc_base.SolarPanelMessages.PanelInfoRequest\x1a/.grpc_base.SolarPanelMessages.PanelInfoResponse(\x01\x30\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nbase.proto\x12\tgrpc_base\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x02\n\x0fNetatmoMessages\x1a\x10\n\x0eNetatmoRequest\x1a}\n\x0bNetatmoData\x12\x35\n\x06indoor\x18\x01 \x01(\x0b\x32%.grpc_base.NetatmoMessages.IndoorData\x12\x37\n\x07outdoor\x18\x02 \x01(\x0b\x32&.grpc_base.NetatmoMessages.OutdoorData\x1a\x61\n\nIndoorData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x0b\n\x03\x43O2\x18\x02 \x01(\x02\x12\x10\n\x08humidity\x18\x03 \x01(\x02\x12\r\n\x05noise\x18\x04 \x01(\x02\x12\x10\n\x08pressure\x18\x05 \x01(\x02\x1a\x34\n\x0bOutdoorData\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\x12\x10\n\x08humidity\x18\x02 \x01(\x02\"\xb2\x01\n\rImageMessages\x1a@\n\x0cImageRequest\x12\x11\n\timagePath\x18\x01 \x01(\t\x12\r\n\x05width\x18\x02 \x01(\x05\x12\x0e\n\x06height\x18\x03 \x01(\x05\x1a\x15\n\x13KongefamilieRequest\x1aH\n\tImageData\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x0e\n\x06\x66ormat\x18\x02 \x01(\t\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05\"\xdf\x01\n\x0eTibberMessages\x1a^\n\x07Request\x12@\n\x0etimeResolution\x18\x01 \x01(\x0e\x32(.grpc_base.TibberMessages.TimeResolution\x12\x11\n\ttimeUnits\x18\x02 \x01(\x05\x1a=\n\x08Response\x12\x31\n\x05image\x18\x01 \x01(\x0b\x32\".grpc_base.ImageMessages.ImageData\".\n\x0eTimeResolution\x12\x08\n\x04HOUR\x10\x00\x12\x07\n\x03\x44\x41Y\x10\x01\x12\t\n\x05MONTH\x10\x02\"f\n\x12\x44isruptiveMessages\x1a\t\n\x07Request\x1a\x1e\n\x08Response\x12\x12\n\nsensorName\x18\x01 \x01(\t\x1a%\n\x0eHeatmapRequest\x12\x13\n\x0b\x66loorNumber\x18\x01 \x01(\x05\"\x8c\x02\n\x12SolarPanelMessages\x1a\x9b\x01\n\x10PanelInfoRequest\x12\x11\n\tpanelName\x18\x01 \x01(\t\x12\x12\n\npanelWidth\x18\x02 \x01(\x02\x12\x13\n\x0bpanelHeight\x18\x03 \x01(\x02\x12\x0c\n\x04tilt\x18\x04 \x01(\x02\x12\x0f\n\x07\x61zimuth\x18\x05 \x01(\x02\x12,\n\x08\x64\x61tetime\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1aX\n\x11PanelInfoResponse\x12\x14\n\x0c\x63urrentPower\x18\x01 \x01(\x02\x12\x19\n\x11\x63urrentIrradiance\x18\x02 \x01(\x02\x12\x12\n\neffeciency\x18\x03 \x01(\x02\x32g\n\x07Netatmo\x12\\\n\x07GetData\x12).grpc_base.NetatmoMessages.NetatmoRequest\x1a&.grpc_base.NetatmoMessages.NetatmoData2\xa3\x02\n\x05Image\x12U\n\x08GetImage\x12%.grpc_base.ImageMessages.ImageRequest\x1a\".grpc_base.ImageMessages.ImageData\x12W\n\x0eGetTibberImage\x12!.grpc_base.TibberMessages.Request\x1a\".grpc_base.TibberMessages.Response\x12j\n\x14GetKongefamilieImage\x12,.grpc_base.ImageMessages.KongefamilieRequest\x1a\".grpc_base.ImageMessages.ImageData0\x01\x32\xda\x01\n\nDisruptive\x12g\n\x14GetTemperatureStream\x12%.grpc_base.DisruptiveMessages.Request\x1a&.grpc_base.DisruptiveMessages.Response0\x01\x12\x63\n\x0fGetHeatmapImage\x12,.grpc_base.DisruptiveMessages.HeatmapRequest\x1a\".grpc_base.ImageMessages.ImageData2\x86\x01\n\nSolarPanel\x12x\n\x11GetSolarPanelInfo\x12..grpc_base.SolarPanelMessages.PanelInfoRequest\x1a/.grpc_base.SolarPanelMessages.PanelInfoResponse(\x01\x30\x01\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'base_pb2', globals())
@@ -32,39 +32,41 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _NETATMOMESSAGES_OUTDOORDATA._serialized_start=322
   _NETATMOMESSAGES_OUTDOORDATA._serialized_end=374
   _IMAGEMESSAGES._serialized_start=377
-  _IMAGEMESSAGES._serialized_end=532
+  _IMAGEMESSAGES._serialized_end=555
   _IMAGEMESSAGES_IMAGEREQUEST._serialized_start=394
   _IMAGEMESSAGES_IMAGEREQUEST._serialized_end=458
-  _IMAGEMESSAGES_IMAGEDATA._serialized_start=460
-  _IMAGEMESSAGES_IMAGEDATA._serialized_end=532
-  _TIBBERMESSAGES._serialized_start=535
-  _TIBBERMESSAGES._serialized_end=758
-  _TIBBERMESSAGES_REQUEST._serialized_start=553
-  _TIBBERMESSAGES_REQUEST._serialized_end=647
-  _TIBBERMESSAGES_RESPONSE._serialized_start=649
-  _TIBBERMESSAGES_RESPONSE._serialized_end=710
-  _TIBBERMESSAGES_TIMERESOLUTION._serialized_start=712
-  _TIBBERMESSAGES_TIMERESOLUTION._serialized_end=758
-  _DISRUPTIVEMESSAGES._serialized_start=760
-  _DISRUPTIVEMESSAGES._serialized_end=862
-  _DISRUPTIVEMESSAGES_REQUEST._serialized_start=553
-  _DISRUPTIVEMESSAGES_REQUEST._serialized_end=562
-  _DISRUPTIVEMESSAGES_RESPONSE._serialized_start=793
-  _DISRUPTIVEMESSAGES_RESPONSE._serialized_end=823
-  _DISRUPTIVEMESSAGES_HEATMAPREQUEST._serialized_start=825
-  _DISRUPTIVEMESSAGES_HEATMAPREQUEST._serialized_end=862
-  _SOLARPANELMESSAGES._serialized_start=865
-  _SOLARPANELMESSAGES._serialized_end=1133
-  _SOLARPANELMESSAGES_PANELINFOREQUEST._serialized_start=888
-  _SOLARPANELMESSAGES_PANELINFOREQUEST._serialized_end=1043
-  _SOLARPANELMESSAGES_PANELINFORESPONSE._serialized_start=1045
-  _SOLARPANELMESSAGES_PANELINFORESPONSE._serialized_end=1133
-  _NETATMO._serialized_start=1135
-  _NETATMO._serialized_end=1238
-  _IMAGE._serialized_start=1241
-  _IMAGE._serialized_end=1424
-  _DISRUPTIVE._serialized_start=1427
-  _DISRUPTIVE._serialized_end=1645
-  _SOLARPANEL._serialized_start=1648
-  _SOLARPANEL._serialized_end=1782
+  _IMAGEMESSAGES_KONGEFAMILIEREQUEST._serialized_start=460
+  _IMAGEMESSAGES_KONGEFAMILIEREQUEST._serialized_end=481
+  _IMAGEMESSAGES_IMAGEDATA._serialized_start=483
+  _IMAGEMESSAGES_IMAGEDATA._serialized_end=555
+  _TIBBERMESSAGES._serialized_start=558
+  _TIBBERMESSAGES._serialized_end=781
+  _TIBBERMESSAGES_REQUEST._serialized_start=576
+  _TIBBERMESSAGES_REQUEST._serialized_end=670
+  _TIBBERMESSAGES_RESPONSE._serialized_start=672
+  _TIBBERMESSAGES_RESPONSE._serialized_end=733
+  _TIBBERMESSAGES_TIMERESOLUTION._serialized_start=735
+  _TIBBERMESSAGES_TIMERESOLUTION._serialized_end=781
+  _DISRUPTIVEMESSAGES._serialized_start=783
+  _DISRUPTIVEMESSAGES._serialized_end=885
+  _DISRUPTIVEMESSAGES_REQUEST._serialized_start=576
+  _DISRUPTIVEMESSAGES_REQUEST._serialized_end=585
+  _DISRUPTIVEMESSAGES_RESPONSE._serialized_start=816
+  _DISRUPTIVEMESSAGES_RESPONSE._serialized_end=846
+  _DISRUPTIVEMESSAGES_HEATMAPREQUEST._serialized_start=848
+  _DISRUPTIVEMESSAGES_HEATMAPREQUEST._serialized_end=885
+  _SOLARPANELMESSAGES._serialized_start=888
+  _SOLARPANELMESSAGES._serialized_end=1156
+  _SOLARPANELMESSAGES_PANELINFOREQUEST._serialized_start=911
+  _SOLARPANELMESSAGES_PANELINFOREQUEST._serialized_end=1066
+  _SOLARPANELMESSAGES_PANELINFORESPONSE._serialized_start=1068
+  _SOLARPANELMESSAGES_PANELINFORESPONSE._serialized_end=1156
+  _NETATMO._serialized_start=1158
+  _NETATMO._serialized_end=1261
+  _IMAGE._serialized_start=1264
+  _IMAGE._serialized_end=1555
+  _DISRUPTIVE._serialized_start=1558
+  _DISRUPTIVE._serialized_end=1776
+  _SOLARPANEL._serialized_start=1779
+  _SOLARPANEL._serialized_end=1913
 # @@protoc_insertion_point(module_scope)

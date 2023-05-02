@@ -19,13 +19,16 @@ public class ShowVisual : MonoBehaviour
 
     private void Start()
     {
+
         actions.Add("toggle menu", TogglePanel);
         actions.Add("energy", () =>
         {
             SetCurrentPanel(EnergyPanel);
             transform.GetComponent<TrackedDeviceGraphicRaycaster>().enabled = true;
         });
-        actions.Add("heatmap", () => SetCurrentPanel(HeatmapPanel));
+        actions.Add("heatmap basement", () => SetHeatmapAsCurrentPanel(1));
+        actions.Add("heatmap first floor", () => SetHeatmapAsCurrentPanel(2));
+        actions.Add("heatmap second floor", () => SetHeatmapAsCurrentPanel(3));
         actions.Add("solar", () =>
         {
             SetCurrentPanel(SolarStatsPanel);
@@ -50,6 +53,13 @@ public class ShowVisual : MonoBehaviour
         if (_currentPanel != null) _currentPanel.SetActive(false);
         _currentPanel = panel;
         _currentPanel.SetActive(true);        
+    }
+
+    private void SetHeatmapAsCurrentPanel(int floor)
+    {
+        SetCurrentPanel(HeatmapPanel);
+        var heatmapHandler = HeatmapPanel.GetComponent<HeatmapHandler>();
+        heatmapHandler.ChangePanelImage(floor);
     }
 
     private void RecognizedSpeech(PhraseRecognizedEventArgs speech)

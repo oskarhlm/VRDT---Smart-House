@@ -21,7 +21,7 @@ public class TimeManager : Singleton<TimeManager>
     [Range(0, 60)]
     public int Minutes;
 
-    public DateTime Date = DateTime.Today;
+    public DateTime Date = DateTime.Today.AddDays(-1);
 
     [HideInInspector]
     public DateTime Time;
@@ -36,10 +36,10 @@ public class TimeManager : Singleton<TimeManager>
     public int FrameStep = 0;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        Time = DateTime.Now;
-    }
+    //void Start()
+    //{
+    //    Time = DateTime.Now;
+    //}
 
     // Update is called once per frame
     void Update()

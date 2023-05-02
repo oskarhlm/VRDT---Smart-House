@@ -17,9 +17,9 @@ adil_house_site = location.Location(lat, lon, tz=tz)
 
 def rounded_time(time: datetime):
     """Rounds the timefrequency to 10 min intervals"""
-    rounded = now - datetime.timedelta(minutes=now.minute % 10,
-                                       seconds=now.second,
-                                       microseconds=now.microsecond)
+    rounded = time - datetime.timedelta(minutes=time.minute % 10,
+                                        seconds=time.second,
+                                        microseconds=time.microsecond)
     time_rounded = rounded.strftime('%H:%M')
     return time_rounded
 
@@ -147,17 +147,6 @@ def power_plot(panels: List[SolarPanel], temp=20, time=now):
     plt.colorbar(sm2, ax=ax2)
 
     return plt_fig_to_pil(fig)
-
-
-# def get_power_stats(panels: List[SolarPanel], temp=20, time=now) -> T.PanelInfoResponse:
-#     current_total_power = np.sum(
-#         [p.get_current_power_output(time) for p in panels])
-#     avg_irradiance = np.mean([p.get_current_irradiance() for p in panels])
-#     avg_temp_eff = np.mean([p.get_temp_efficiency(temp) for p in panels])
-#     stats = {'current_total_power': current_total_power,
-#              'avg_irradiance': avg_irradiance,
-#              'avg_temp_eff': avg_temp_eff}
-#     return stats
 
 
 def get_power_stats(panel: SolarPanel, temp=20, time=now) -> T.PanelInfoResponse:

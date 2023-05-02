@@ -15,6 +15,7 @@ service Netatmo {
 service Image {
     rpc GetImage(ImageMessages.ImageRequest) returns (ImageMessages.ImageData);
     rpc GetTibberImage(TibberMessages.Request) returns (TibberMessages.Response);
+    rpc GetKongefamilieImage(ImageMessages.KongefamilieRequest) returns (stream ImageMessages.ImageData);
 }
 
 service Disruptive {
@@ -58,6 +59,8 @@ message ImageMessages {
         int32 width = 2;
         int32 height = 3;
     }
+
+    message KongefamilieRequest {};
 
     message ImageData {
         bytes data = 1;

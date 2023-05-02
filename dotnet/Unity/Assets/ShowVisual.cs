@@ -45,7 +45,7 @@ public class ShowVisual : MonoBehaviour
 
     private void RecognizedSpeech(PhraseRecognizedEventArgs speech)
     {
-        Debug.Log(speech.text);
+        Debug.Log($"Voice command: '{speech.text}'");
         actions[speech.text].Invoke();
     }
 }

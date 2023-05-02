@@ -31,13 +31,15 @@ public class VoiceActivatedTeleporter : MonoBehaviour
 
     private void Teleport((Vector3, Quaternion) spawn, bool gravity = true)
     {
-        _playerOrigin.GetComponent<DynamicMoveProvider>().useGravity = gravity;
+        var moveProvider = _playerOrigin.GetComponent<DynamicMoveProvider>();
+        moveProvider.useGravity = gravity;
+        moveProvider.enableFly = gravity;
         _playerOrigin.transform.SetPositionAndRotation(spawn.Item1, spawn.Item2);
     }
 
     private void RecognizedSpeech(PhraseRecognizedEventArgs speech)
     {
-        Debug.Log(speech.text);
+        Debug.Log($"Voice command: '{speech.text}'");
         _actions[speech.text].Invoke();
     }
 }

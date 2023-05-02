@@ -21,6 +21,6 @@ public class TopUIHandler : MonoBehaviour
     {
         var panelInfos = await SolarPanelHandler.Instance.GetInfo();
         var totalPower = panelInfos.Sum(p => p.CurrentPower);
-        _powerLabel.GetComponent<TextMeshProUGUI>().text = $"Tot. power {(int) totalPower}W";
+        _powerLabel.GetComponent<TextMeshProUGUI>().text = $"Tot. power: {(int) totalPower}W";
     } 
 }

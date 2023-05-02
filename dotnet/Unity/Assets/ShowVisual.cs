@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using Assets;
+using UnityEngine.XR.Interaction.Toolkit.UI;
 
 public class ShowVisual : MonoBehaviour
 {
@@ -18,16 +19,24 @@ public class ShowVisual : MonoBehaviour
 
     private void Start()
     {
-        SetCurrentPanel(SolarStatsPanel);
-
         actions.Add("toggle menu", TogglePanel);
-        actions.Add("energy", () => SetCurrentPanel(EnergyPanel));
+        actions.Add("energy", () =>
+        {
+            SetCurrentPanel(EnergyPanel);
+            transform.GetComponent<TrackedDeviceGraphicRaycaster>().enabled = true;
+        });
         actions.Add("heatmap", () => SetCurrentPanel(HeatmapPanel));
-        actions.Add("solar", () => SetCurrentPanel(SolarStatsPanel));
+        actions.Add("solar", () =>
+        {
+            SetCurrentPanel(SolarStatsPanel);
+            transform.GetComponent<TrackedDeviceGraphicRaycaster>().enabled = false;
+        });
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
+
+        actions["solar"].Invoke();
     }
 
     public void TogglePanel()

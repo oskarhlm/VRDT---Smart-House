@@ -3,11 +3,13 @@ using UnityEngine.Windows.Speech;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Assets;
 
 public class ShowVisual : MonoBehaviour
 {
     [SerializeField] private GameObject EnergyPanel;
     [SerializeField] private GameObject HeatmapPanel;
+    [SerializeField] private GameObject SolarStatsPanel;
 
     private GameObject _currentPanel;
 
@@ -16,9 +18,12 @@ public class ShowVisual : MonoBehaviour
 
     private void Start()
     {
+        SetCurrentPanel(SolarStatsPanel);
+
         actions.Add("toggle menu", TogglePanel);
         actions.Add("energy", () => SetCurrentPanel(EnergyPanel));
         actions.Add("heatmap", () => SetCurrentPanel(HeatmapPanel));
+        actions.Add("solar", () => SetCurrentPanel(SolarStatsPanel));
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -27,11 +32,8 @@ public class ShowVisual : MonoBehaviour
 
     public void TogglePanel()
     {
-        if (_currentPanel != null)
-        {
-            bool isActive = _currentPanel.activeSelf;
-            _currentPanel.SetActive(!isActive);
-        }
+        bool isActive = _currentPanel.activeSelf;
+        _currentPanel.SetActive(!isActive);
     }
 
     private void SetCurrentPanel(GameObject panel)

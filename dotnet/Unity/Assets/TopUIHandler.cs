@@ -13,8 +13,7 @@ public class TopUIHandler : MonoBehaviour
 
     private async void Start()
     {
-        SolarPanelHandler.Instance.OnSolarPanelPlaced.AddListener(new UnityAction(async () => await UpdateUI()));
-        
+        SolarPanelHandler.Instance.OnSolarPanelPlaced.AddListener(new UnityAction(async () => await UpdateUI()));                
         await UpdateUI();
     }
 

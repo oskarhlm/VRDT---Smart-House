@@ -15,6 +15,13 @@ lat, lon = 10.5030113, 63.4021589
 adil_house_site = location.Location(lat, lon, tz=tz)
 
 
+def get_noon_yesterday():
+    today = datetime.date.today()
+    yesterday = today - datetime.timedelta(days=1)
+    noon_yesterday = datetime.datetime.combine(yesterday, datetime.time(12, 0))
+    return noon_yesterday
+
+
 def rounded_time(time: datetime):
     """Rounds the timefrequency to 10 min intervals"""
     rounded = time - datetime.timedelta(minutes=time.minute % 10,
@@ -158,5 +165,5 @@ def get_power_stats(panel: SolarPanel, temp=20, time=now) -> T.PanelInfoResponse
 
 if __name__ == '__main__':
     panels = [SPRMax400(25, 180) for _ in range(4)]
-    img = power_plot(panels=panels, temp=20, time=now)
+    img = power_plot(panels=panels, temp=20, time=get_noon_yesterday())
     img.show()
